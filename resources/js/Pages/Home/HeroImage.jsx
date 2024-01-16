@@ -24,7 +24,7 @@ const HeroImage = () => {
 
         //     </div>
         // </section>
-        <div className='overflow-hidden py-section '>
+        <div className='overflow-hidden pb-section lg:pt-10'>
             <div className='container w-full '>
                 <div className='grid grid-cols-1 lg:grid-cols-12'>
                     <div className='lg:col-span-8 xl:col-span-7 flex items-center'>

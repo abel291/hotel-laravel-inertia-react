@@ -19,12 +19,12 @@ const Contact = () => {
                             </p>
                             <div className='mt-8 grid md:grid-cols-2 gap-x-5 gap-y-8'>
                                 <InfoItem Icon={PhoneIcon} title={"Telefono"}>
-                                    <a class="block" href="tel:+1234567890">(123) 123-12312</a>
-                                    <a class="block" href="tel:+1234567890">(133) 123-4455</a>
+                                    <a className="block" href="tel:+1234567890">(123) 123-12312</a>
+                                    <a className="block" href="tel:+1234567890">(133) 123-4455</a>
                                 </InfoItem>
                                 <InfoItem Icon={EnvelopeIcon} title={"Email"}>
-                                    <a class="block" href="mailto:example@domain.com">contact@example.com</a>
-                                    <a class="block" href="mailto:example@domain.com">contact@example.com</a>
+                                    <a className="block" href="mailto:example@domain.com">contact@example.com</a>
+                                    <a className="block" href="mailto:example@domain.com">contact@example.com</a>
                                 </InfoItem>
                                 <InfoItem Icon={MapPinIcon} title={"Ubicacion"}>
                                     <span>
@@ -43,7 +43,7 @@ const Contact = () => {
                         </div>
                     </div>
                     <div className='mt-10 xl:mt-0 xl:col-span-5 xl:w-[1000px]  h-96 xl:h-[600px]'>
-                        <iframe className='w-full h-full' src="https://maps.google.com/maps?q=seul&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" frameborder="0" ></iframe>
+                        <iframe className='w-full h-full' src="https://maps.google.com/maps?q=seul&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" ></iframe>
                     </div>
                 </div>
             </div>

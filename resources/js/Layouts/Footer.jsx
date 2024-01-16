@@ -27,8 +27,8 @@ const Footer = () => {
                     <ItemFooter title={"Enlaces Rápidos"}>
                         <ul >
                             {navigations.map((navigation, index) => (
-                                <li className='mt-1'>
-                                    <Link key={index} className={
+                                <li key={index} className='mt-1'>
+                                    <Link className={
                                         (route().current(navigation.routeName)
                                             ? ' border-b-2 font-semibold '
                                             : 'hover:border-b-2 ') +
@@ -54,10 +54,6 @@ const Footer = () => {
                                     +1-669-901-4595
                                 </p>
                             </li>
-
-
-
-
                         </ul>
                     </ItemFooter>
 

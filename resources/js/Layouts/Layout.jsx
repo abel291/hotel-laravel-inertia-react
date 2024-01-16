@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
         <>
             {/* <NotificationToast /> */}
 
-            {/* <Navbar auth={auth} /> */}
+            <Navbar auth={auth} />
             <main>{children}</main>
             <Footer />
 

@@ -13,12 +13,20 @@ class PageController extends Controller
     public function home()
     {
         $page = Page::where('type', 'home')->first();
-        $rooms = Room::where('home', true)->get();
-        $posts = Blog::where('home', true)->get();
+        $rooms = Room::select('id', 'name', 'thumb', 'entry', 'adults', 'price', 'home')->get();
+        $cheap_rooms = $rooms->sortBy('price')->first();
+        $rooms_home = $rooms->where('home', true)->values();
+
+        $posts = Blog::where('home', true)->get()->map(function ($item) {
+
+            $item->time = $item->updated_at->diffForHumans();
+            return $item;
+        });
         return Inertia::render('Home/Home', [
             'page' => $page,
-            'rooms' => $rooms,
+            'rooms' => $rooms_home,
             'posts' => $posts,
+            'cheapRoom' => $cheap_rooms,
         ]);
     }
 }

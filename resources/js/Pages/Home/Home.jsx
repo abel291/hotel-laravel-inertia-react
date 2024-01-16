@@ -9,8 +9,8 @@ import RoomPrice from './RoomPrice'
 import Post from './Post'
 import Contact from './Contact'
 
-const Home = ({ page, rooms, posts }) => {
-    // const { page } = usePage().props
+const Home = ({ page }) => {
+
     return (
         <Layout>
             <Head>
