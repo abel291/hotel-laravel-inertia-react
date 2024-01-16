@@ -25,7 +25,8 @@ return new class extends Migration
             $table->tinyInteger('adults')->default(0);
             $table->tinyInteger('kids')->default(0)->nullable();
             $table->string('img');
-            $table->string('thum');
+            $table->string('thumb');
+            $table->boolean('home')->default(0);
             $table->timestamps();
         });
     }

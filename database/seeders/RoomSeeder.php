@@ -23,7 +23,7 @@ class RoomSeeder extends Seeder
         $beds = Bed::get();
         $complements = Complement::get();
 
-        Room::factory()->count(10)
+        $rooms = Room::factory()->count(10)
             ->has(Image::factory()->count(5))
             ->create()
             ->each(function (Room $room) use ($services, $beds, $complements) {
@@ -31,5 +31,7 @@ class RoomSeeder extends Seeder
                 $room->beds()->sync($beds->random(rand(1, 3)));
                 $room->complements()->sync($complements->random(rand(5, 10)));
             });
+
+        Room::inRandomOrder()->limit(2)->update(['home' => 1]);
     }
 }

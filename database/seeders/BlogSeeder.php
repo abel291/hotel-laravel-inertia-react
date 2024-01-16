@@ -22,5 +22,6 @@ class BlogSeeder extends Seeder
             ->each(function (Blog $blog) use ($tags) {
                 $blog->tags()->sync($tags->random(5));
             });
+        Blog::inRandomOrder()->limit(3)->update(['home' => 1]);
     }
 }

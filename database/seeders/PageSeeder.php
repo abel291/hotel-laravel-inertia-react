@@ -30,6 +30,7 @@ class PageSeeder extends Seeder
         foreach ($pages as $key => $page_title) {
             Page::factory()->create([
                 'title' => $page_title,
+                'type' => Str::slug($page_title),
                 'img' => '/img/pages/page_' . Str::slug($page_title) . '.png',
             ]);
         }
