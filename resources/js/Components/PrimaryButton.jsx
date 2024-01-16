@@ -1,15 +1,32 @@
-export default function PrimaryButton({ className = '', disabled, children, ...props }) {
+import Spinner from "./Spinner";
+
+export default function PrimaryButton({ className = '', Icon = null, disabled, children, isLoading, ...props }) {
     return (
         <button
             {...props}
             className={
-                `inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150 ${
-                    disabled && 'opacity-25'
+                `btn btn-primary relative  ${(disabled || isLoading) && 'opacity-70'
                 } ` + className
             }
             disabled={disabled}
         >
-            {children}
+            <div className={(isLoading ? 'invisible' : 'visible')}>
+                {Icon ? (
+                    <div className="flex items-center">
+                        <Icon className="w-5 h-4 mr-1.5 -ml-1" />
+                        {children}
+                    </div>
+                ) : (
+                    children
+                )}
+
+            </div>
+            {isLoading && (
+                <div className="absolute flex justify-center items-center inset-0">
+                    <Spinner />
+                </div>
+            )}
+
         </button>
     );
 }
