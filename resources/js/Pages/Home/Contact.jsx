@@ -51,7 +51,7 @@ const Contact = () => {
     )
 }
 
-const InfoItem = ({ Icon, title, children }) => {
+const InfoIconItem = ({ Icon, title, children }) => {
     return (
         <div>
             <div className='flex items-center'>

@@ -4,13 +4,13 @@
 
 @layer base {
     .py-section {
-        @apply py-16 md:py-20 lg:py-24;
+        @apply py-16 lg:py-20 xl:py-24;
     }
     .pt-section {
-        @apply pt-16 md:pt-20 lg:pt-24;
+        @apply pt-16 lg:pt-20 xl:pt-24;
     }
     .pb-section {
-        @apply pb-16 md:pb-20 lg:pb-24;
+        @apply pb-16 lg:pb-20 xl:pb-24;
     }
     .select-form,
     .input-form,
@@ -27,10 +27,14 @@
         @apply text-lg leading-6 font-semibold;
     }
     .btn-primary {
-        @apply inline-flex justify-center rounded-lg py-2.5 px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-primary-600 text-white hover:bg-primary-800 active:bg-primary-700 active:text-white/80;
+        @apply inline-flex justify-center rounded-lg py-2.5 px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-primary-700 text-white hover:bg-primary-800 active:bg-primary-800 active:text-white/80;
     }
 
     .btn-secondary {
-        @apply inline-flex justify-center rounded-lg py-2.5 px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-primary-100  hover:bg-primary-200 text-primary-600 active:bg-primary-300 active:text-primary-800;
+        @apply inline-flex justify-center rounded-lg py-2.5 px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-primary-100  hover:bg-primary-200 text-primary-800 active:bg-primary-300 active:text-primary-900;
+    }
+
+    .shadow-neutral {
+        @apply shadow-xl shadow-[0_2px_30px_rgba(44,60,74,.08)];
     }
 }

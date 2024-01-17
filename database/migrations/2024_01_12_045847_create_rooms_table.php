@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('img');
             $table->string('thumb');
             $table->boolean('home')->default(0);
+            $table->boolean('about')->default(0);
             $table->timestamps();
         });
     }

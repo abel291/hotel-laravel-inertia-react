@@ -29,4 +29,14 @@ class PageController extends Controller
             'cheapRoom' => $cheap_rooms,
         ]);
     }
+    public function about()
+    {
+        $page = Page::where('type', 'about')->first();
+        $rooms = Room::select('id', 'name', 'thumb', 'entry', 'adults', 'price', 'home')->where('about', true)->get();
+        return Inertia::render('About/About', [
+            'page' => $page,
+            'rooms' => $rooms,
+
+        ]);
+    }
 }

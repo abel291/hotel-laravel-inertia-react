@@ -8,12 +8,12 @@ const Footer = () => {
     const navigations = [
         { title: 'Inicio', routeName: 'home' },
         { title: 'Acerca de', routeName: 'about' },
-        { title: 'Habitaciones', routeName: 'about' },
-        { title: 'Galerias', routeName: 'about' },
-        { title: 'Blog', routeName: 'about' },
+        { title: 'Habitaciones', routeName: 'rooms' },
+        { title: 'Galerias', routeName: 'galleries' },
+        { title: 'Blog', routeName: 'blog' },
     ]
     return (
-        <footer className='bg-primary-700 text-white text-lg'>
+        <footer className='bg-primary-800 text-white text-lg'>
             <div className='container'>
                 <div className='py-14 xl:py-16 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-10 md:gap-y-5 xl:gap-x-10'>
 
