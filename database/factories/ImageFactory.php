@@ -18,7 +18,7 @@ class ImageFactory extends Factory
     {
         return [
             "img" => '/img/image-' . rand(0, 20) . '.jpg',
-            "thum" => '/img/thumbnail/image-' . rand(0, 20) . '.jpg',
+            "thumb" => '/img/thumbnail/image-' . rand(0, 20) . '.jpg',
         ];
     }
 }

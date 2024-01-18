@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('slug');
             $table->string('img');
             $table->string('thumb');
-            $table->boolean('active');
+            $table->boolean('active')->default(1);
             $table->string('seo_title');
             $table->string('seo_desc');
             $table->boolean('home')->default(0);

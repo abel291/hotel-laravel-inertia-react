@@ -16,11 +16,12 @@ const Rooms = () => {
 
                 <div className='mt-7'>
                     <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7'>
-                        {rooms.map((room) => (
-                            <CardRoom room={room} />
+
+                        {rooms.map((room, index) => (
+                            <CardRoom key={index} room={room} />
                         ))}
 
-                        <div className='bg-primary-700 rounded-lg overflow-hidden text-white p-10 '>
+                        <div className='md:col-span-2 lg:col-span-1 bg-primary-700 rounded-lg overflow-hidden text-white p-10 '>
                             <h3 className='text-3xl font-extrabold  tracking-wide'>Quédese más tiempo, ahorre más</h3>
                             <p className='mt-4'>Es simple: ¡cuanto más tiempo permanezcas, más ahorrarás!</p>
                             <div className='mt-5 border-l-2 border-white pl-4 py-1'>

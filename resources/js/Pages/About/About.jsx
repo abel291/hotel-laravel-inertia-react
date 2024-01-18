@@ -12,7 +12,7 @@ import FrequentlyAsked from './FrequentlyAsked'
 const About = ({ page }) => {
     const breadcrumb = [
         {
-            title: 'About'
+            title: 'Acerca de '
         },
     ]
     return (

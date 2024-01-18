@@ -1,4 +1,5 @@
 
+import InfoIconItem from '@/Components/InfoIconItem'
 import TitleSectionLink from '@/Components/TitleSectionLink'
 import { ClockIcon, EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline'
 import React from 'react'
@@ -18,25 +19,25 @@ const Contact = () => {
                                 Gestas pretium aenean pharetra magna ac. Et tortor consequat id porta nibh venenatis cras sed
                             </p>
                             <div className='mt-8 grid md:grid-cols-2 gap-x-5 gap-y-8'>
-                                <InfoItem Icon={PhoneIcon} title={"Telefono"}>
+                                <InfoIconItem Icon={PhoneIcon} title={"Telefono"}>
                                     <a className="block" href="tel:+1234567890">(123) 123-12312</a>
                                     <a className="block" href="tel:+1234567890">(133) 123-4455</a>
-                                </InfoItem>
-                                <InfoItem Icon={EnvelopeIcon} title={"Email"}>
+                                </InfoIconItem>
+                                <InfoIconItem Icon={EnvelopeIcon} title={"Email"}>
                                     <a className="block" href="mailto:example@domain.com">contact@example.com</a>
                                     <a className="block" href="mailto:example@domain.com">contact@example.com</a>
-                                </InfoItem>
-                                <InfoItem Icon={MapPinIcon} title={"Ubicacion"}>
+                                </InfoIconItem>
+                                <InfoIconItem Icon={MapPinIcon} title={"Ubicacion"}>
                                     <span>
                                         54826 Fadel Circles
                                         Darrylstad, AZ 90995
                                     </span>
-                                </InfoItem>
-                                <InfoItem Icon={ClockIcon} title={"Horario"}>
+                                </InfoIconItem>
+                                <InfoIconItem Icon={ClockIcon} title={"Horario"}>
                                     <span>Cada día <br />
                                         10am a 8pm horas
                                     </span>
-                                </InfoItem>
+                                </InfoIconItem>
 
                             </div>
 
@@ -51,22 +52,6 @@ const Contact = () => {
     )
 }
 
-const InfoIconItem = ({ Icon, title, children }) => {
-    return (
-        <div>
-            <div className='flex items-center'>
-                <div className='flex-shrink-0 w-20 h-20 bg-primary-700/20 rounded-lg mr-4 flex items-center justify-center'>
-                    <Icon className="text-primary-800 w-9 h-9" />
-                </div>
-                <div>
-                    <h4 className='text-xl font-bold'>{title}</h4>
-                    <div className='font-light text-base'>
-                        {children}
-                    </div>
-                </div>
-            </div>
-        </div>
-    )
-}
+
 
 export default Contact

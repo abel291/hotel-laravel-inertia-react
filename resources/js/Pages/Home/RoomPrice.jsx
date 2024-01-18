@@ -1,3 +1,4 @@
+import InfoIconItem from '@/Components/InfoIconItem'
 import PrimaryButton from '@/Components/PrimaryButton'
 import SecondaryButton from '@/Components/SecondaryButton'
 import TitleSectionLink from '@/Components/TitleSectionLink'
@@ -19,9 +20,15 @@ const RoomPrice = () => {
                                 Nuestras habitaciones dobles son funcionales, modernas y cuentan con todo tipo de detalles. Pensadas y adaptadas a los gustos de nuestros huéspedes.
                             </p>
                             <div className='mt-7 space-y-8'>
-                                <InfoItem Icon={BuildingOffice2Icon} title="Territorio del albergue" entry="Consequat interdum varius sit amet mattis" />
-                                <InfoItem Icon={UserGroupIcon} title="Acomoda invitados" entry="Consequat interdum varius sit amet mattis" />
-                                <InfoItem Icon={HomeModernIcon} title="Invitados agradecidos" entry="Consequat interdum varius sit amet mattis" />
+                                <InfoIconItem colorIcon="text-white" bgIcon="bg-primary-700" Icon={BuildingOffice2Icon} title="Territorio del albergue">
+                                    Consequat interdum varius sit amet mattis"
+                                </InfoIconItem>
+                                <InfoIconItem colorIcon="text-white" bgIcon="bg-primary-700" Icon={UserGroupIcon} title="Acomoda invitados">
+                                    Consequat interdum varius sit amet mattis"
+                                </InfoIconItem>
+                                <InfoIconItem colorIcon="text-white" bgIcon="bg-primary-700" Icon={HomeModernIcon} title="Invitados agradecidos">
+                                    Consequat interdum varius sit amet mattis"
+                                </InfoIconItem>
                             </div>
                         </div>
                     </div>
@@ -44,18 +51,6 @@ const RoomPrice = () => {
         </section>
     )
 }
-const InfoItem = ({ Icon, title, entry }) => {
-    return (
-        <div className='flex items-center'>
-            <div className='bg-primary-700 w-20 h-20 flex items-center justify-center mr-5 rounded-lg'>
-                <Icon className="w-12 h-12 text-white" />
-            </div>
-            <div>
-                <h4 className='font-bold text-xl'>{title}</h4>
-                <p className='max-w-44'>{entry}</p>
-            </div>
-        </div>
-    )
-}
+
 
 export default RoomPrice

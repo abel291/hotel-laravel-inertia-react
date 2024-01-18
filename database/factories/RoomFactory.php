@@ -25,7 +25,7 @@ class RoomFactory extends Factory
             "description" => fake()->text(400),
             "active" => 1,
             "quantity" => fake()->numberBetween(5, 15),
-            "adults" => fake()->numberBetween(3, 9),
+            "adults" => fake()->numberBetween(1, 3),
             "kids" => fake()->numberBetween(0, 2),
             "price" => $price,
             "img" => '/img/rooms/home-' . rand(1, 11) . '.jpg',

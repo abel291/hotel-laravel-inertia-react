@@ -45,8 +45,8 @@ const FrequentlyAsked = () => {
 
 
                 <div className='mt-8 grid md:grid-cols-2 xl:grid-cols-3 gap-6'>
-                    {faqs.map((faq) => (
-                        <div>
+                    {faqs.map((faq, index) => (
+                        <div key={index}>
                             <AccordionFaq faq={faq} />
                         </div>
                     ))}
