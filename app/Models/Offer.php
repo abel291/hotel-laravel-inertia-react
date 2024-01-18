@@ -2,15 +2,11 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Bed extends Model
+class Offer extends Model
 {
     use HasFactory;
-
-    public function rooms()
-    {
-        return $this->belongsToMany(Room::class)->withPivot('quantity');
-    }
 }

@@ -23,7 +23,6 @@ class RoomFactory extends Factory
             "slug" => Str::slug(fake()->words(3, true)),
             "entry" => fake()->text(100),
             "description" => fake()->text(400),
-            "active" => 1,
             "quantity" => fake()->numberBetween(5, 15),
             "adults" => fake()->numberBetween(1, 3),
             "kids" => fake()->numberBetween(0, 2),

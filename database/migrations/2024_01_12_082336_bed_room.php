@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('bed_id')->constrained()->cascadeOnDelete();
             $table->foreignId('room_id')->constrained()->cascadeOnDelete();
+            $table->unsignedTinyInteger('quantity'); //quantity beds
         });
     }
 

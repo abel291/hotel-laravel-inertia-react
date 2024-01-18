@@ -2,8 +2,12 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Room extends Model
 {
@@ -45,12 +49,20 @@ class Room extends Model
         return $this->belongsToMany(Service::class);
     }
 
-    public function beds()
+    protected function bed(): Attribute
     {
-        return $this->belongsToMany(Bed::class);
+        return Attribute::make(
+            get: fn ($value) => $this->beds->firstWhere('default', 1),
+
+        );
     }
 
-    public function reservations()
+    public function beds(): BelongsToMany
+    {
+        return $this->belongsToMany(Bed::class)->withPivot('quantity');
+    }
+
+    public function reservations(): HasMany
     {
         return $this->hasMany(Reservation::class);
     }

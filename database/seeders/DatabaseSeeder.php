@@ -36,6 +36,7 @@ class DatabaseSeeder extends Seeder
             DiscountSeeder::class,
             GallerySeeder::class,
             PageSeeder::class,
+            OfferSeeder::class,
             RoomSeeder::class,
             UserSeeder::class,
             ReservationSeeder::class,

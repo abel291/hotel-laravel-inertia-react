@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Bed;
 use App\Models\Complement;
 use App\Models\Image;
+use App\Models\Offer;
 use App\Models\Room;
 use App\Models\Service;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -28,7 +29,7 @@ class RoomSeeder extends Seeder
             ->create()
             ->each(function (Room $room) use ($services, $beds, $complements) {
                 $room->services()->sync($services->random(rand(6, 12)));
-                $room->beds()->sync($beds->random(rand(1, 3)));
+                $room->beds()->syncWithPivotValues($beds->random(2), ['quantity' => rand(1, 2)]);
                 $room->complements()->sync($complements->random(rand(5, 10)));
             });
 

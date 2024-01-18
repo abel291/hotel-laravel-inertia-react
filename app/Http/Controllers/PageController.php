@@ -2,10 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\BedResource;
+use App\Http\Resources\RoomResource;
 use App\Models\Blog;
 use App\Models\Page;
 use App\Models\Room;
+use App\Services\OfferService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Number;
 use Inertia\Inertia;
 
 class PageController extends Controller
@@ -43,35 +47,46 @@ class PageController extends Controller
         return Inertia::render('About/About', [
             'page' => $page,
             'rooms' => $rooms,
-
         ]);
     }
     public function rooms()
     {
         $page = Page::where('type', 'rooms')->first();
 
+        $nights = 7;
+
+        $offer = OfferService::findOffer($nights);
+
         $rooms = Room::select('id', 'name', 'slug', 'thumb', 'entry', 'adults', 'price')
+            ->with('beds')
             ->where('active', 1)
-            ->get();
+            ->get()->map(function ($room) use ($offer, $nights) {
+
+                $price_offer = OfferService::calculateOffer($room->price, $offer, $nights);
+                return [
+                    'id' => $room->id,
+                    'name' => $room->name,
+                    'slug' => $room->slug,
+                    'thumb' => $room->thumb,
+                    'entry' => $room->entry,
+                    'adults' => $room->adults,
+                    'price' => Number::currency($room->price),
+                    'beds' => BedResource::collection($room->beds),
+                    'price_7_night' => [
+                        'percent' => $offer->percent,
+                        'nights' => $nights,
+                        'price_offer' => Number::currency($price_offer)
+                    ]
+                ];
+            });
+
 
         return Inertia::render('Rooms/Rooms', [
             'page' => $page,
             'rooms' => $rooms,
-
         ]);
     }
     public function room()
     {
-        $page = Page::where('type', 'rooms')->first();
-
-        $rooms = Room::select('id', 'name', 'slug', 'thumb', 'entry', 'adults', 'price')
-            ->where('active', 1)
-            ->get();
-
-        return Inertia::render('Rooms/Rooms', [
-            'page' => $page,
-            'rooms' => $rooms,
-
-        ]);
     }
 }

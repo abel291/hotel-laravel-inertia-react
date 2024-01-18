@@ -17,7 +17,7 @@ class BedFactory extends Factory
     public function definition(): array
     {
         return [
-            "title" => fake()->words(3, true),
+            "name" => fake()->words(3, true),
             "icon" => '/img/beds/bed-' . rand(0, 12) . '.png',
             'entry' => fake()->text(100),
         ];

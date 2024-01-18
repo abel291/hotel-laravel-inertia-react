@@ -16,23 +16,23 @@ class BedSeeder extends Seeder
         Bed::truncate();
         $beds = [
             [
-                'title' => 'Litera',
+                'name' => 'Litera',
                 'icon' => '/img/beds/litera.png'
             ],
             [
-                'title' => 'Cama pequeña',
+                'name' => 'Cama pequeña',
                 'icon' => '/img/beds/cama-pequena.png'
             ],
             [
-                'title' => 'Cama grande',
+                'name' => 'Cama grande',
                 'icon' => '/img/beds/cama-grande.png'
             ],
             [
-                'title' => 'Sofa cama',
+                'name' => 'Sofa cama',
                 'icon' => '/img/beds/sofa-cama.png'
             ],
             [
-                'title' => 'Hamaca',
+                'name' => 'Hamaca',
                 'icon' => '/img/beds/hamaca.png'
             ],
         ];
