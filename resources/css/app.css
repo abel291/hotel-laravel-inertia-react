@@ -35,6 +35,6 @@
     }
 
     .shadow-neutral {
-        @apply shadow-xl shadow-[0_2px_30px_rgba(44,60,74,.08)];
+        @apply shadow-[0_2px_30px_rgba(44,60,74,.08)];
     }
 }

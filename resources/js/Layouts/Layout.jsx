@@ -2,6 +2,7 @@ import { usePage } from '@inertiajs/react';
 import React from 'react'
 import Navbar from './Navbar/Navbar';
 import Footer from './Footer';
+import NavbarMovil from './Navbar/NavbarMovil';
 
 const Layout = ({ children }) => {
     const { auth } = usePage().props
@@ -10,7 +11,7 @@ const Layout = ({ children }) => {
         <>
             {/* <NotificationToast /> */}
 
-            <Navbar auth={auth} />
+            <Navbar />
             <main>{children}</main>
             <Footer />
 
