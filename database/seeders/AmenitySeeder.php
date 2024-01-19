@@ -2,20 +2,20 @@
 
 namespace Database\Seeders;
 
-use App\Models\Service;
+use App\Models\Amenity;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
 
-class ServiceSeeder extends Seeder
+class AmenitySeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Service::truncate();
-        $services = [
+        Amenity::truncate();
+        $amenities = [
             'Limpieza en seco',
             'Wi-Fi de alta velocidad',
             'Gimnasio general pago',
@@ -39,10 +39,10 @@ class ServiceSeeder extends Seeder
             'Escritorio',
             'TV LCD',
         ];
-        foreach ($services as $key => $service_name) {
-            Service::factory()->create([
-                'name' => $service_name,
-                'icon' => '/img/complements/complement_' . Str::slug($service_name) . '.png',
+        foreach ($amenities as $key => $amenity_name) {
+            Amenity::factory()->create([
+                'name' => $amenity_name,
+                'icon' => '/img/complements/complement_' . Str::slug($amenity_name) . '.png',
             ]);
         }
     }

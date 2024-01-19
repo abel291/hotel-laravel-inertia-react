@@ -21,6 +21,7 @@
     },
     "dependencies": {
         "@heroicons/react": "^2.1.1",
-        "fslightbox-react": "^1.7.6"
+        "fslightbox-react": "^1.7.6",
+        "swiper": "^11.0.5"
     }
 }

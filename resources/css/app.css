@@ -27,7 +27,7 @@
         @apply text-lg leading-6 font-semibold;
     }
     .btn-primary {
-        @apply inline-flex justify-center rounded-lg py-2.5 px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-primary-700 text-white hover:bg-primary-800 active:bg-primary-800 active:text-white/80;
+        @apply inline-flex justify-center rounded-lg py-2.5 px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-primary-800 text-white hover:bg-primary-900 active:bg-primary-900 active:text-white/80;
     }
 
     .btn-secondary {

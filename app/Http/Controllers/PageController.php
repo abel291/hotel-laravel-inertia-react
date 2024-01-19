@@ -18,7 +18,7 @@ class PageController extends Controller
     {
         $page = Page::where('type', 'home')->first();
 
-        $rooms = Room::select('id', 'name', 'thumb', 'entry', 'adults', 'price', 'home')->where('active', 1)->get();
+        $rooms = Room::select('id', 'slug', 'name', 'thumb', 'entry', 'adults', 'price', 'home')->where('active', 1)->get();
 
         $cheap_rooms = $rooms->sortBy('price')->first();
         $rooms_home = $rooms->where('home', true)->values();
@@ -86,7 +86,20 @@ class PageController extends Controller
             'rooms' => $rooms,
         ]);
     }
-    public function room()
+    public function room($slug)
     {
+        $room = Room::with('beds', 'images', 'amenities')
+            ->where('slug', $slug)
+            ->where('active', 1)->firstOrFail();
+
+        $recommendedRooms = Room::with('beds')
+            ->inRandomOrder()->limit(3)
+            ->where('active', 1)
+            ->whereNot('slug', $slug)->get();
+
+        return Inertia::render('RoomSingle/RoomSingle', [
+            'room' => new RoomResource($room),
+            'recommendedRooms' => RoomResource::collection($recommendedRooms),
+        ]);
     }
 }

@@ -22,13 +22,13 @@ class RoomFactory extends Factory
             "name" => ucfirst(fake()->words(5, true)),
             "slug" => Str::slug(fake()->words(3, true)),
             "entry" => fake()->text(100),
-            "description" => fake()->text(400),
+            "description" => fake()->text(800),
             "quantity" => fake()->numberBetween(5, 15),
             "adults" => fake()->numberBetween(1, 3),
             "kids" => fake()->numberBetween(0, 2),
             "price" => $price,
-            "img" => '/img/rooms/home-' . rand(1, 11) . '.jpg',
-            "thumb" => '/img/rooms/home-' . rand(1, 11) . '.jpg',
+            "img" => '/img/rooms/room-' . rand(1, 11) . '.jpg',
+            "thumb" => '/img/rooms/room-' . rand(1, 11) . '.jpg',
         ];
     }
 }

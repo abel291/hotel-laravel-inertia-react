@@ -9,12 +9,12 @@ const CardRoom = ({ room }) => {
             <div className='relative'>
                 <img className='h-64 w-full object-cover object-center bg-red-300' src={room.thumb} alt="" />
                 <div className='absolute bottom-8 right-0 bg-white h-10 px-4 flex items-center rounded-l-lg text-base'>
-                    <span className='font-bold text-xl'>${room.price} </span>
+                    <span className='font-bold text-xl'>{room.price_format} </span>
                     / 1 noche
                 </div>
             </div>
             <div className='p-6 grow  flex flex-col'>
-                <Link className="text-xl lg:text-2xl font-bold grow">
+                <Link href={route('room', { slug: room.slug })} className="text-xl lg:text-2xl font-bold grow">
                     {room.name}
                 </Link>
                 <div className='mt-2 flex items-center gap-5 text-lg   '>

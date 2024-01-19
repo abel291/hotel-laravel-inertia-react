@@ -1,4 +1,5 @@
 import PrimaryButton from '@/Components/PrimaryButton'
+import RoomListBeds from '@/Components/RoomListBeds'
 import { UserIcon } from '@heroicons/react/24/outline'
 import { Link, usePage } from '@inertiajs/react'
 import React from 'react'
@@ -17,25 +18,11 @@ const RoomsList = () => {
                             </div>
                             <div className='lg:col-span-5 p-5 lg:p-8 lg:flex justify-between'>
                                 <div className='lg:max-w-sm xl:max-w-md flex flex-col font-light'>
-                                    <Link href={route('room', { slug: room.slug })} className='font-bold text-2xl'>{room.name}</Link>
+                                    <Link href={route('room', { slug: room.slug })} className='font-bold text-2xl hover:text-primary-800 transition-colors ease-out duration-700'>{room.name}</Link>
                                     <p className=' grow mt-4 mb-4 md:text-lg  font-light'>
                                         {room.entry}
                                     </p>
-                                    <div className=' flex items-center gap-5 md:text-lg  '>
-                                        <div className='flex items-center'>
-                                            <span className='text-primary-800 font-medium mr-1.5'>{room.adults}</span>
-                                            Adultos
-                                        </div>
-                                        {room.beds.map((bed) => (
-                                            <div className='flex items-center'>
-                                                <div>
-                                                    <span className='text-primary-800 font-medium mr-1.5'>{bed.quantity}</span>
-                                                    {bed.name}
-                                                </div>
-                                            </div>
-                                        ))}
-
-                                    </div>
+                                    <RoomListBeds adults={room.adults} beds={room.beds} />
                                 </div>
 
                                 <div className='flex flex-col justify-between lg:text-right mt-5 lg:mt-0'>

@@ -17,8 +17,8 @@ class ImageFactory extends Factory
     public function definition(): array
     {
         return [
-            "img" => '/img/image-' . rand(0, 20) . '.jpg',
-            "thumb" => '/img/thumbnail/image-' . rand(0, 20) . '.jpg',
+            "img" => '/img/rooms/room-' . rand(1, 11) . '.jpg',
+            "thumb" => '/img/thumbnail/rooms/room-' . rand(1, 11) . '.jpg',
         ];
     }
 }

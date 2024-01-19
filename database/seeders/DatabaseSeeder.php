@@ -31,7 +31,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             BlogSeeder::class,
             BedSeeder::class,
-            ServiceSeeder::class,
+            AmenitySeeder::class,
             ComplementSeeder::class,
             DiscountSeeder::class,
             GallerySeeder::class,

@@ -7,7 +7,7 @@ use App\Models\Complement;
 use App\Models\Image;
 use App\Models\Offer;
 use App\Models\Room;
-use App\Models\Service;
+use App\Models\Amenity;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -20,15 +20,15 @@ class RoomSeeder extends Seeder
     {
         Room::truncate();
 
-        $services = Service::get();
+        $amenities = Amenity::get();
         $beds = Bed::get();
         $complements = Complement::get();
 
         Room::factory()->count(10)
             ->has(Image::factory()->count(5))
             ->create()
-            ->each(function (Room $room) use ($services, $beds, $complements) {
-                $room->services()->sync($services->random(rand(6, 12)));
+            ->each(function (Room $room) use ($amenities, $beds, $complements) {
+                $room->amenities()->sync($amenities->random(rand(6, 12)));
                 $room->beds()->syncWithPivotValues($beds->random(2), ['quantity' => rand(1, 2)]);
                 $room->complements()->sync($complements->random(rand(5, 10)));
             });

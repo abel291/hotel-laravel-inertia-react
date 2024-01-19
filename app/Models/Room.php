@@ -44,9 +44,9 @@ class Room extends Model
         return $this->belongsToMany(Complement::class);
     }
 
-    public function services()
+    public function amenities()
     {
-        return $this->belongsToMany(Service::class);
+        return $this->belongsToMany(Amenity::class);
     }
 
     protected function bed(): Attribute
