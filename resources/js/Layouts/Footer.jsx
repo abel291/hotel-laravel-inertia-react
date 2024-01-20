@@ -9,7 +9,7 @@ const Footer = () => {
         { title: 'Inicio', routeName: 'home' },
         { title: 'Acerca de', routeName: 'about' },
         { title: 'Habitaciones', routeName: 'rooms' },
-        { title: 'Galerias', routeName: 'galleries' },
+        { title: 'Fotos del hotel', routeName: 'gallery' },
         { title: 'Blog', routeName: 'blog' },
     ]
     return (

@@ -9,7 +9,7 @@ const Navbar = () => {
         { title: 'Inicio', routeName: 'home', icon: HomeIcon },
         { title: 'Acerca de', routeName: 'about', icon: UserGroupIcon },
         { title: 'Habitaciones', routeName: 'rooms', icon: TvIcon },
-        { title: 'Galerias', routeName: 'galleries', icon: PhotoIcon },
+        { title: 'Galeria', routeName: 'gallery', icon: PhotoIcon },
         { title: 'Blog', routeName: 'blog', icon: ChatBubbleBottomCenterTextIcon },
     ]
     return (

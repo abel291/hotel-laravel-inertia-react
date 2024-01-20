@@ -20,7 +20,7 @@ class GalleryFactory extends Factory
         return [
             "name" => fake()->words(1, true),
             "slug" => Str::slug(fake()->words(1, true)),
-            "entry" => fake()->sentence(),
+            "entry" => fake()->text(200),
         ];
     }
 }

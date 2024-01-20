@@ -19,7 +19,7 @@ const Photos = () => {
     return (
         <section>
             <div className='py-section container'>
-                <TitleSectionLink title="Fotos de nuestras habitaciones" titleLink="Ver todas las fotos " urlLink={route('galleries')} />
+                <TitleSectionLink title="Fotos de nuestras habitaciones" titleLink="Ver todas las fotos " urlLink={route('gallery')} />
                 <div className='grid grid-rows-4 sm:grid-rows-2 grid-flow-col gap-4 lg:gap-6 mt-7'>
                     <div className='lg:row-span-2 h-full' onClick={() => openLightboxOnSlide(1)}>
                         <ImageGallery img="/img/gallery-1.jpg" />

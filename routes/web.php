@@ -30,7 +30,7 @@ Route::get('/', [PageController::class, 'home'])->name('home');
 Route::get('/about', [PageController::class, 'about'])->name('about');
 Route::get('/rooms', [PageController::class, 'rooms'])->name('rooms');
 Route::get('/room/{slug}', [PageController::class, 'room'])->name('room');
-Route::get('/galleries', [PageController::class, 'home'])->name('galleries');
+Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/blog', [PageController::class, 'home'])->name('blog');
 Route::get('/contact', [PageController::class, 'home'])->name('contact');
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\BedResource;
 use App\Http\Resources\RoomResource;
 use App\Models\Blog;
+use App\Models\Gallery;
 use App\Models\Page;
 use App\Models\Room;
 use App\Services\OfferService;
@@ -30,23 +31,23 @@ class PageController extends Controller
         });
         return Inertia::render('Home/Home', [
             'page' => $page,
-            'rooms' => $rooms_home,
             'posts' => $posts,
-            'cheapRoom' => $cheap_rooms,
+            'rooms' => RoomResource::collection($rooms_home),
+            'cheapRoom' => new RoomResource($cheap_rooms),
         ]);
     }
     public function about()
     {
         $page = Page::where('type', 'about')->first();
 
-        $rooms = Room::select('id', 'name', 'thumb', 'entry', 'adults', 'price', 'about')
+        $rooms = Room::select('id', 'name', 'price', 'slug',  'thumb', 'entry', 'adults', 'price', 'about')
             ->where('active', 1)
             ->where('about', true)
             ->get();
 
         return Inertia::render('About/About', [
             'page' => $page,
-            'rooms' => $rooms,
+            'rooms' => RoomResource::collection($rooms),
         ]);
     }
     public function rooms()
@@ -100,6 +101,17 @@ class PageController extends Controller
         return Inertia::render('RoomSingle/RoomSingle', [
             'room' => new RoomResource($room),
             'recommendedRooms' => RoomResource::collection($recommendedRooms),
+        ]);
+    }
+    public function gallery()
+    {
+        $page = Page::where('type', 'gallery')->firstOrFail();
+        $galleries = Gallery::with('images')->get();
+
+        return Inertia::render('Gallery/Gallery', [
+            'page' => $page,
+            'galleries' => $galleries
+
         ]);
     }
 }
