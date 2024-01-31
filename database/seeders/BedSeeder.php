@@ -15,10 +15,7 @@ class BedSeeder extends Seeder
     {
         Bed::truncate();
         $beds = [
-            [
-                'name' => 'Litera',
-                'icon' => '/img/beds/litera.png'
-            ],
+
             [
                 'name' => 'Cama pequeña',
                 'icon' => '/img/beds/cama-pequena.png'
@@ -29,12 +26,9 @@ class BedSeeder extends Seeder
             ],
             [
                 'name' => 'Sofa cama',
-                'icon' => '/img/beds/sofa-cama.png'
+                'icon' => '/img/beds/sofa.png'
             ],
-            [
-                'name' => 'Hamaca',
-                'icon' => '/img/beds/hamaca.png'
-            ],
+
         ];
         foreach ($beds as $key => $bed) {
             Bed::factory()->create($bed);

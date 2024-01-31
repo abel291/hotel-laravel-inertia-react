@@ -1,18 +1,18 @@
+import { User } from 'lucide-react'
 import React from 'react'
+import CountAdults from './CountAdults'
+import CountBeds from './CountBeds'
 
-const RoomListBeds = ({ adults, beds }) => {
+const RoomListBeds = ({ adults, beds, className = '' }) => {
     return (
-        <div className='flex items-center  text-lg font-bold  text-primary-800 divide-x'>
-            <div className=' px-2.5 flex items-center'>
-                <span className='mr-1.5'>{adults}</span>
-                Adultos
+        <div className={'flex items-center justify-between md:justify-normal text-lg font-light ' + className}>
+            <CountAdults className='mr-5' quantityAdults={adults} />
+
+            <div className='md:flex gap-5' >
+                {beds.map((bed) => (
+                    <CountBeds key={bed.name} bed={bed} />
+                ))}
             </div>
-            {beds.map((bed) => (
-                <div className=' px-2.5 flex items-center'>
-                    <span className='mr-1.5'>{bed.quantity}</span>
-                    {bed.name}
-                </div>
-            ))}
 
         </div>
 

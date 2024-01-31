@@ -16,22 +16,21 @@ return new class extends Migration
             $table->string('code')->unique()->index();
             $table->date('start_date');
             $table->date('end_date');
-            $table->tinyInteger('night');
             $table->tinyInteger('adults')->default(0);
             $table->tinyInteger('kids')->default(0)->nullable();
             $table->unsignedInteger('room_quantity')->default(1);
-
             $table->string('check_in', 8)->default('02:30 PM')->nullable();
             $table->text('special_request')->nullable();
             $table->enum('state', ['canceled', 'refunded', 'successful'])->default('successful');
-
+            $table->tinyInteger('nights');
+            $table->unsignedDecimal('price');
             $table->unsignedDecimal('sub_total', 12, 2);
-            // $table->unsignedFloat('tax_value');
-            // $table->unsignedTinyInteger('tax_rate');
+            $table->unsignedFloat('tax_value');
+            $table->unsignedTinyInteger('tax_rate');
             $table->unsignedDecimal('total', 12, 2);
             $table->json('data')->nullable();
 
-            $table->json('discount_data', 12, 2)->nullable();
+            $table->json('offer', 12, 2)->nullable();
             $table->json('room_data')->nullable();
             $table->json('user_data')->nullable();
             $table->json('complements_data')->nullable();

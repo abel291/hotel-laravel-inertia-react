@@ -11,7 +11,7 @@ const Breadcrumb = ({ data }) => {
     ]
     const lastItem = breadcrumb[breadcrumb.length - 1]
     return (
-        <header className='bg-primary-700/5 py-8 lg:py-12'>
+        <header className='bg-primary py-8 lg:py-12'>
             <div className='container '>
                 <ul className='flex'>
                     {breadcrumb.map((item, key) => (

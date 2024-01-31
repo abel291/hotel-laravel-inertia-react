@@ -1,15 +1,16 @@
 import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
+import lineClamp from '@tailwindcss/line-clamp';
 import colors from 'tailwindcss/colors'
 /** @type {import('tailwindcss').Config} */
 export default {
+    darkMode: ["class"],
     content: [
         './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.jsx',
     ],
-
     theme: {
         container: {
             center: true,
@@ -18,7 +19,7 @@ export default {
                 sm: "2rem",
                 lg: "2rem",
                 xl: "4rem",
-                '2xl': "12rem",
+                '2xl': "10rem",
             },
         },
         colors: {
@@ -32,5 +33,5 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [forms, lineClamp],
 };

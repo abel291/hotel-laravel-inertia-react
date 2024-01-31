@@ -11,7 +11,7 @@ const Rooms = () => {
                 <TitleSectionLink title="Habitaciones" titleLink="Ver todas las habitaciones" urlLink={route('rooms')} />
 
                 <div className='mt-7'>
-                    <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7'>
+                    <div className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-7'>
                         {rooms.map((room, index) => (
                             <CardRoom key={index} room={room} />
                         ))}

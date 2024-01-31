@@ -2,9 +2,6 @@ import Breadcrumb from '@/Components/Breadcrumb'
 import Layout from '@/Layouts/Layout'
 import { Head } from '@inertiajs/react'
 import React, { useState } from 'react'
-import { ResponsiveMasonry } from 'react-responsive-masonry'
-import Masonry from "react-responsive-masonry"
-import CarouselPhotos from './CarouselGallery'
 import CarouselGallery from './CarouselGallery'
 const Gallery = ({ page, galleries }) => {
     const breadcrumb = [

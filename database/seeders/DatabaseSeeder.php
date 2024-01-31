@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
         Image::truncate();
         $this->call([
+            CategoryTagSeeder::class, // para el blog
             BlogSeeder::class,
             BedSeeder::class,
             AmenitySeeder::class,
@@ -39,7 +40,7 @@ class DatabaseSeeder extends Seeder
             OfferSeeder::class,
             RoomSeeder::class,
             UserSeeder::class,
-            ReservationSeeder::class,
+            // ReservationSeeder::class,
         ]);
         Schema::enableForeignKeyConstraints();
     }

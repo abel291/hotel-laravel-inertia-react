@@ -10,6 +10,7 @@ import React from 'react'
 
 const Rooms = () => {
     const { rooms } = usePage().props
+
     return (
         <section className='py-section '>
             <div className='container'>

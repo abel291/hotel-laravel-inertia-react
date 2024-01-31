@@ -14,8 +14,8 @@ import CardOffer from '@/Components/CardOffer'
 import Card from '@/Components/Card'
 import CardCheckIn from './CardCheckIn'
 
-const RoomSingle = ({ room, recommendedRooms }) => {
-    console.log(room.images)
+const RoomSingle = ({ room, charge, recommendedRooms }) => {
+
     const breadcrumb = [
         {
             title: 'Habitaciones',
@@ -50,20 +50,20 @@ const RoomSingle = ({ room, recommendedRooms }) => {
                             <p className='text-lg font-light'>{room.description}</p>
                         </div>
                         <div className='mt-10 lg:mt-14'>
-                            <h4 className='text-xl font-bold'>Comodidades</h4>
+                            <h4>Comodidades</h4>
                             <div className='mt-5 lg:mt-6'>
                                 <RoomAmenities amenities={room.amenities} />
                             </div>
                         </div>
                         <div className='mt-10 lg:mt-14'>
-                            <h4 className='text-xl font-bold'>Reglas del Hotel</h4>
+                            <h4>Reglas del Hotel</h4>
                             <div className='mt-5 lg:mt-6'>
                                 <Rules />
                             </div>
                         </div>
                     </div>
                     <div className='lg:col-span-4 space-y-7'>
-                        <CardCheckIn room={room} />
+                        <CardCheckIn charge={charge} />
                         <CardOffer isButton={false} />
                     </div>
                 </div>

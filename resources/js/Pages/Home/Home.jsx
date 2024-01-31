@@ -7,7 +7,8 @@ import Services from './Services'
 import Photos from './Photos'
 import RoomPrice from './RoomPrice'
 import Post from './Post'
-import Contact from './Contact'
+import SectionContact from '@/Components/Section/SectionContact'
+
 
 const Home = ({ page }) => {
 
@@ -36,7 +37,7 @@ const Home = ({ page }) => {
 
             <div className='bg-primary-800/5'>
 
-                <Contact />
+                <SectionContact />
 
             </div>
 

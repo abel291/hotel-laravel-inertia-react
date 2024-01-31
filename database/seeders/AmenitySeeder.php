@@ -16,33 +16,95 @@ class AmenitySeeder extends Seeder
     {
         Amenity::truncate();
         $amenities = [
-            'Limpieza en seco',
-            'Wi-Fi de alta velocidad',
-            'Gimnasio general pago',
-            'Aire acondicionado',
-            'Soporte 24 horas al día, 7 días a la semana',
-            'Almacenamiento de equipaje',
-            'Cocina compartida',
-            'Ducha en la habitación',
-            'Alquiler de vehículos',
-            'Bar-Cafetería',
-            'Conserjería',
-            'Consigna de equipajes',
-            'Desayuno bufet',
-            'Parking cubierto',
-            'Se admiten perros y gatos tranquilos',
-            'Servicio de banquetes y celebraciones',
-            'Salones para eventos',
-            'Restaurante',
-            'Prensa en zonas comunes',
-            'Teléfono',
-            'Escritorio',
-            'TV LCD',
+            [
+                'name' => 'Wi-Fi',
+                'icon' => 'wifi.png'
+            ],
+            [
+                'name' => 'Gimnasio general pago',
+                'icon' => 'dumbbell.png'
+            ],
+            [
+                'name' => 'Aire acondicionado',
+                'icon' => 'air-vent.png'
+            ],
+            [
+                'name' => 'Soporte 24 horas al',
+                'icon' => 'user-round-cog.png'
+            ],
+            [
+                'name' => 'Almacenamiento de equipaje',
+                'icon' => 'baggage-claim.png'
+            ],
+            [
+                'name' => 'Cocina compartida',
+                'icon' => 'utensils.png'
+            ],
+            [
+                'name' => 'Ducha en la habitación',
+                'icon' => 'shower-head.png'
+            ],
+            [
+                'name' => 'Alquiler de vehículos',
+                'icon' => 'car.png'
+            ],
+            [
+                'name' => 'Bar-Cafetería',
+                'icon' => 'wine.png'
+            ],
+            [
+                'name' => 'Piscinas paras niños',
+                'icon' => 'baby.png'
+            ],
+            [
+                'name' => 'Consigna de equipajes',
+                'icon' => 'baggage-claim.png'
+            ],
+            [
+                'name' => 'Desayuno bufet',
+                'icon' => 'chef-hat.png'
+            ],
+            [
+                'name' => 'Parking cubierto',
+                'icon' => 'parking-circle.png'
+            ],
+            [
+                'name' => 'Se admiten perros y gatos',
+                'icon' => 'dog.png'
+            ],
+            [
+                'name' => 'Servicio para celebraciones',
+                'icon' => 'cake.png'
+            ],
+            [
+                'name' => 'Salones para eventos',
+                'icon' => 'calendar-check-2.png'
+            ],
+            [
+                'name' => 'Restaurante',
+                'icon' => 'cooking-pot.png'
+            ],
+            [
+                'name' => 'Prensa en zonas comunes',
+                'icon' => 'newspaper.png'
+            ],
+            [
+                'name' => 'Teléfono',
+                'icon' => 'phone.png'
+            ],
+            [
+                'name' => 'Escritorio',
+                'icon' => 'lamp-desk.png'
+            ],
+            [
+                'name' => 'TV LCD',
+                'icon' => 'tv.png'
+            ],
         ];
-        foreach ($amenities as $key => $amenity_name) {
+        foreach ($amenities as $key => $amenity) {
             Amenity::factory()->create([
-                'name' => $amenity_name,
-                'icon' => '/img/complements/complement_' . Str::slug($amenity_name) . '.png',
+                'name' => $amenity['name'],
+                'icon' => '/img/amenities/' . $amenity['icon'],
             ]);
         }
     }

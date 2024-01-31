@@ -24,11 +24,11 @@ class RoomSeeder extends Seeder
         $beds = Bed::get();
         $complements = Complement::get();
 
-        Room::factory()->count(10)
+        Room::factory()->count(8)
             ->has(Image::factory()->count(5))
             ->create()
             ->each(function (Room $room) use ($amenities, $beds, $complements) {
-                $room->amenities()->sync($amenities->random(rand(6, 12)));
+                $room->amenities()->sync($amenities->random(rand(10, 14)));
                 $room->beds()->syncWithPivotValues($beds->random(2), ['quantity' => rand(1, 2)]);
                 $room->complements()->sync($complements->random(rand(5, 10)));
             });

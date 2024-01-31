@@ -25,11 +25,13 @@ class RoomResource extends JsonResource
             'entry' => $this->entry,
             'adults' => $this->adults,
             'price' => $this->price,
-            'price_format' => Number::currency($this->price),
-            'bed' => $this->bed,
+            'price_format' => $this->price,
+            // 'bed' => $this->bed,
             'beds' => BedResource::collection($this->whenLoaded('beds')),
             'images' => $this->whenLoaded('images'),
-            'amenities' => $this->whenLoaded('amenities')
+            'amenities' => $this->whenLoaded('amenities'),
+            'offer' => $this->offer,
+            'charge' => $this->charge
         ];
     }
 }

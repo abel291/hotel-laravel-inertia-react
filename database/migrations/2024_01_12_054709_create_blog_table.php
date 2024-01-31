@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('seo_title');
             $table->string('seo_desc');
             $table->boolean('home')->default(0);
+            $table->foreignId('category_id')->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }

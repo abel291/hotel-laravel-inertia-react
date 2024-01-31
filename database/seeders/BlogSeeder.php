@@ -3,9 +3,11 @@
 namespace Database\Seeders;
 
 use App\Models\Blog;
+use App\Models\Category;
 use App\Models\Tag;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class BlogSeeder extends Seeder
 {
@@ -15,13 +17,21 @@ class BlogSeeder extends Seeder
     public function run(): void
     {
         Blog::truncate();
-        Tag::truncate();
 
-        $tags = Tag::factory()->count(20)->create();
-        Blog::factory(40)->create()
+        $tags = Tag::select('id')->get();
+        $categories = Category::select('id')->get();
+
+        Blog::factory(10)
+            ->state(function (array $attributes) use ($categories) {
+                return [
+                    'category_id' => $categories->random()->id,
+                ];
+            })
+            ->create()
             ->each(function (Blog $blog) use ($tags) {
-                $blog->tags()->sync($tags->random(5));
+                $blog->tags()->sync($tags->random(2));
             });
+
         Blog::inRandomOrder()->limit(3)->update(['home' => 1]);
     }
 }

@@ -19,8 +19,8 @@ class BlogFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'entry' => fake()->text(100),
-            'description' => fake()->randomHtml(),
+            'entry' => fake()->text(120),
+            'description' => fake()->text(2000),
             'slug' => Str::slug(fake()->sentence()),
             'img' => '/img/posts/post-' . rand(1, 10) . '.jpg',
             'thumb' => '/img/posts/post-' . rand(1, 10) . '.jpg',

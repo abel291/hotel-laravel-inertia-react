@@ -4,6 +4,7 @@ namespace App\Services;
 
 use App\Models\Complement;
 use App\Models\Discount;
+use App\Models\Offer;
 use App\Models\Reservation;
 use App\Models\Room;
 use Carbon\Carbon;
@@ -11,17 +12,18 @@ use Illuminate\Database\Eloquent\Collection;
 
 class ReservationService
 {
+
     public static function createReservation($start_date, $end_date, $room, $complements = null, $discount = null)
     {
         $start_date = Carbon::createFromFormat('Y-m-d', $start_date);
         $end_date = Carbon::createFromFormat('Y-m-d', $end_date);
-        $night = $start_date->diffInDays($end_date);
+        $nights = $start_date->diffInDays($end_date);
 
         $reservation = new Reservation([
             'code' => fake()->bothify('?#?#?#?#'),
             'start_date' => $start_date,
             'end_date' => $end_date,
-            'night' => $night,
+            'nights' => $nights,
             'room_id' => $room->id,
             'room_data' => $room->only('name', 'price', 'img', 'beds'),
         ]);
@@ -40,55 +42,70 @@ class ReservationService
 
         return $reservation;
     }
-    public static function totalCalculation(float $price, int $night, Collection $complements = null, string $code_dicount = null)
+    public static function calculatePriceTotalNights(float $price, int $nights)
     {
-        $sub_total_complements = 0;
-        $sub_total_complements = 0;
-        $total = 0;
+        return round($price * $nights, 2);
+    }
+    public static function totalCalculation(float $pricePerNight, int $nights, Offer $offer = null): array
+    {
 
-        $sub_total = $price * $night;
-
-        if ($complements) {
-
-            $complements = $complements->map(function (Complement $complement) use ($night) {
-
-                if ($complement->type_price == 'night') {
-
-                    $complement->total = $complement->price * $night;
-                } elseif ($complement->type_price == 'reservation') {
-
-                    $complement->total = $complement->price;
-                }
-
-                return $complement->only('name', 'price', 'type_price', 'total');
-            });
-
-            $sub_total_complements = $sub_total + $complements->sum('total');
+        $subTotal = self::calculatePriceTotalNights($pricePerNight, $nights);
+        if ($offer) {
+            $offer = OfferService::calculateOffer($offer, $subTotal);
+            $subTotalOffer = $offer['priceTotalOffer'];
         } else {
-            $sub_total_complements = $sub_total;
+            $subTotalOffer = $subTotal;
         }
 
-        if ($code_dicount) {
+        // if ($complements) {
 
-            $discount = Discount::where('code', $code_dicount)->withCount('reservations')->first();
+        //     $complements = $complements->map(function (Complement $complement) use ($night) {
 
-            $discount->amount = round($sub_total_complements * ($discount->percent / 100), 2);
+        //         if ($complement->type_price == 'night') {
 
-            $discount = $discount->only('code', 'amount', 'percent');
+        //             $complement->total = $complement->price * $night;
+        //         } elseif ($complement->type_price == 'reservation') {
 
-            $total = $sub_total_complements - $discount->amount;
-        } else {
-            $discount = null;
-            $total = $sub_total_complements;
-        }
+        //             $complement->total = $complement->price;
+        //         }
 
+        //         return $complement->only('name', 'price', 'type_price', 'total');
+        //     });
 
+        //     $subTotal_complements = $subTotal + $complements->sum('total');
+        // } else {
+        //     $subTotal_complements = $subTotal;
+        // }
+
+        // if ($code_dicount) {
+
+        //     $discount = Discount::where('code', $code_dicount)->withCount('reservations')->first();
+
+        //     $discount->amount = round($subTotal_complements * ($discount->percent / 100), 2);
+
+        //     $discount = $discount->only('code', 'amount', 'percent');
+
+        //     $total = $subTotal_complements - $discount->amount;
+        // } else {
+        //     $discount = null;
+        //     $total = $subTotal_complements;
+        // }
+
+        $taxPercent = 10;
+
+        $taxAmount = $subTotalOffer * ($taxPercent / 100);
+
+        $total = $subTotalOffer + $taxAmount;
 
         return [
-            'sub_total' => $sub_total,
-            'complements_data' => $complements,
-            'discount_data' => $discount,
+            'pricePerNight' => $pricePerNight,
+            'subTotal' => $subTotal,
+            'subTotalOffer' => $subTotalOffer,
+            'taxPercent' => $taxPercent,
+            'taxAmount' => $taxAmount,
             'total' => $total,
+            'offer' => $offer,
+            'nights' => $nights,
         ];
     }
     public static function generateCode($reservation)

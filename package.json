@@ -21,7 +21,14 @@
     },
     "dependencies": {
         "@heroicons/react": "^2.1.1",
+        "@tailwindcss/line-clamp": "^0.4.4",
         "fslightbox-react": "^1.7.6",
-        "swiper": "^11.0.5"
+        "lucide-react": "^0.312.0",
+        "react-flatpickr": "^3.10.13",
+        "react-useanimations": "^2.10.0",
+        "sonner": "^1.4.0",
+        "swiper": "^11.0.5",
+        "tailwind-merge": "^2.2.0",
+        "tailwindcss-animate": "^1.0.7"
     }
 }

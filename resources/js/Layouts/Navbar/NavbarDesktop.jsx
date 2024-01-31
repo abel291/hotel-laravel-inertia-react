@@ -3,11 +3,12 @@ import { BuildingOffice2Icon } from '@heroicons/react/16/solid'
 import { Link } from '@inertiajs/react'
 import PrimaryButton from '@/Components/PrimaryButton'
 import ApplicationLogo from '@/Components/ApplicationLogo'
+import ButtonReserve from './ButtonReserve'
 const NavbarDesktop = ({ navigations }) => {
 
     return (
 
-        <nav className="h-28 items-center z-50 relative hidden lg:flex">
+        <nav className="h-28 items-center z-40 relative hidden lg:flex">
             <div className='container flex  justify-between '>
                 <ApplicationLogo textColor='text-primary-700' />
                 <div className='flex items-center gap-x-10'>
@@ -21,7 +22,8 @@ const NavbarDesktop = ({ navigations }) => {
                         </Link>
                     ))}
                     <div>
-                        <PrimaryButton>Contactenos</PrimaryButton>
+                        {/* <Link href={route('contact')} className='btn-primary'>Reservar</Link> */}
+                        <ButtonReserve />
                     </div>
 
                 </div>

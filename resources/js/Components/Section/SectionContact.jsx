@@ -4,12 +4,10 @@ import TitleSectionLink from '@/Components/TitleSectionLink'
 import { ClockIcon, EnvelopeIcon, PhoneIcon, MapPinIcon } from '@heroicons/react/24/outline'
 import React from 'react'
 
-const Contact = () => {
+const SectionContact = () => {
     return (
-        <section className='pt-section overflow-hidden'>
+        <section className='py-section overflow-hidden'>
             <div className='container'>
-
-
                 <div className='grid xl:grid-cols-12'>
                     <div className='xl:col-span-7 pr-16 flex items-center'>
                         <div>
@@ -54,4 +52,4 @@ const Contact = () => {
 
 
 
-export default Contact
+export default SectionContact
