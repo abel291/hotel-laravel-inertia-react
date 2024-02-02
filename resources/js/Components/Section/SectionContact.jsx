@@ -42,7 +42,8 @@ const SectionContact = () => {
                         </div>
                     </div>
                     <div className='mt-10 xl:mt-0 xl:col-span-5 xl:w-[1000px]  h-96 xl:h-[600px]'>
-                        <iframe className='w-full h-full' src="https://maps.google.com/maps?q=seul&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed" ></iframe>
+                        <iframe className='w-full h-full'
+                            src="https://maps.google.com/maps?q=seul&amp;t=&amp;z=13&amp;ie=UTF8&amp;iwloc=&amp;output=embed;" ></iframe>
                     </div>
                 </div>
             </div>

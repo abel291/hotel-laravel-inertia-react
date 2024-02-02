@@ -37,12 +37,12 @@ const CarouselImages = ({ images }) => {
                         }}
                         spaceBetween={10}
                         slidesPerView={1}
-                        onSlideChange={() => console.log('slide change')}
-                        onSwiper={(swiper) => console.log(swiper)}
+                    // onSlideChange={() => console.log('slide change')}
+                    // onSwiper={(swiper) => console.log(swiper)}
 
                     >
-                        {images.map((image) => (
-                            <SwiperSlide>
+                        {images.map((image, index) => (
+                            <SwiperSlide key={index}>
                                 <div className=''>
                                     <img src={image.img} alt="" className='h-full lg:h-[540px] w-full object-cover object-center rounded-xl' />
                                 </div>
@@ -81,8 +81,8 @@ const CarouselImages = ({ images }) => {
                     }}
                     speed={1200}
                 >
-                    {images.map((image) => (
-                        <SwiperSlide>
+                    {images.map((image, index) => (
+                        <SwiperSlide key={index}>
                             <img src={image.img} alt="" className=' rounded-xl h-full w-full object-cover object-center' />
                         </SwiperSlide>
                     ))}

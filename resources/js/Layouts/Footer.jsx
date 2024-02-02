@@ -11,6 +11,9 @@ const Footer = () => {
         { title: 'Habitaciones', routeName: 'rooms' },
         { title: 'Fotos del hotel', routeName: 'gallery' },
         { title: 'Blog', routeName: 'blog' },
+        { title: 'Política de privacidad', routeName: 'legal-policies' },
+        { title: 'Verificar datos de la reservacion', routeName: 'search-reservation' },
+
     ]
     return (
         <footer className='bg-primary-800 text-white text-lg'>
@@ -28,11 +31,12 @@ const Footer = () => {
                         <ul >
                             {navigations.map((navigation, index) => (
                                 <li key={index} className='mt-1'>
-                                    <Link className={
-                                        (route().current(navigation.routeName)
-                                            ? ' border-b-2 font-semibold '
-                                            : 'hover:border-b-2 ') +
-                                        '   font-medium'}>
+                                    <Link
+                                        href={route(navigation.routeName)} className={
+                                            (route().current(navigation.routeName)
+                                                ? ' border-b-2 font-semibold '
+                                                : 'hover:border-b-2 ') +
+                                            '   font-medium'}>
                                         {navigation.title}
                                     </Link>
                                 </li>

@@ -12,8 +12,8 @@ const CardReservationRoom = ({ room }) => {
     const { filters, nights } = usePage().props
 
     const { data, post, processing } = useForm({
-        startDate: filters.startDate,
-        endDate: filters.endDate,
+        start_date: filters.start_date,
+        end_date: filters.end_date,
         adults: filters.adults,
         kids: filters.kids,
         roomId: room.id
@@ -26,7 +26,14 @@ const CardReservationRoom = ({ room }) => {
 
     return (
         <CardRoomOffer room={room} >
-            <PrimaryButton isLoading={processing} disabled={processing} className='w-full lg:w-auto' onClick={() => handleClickReserve()}>Reservar</PrimaryButton>
+            <PrimaryButton
+                isLoading={processing}
+                disabled={processing}
+                className='w-full lg:w-auto'
+                onClick={() => handleClickReserve()}
+            >
+                Reservar ahora
+            </PrimaryButton>
         </CardRoomOffer>
     )
 }

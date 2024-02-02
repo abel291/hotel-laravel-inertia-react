@@ -8,20 +8,22 @@ const Filters = () => {
     const { filters } = usePage().props
 
     const { data, setData, get, processing } = useForm({
-        startDate: filters.startDate,
-        endDate: filters.endDate,
+        start_date: filters.start_date,
+        end_date: filters.end_date,
         adults: filters.adults,
         kids: filters.kids || 0
     })
     const optionInputDate = {
         mode: 'range',
         minDate: "today",
-        defaultDate: [data.startDate, data.endDate]
+        defaultDate: [data.start_date, data.end_date]
 
     }
     const handleSubmit = (e) => {
         e.preventDefault()
-        get(route('search-reservation'))
+        get(route('search-room'), {
+            preserveScroll: true
+        })
     }
 
     return (
@@ -36,13 +38,11 @@ const Filters = () => {
                                 id="dateRange"
                                 options={optionInputDate}
                                 className='select-form '
-                                // value={data.date}
-
-                                onChange={(date, dateStr) => {
-                                    console.log(dateStr)
-                                    setData('startDate', date[0])
-                                    if (date[1]) {
-                                        setData('endDate', date[1])
+                                onChange={(date, dateString) => {
+                                    let dateArray = dateString.split(' a ')
+                                    setData('start_date', dateArray[0])
+                                    if (dateArray[1]) {
+                                        setData('end_date', dateArray[1])
                                     }
                                 }}
                             />

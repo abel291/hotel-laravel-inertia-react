@@ -4,7 +4,7 @@ import React from 'react'
 const Breadcrumb = ({ data }) => {
     const breadcrumb = [
         {
-            title: 'home',
+            title: 'Inicio',
             path: route('home')
         },
         ...data

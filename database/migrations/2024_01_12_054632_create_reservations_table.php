@@ -25,16 +25,16 @@ return new class extends Migration
             $table->tinyInteger('nights');
             $table->unsignedDecimal('price');
             $table->unsignedDecimal('sub_total', 12, 2);
-            $table->unsignedFloat('tax_value');
-            $table->unsignedTinyInteger('tax_rate');
+            $table->unsignedFloat('tax_amount');
+            $table->unsignedTinyInteger('tax_percent');
             $table->unsignedDecimal('total', 12, 2);
-            $table->json('data')->nullable();
+            $table->json('data');
 
-            $table->json('offer', 12, 2)->nullable();
-            $table->json('room_data')->nullable();
-            $table->json('user_data')->nullable();
-            $table->json('complements_data')->nullable();
-            $table->json('refund_data')->nullable();
+            $table->json('offer')->nullable();
+            // $table->json('room_data')->nullable();
+            // $table->json('user_data')->nullable();
+            // $table->json('complements_data')->nullable();
+            // $table->json('refund_data')->nullable();
 
             $table->foreignId('room_id')->nullable()->constrained()->nullOnDelete();
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();

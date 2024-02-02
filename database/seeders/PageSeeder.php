@@ -26,6 +26,7 @@ class PageSeeder extends Seeder
             'Gallery',
             'FAQ',
             'Opinions',
+            'Legal Policies'
         ];
         foreach ($pages as $key => $page_title) {
             Page::factory()->create([

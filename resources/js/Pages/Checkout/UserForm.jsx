@@ -6,8 +6,6 @@ import React from 'react'
 
 const UserForm = ({ handleChange, formUser }) => {
 
-
-
     return (
         <Card className="p-8" >
             <div className='grid lg:grid-cols-12 gap-x-5 gap-y-6 '>
@@ -47,7 +45,7 @@ const UserForm = ({ handleChange, formUser }) => {
 
                 <div className='lg:col-span-12'>
                     <label htmlFor="note" className='text-sm font-medium mb-1 block'>Comentario o petición (opcional)</label>
-                    <textarea onChange={handleChange} defaultValue={formUser.data.note} id='note' rows={3} className='input-textarea'></textarea>
+                    <textarea onChange={handleChange} defaultValue={formUser.data.note} id='note' rows={4} className='input-textarea'></textarea>
                     <InputError message={formUser.errors.note} className="mt-2" />
                 </div>
 

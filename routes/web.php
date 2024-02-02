@@ -4,6 +4,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Middleware\CheckoutSession;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -36,14 +37,30 @@ Route::get('/gallery', [PageController::class, 'gallery'])->name('gallery');
 Route::get('/blog', [PageController::class, 'blog'])->name('blog');
 Route::get('/post/{slug}', [PageController::class, 'post'])->name('post');
 Route::get('/contact', [PageController::class, 'contact'])->name('contact');
-Route::get('/search-reservation', [ReservationController::class, 'searchReservation'])->name('search-reservation');
+Route::get('/legal-policies', [PageController::class, 'legalPolicies'])->name('legal-policies');
+// Route::get('/search-reservation', [ReservationController::class, 'searchReservation'])->name('search-reservation');
+
+Route::controller(ReservationController::class)->group(function () {
+
+    Route::get('/search-room', 'searchRoom')->name('search-room');
+
+    Route::get('/search-reservation', 'searchReservation')->name('search-reservation');
+
+    Route::get('/details-reservation', 'detailsReservation')->name('details-reservation');
+
+    Route::post('/create-reservation', 'createReservation')->name('create-reservation');
+});
 
 Route::controller(CheckoutController::class)->group(function () {
 
-    Route::get('/checkout', 'checkout')->name('checkout');
+    Route::get('/checkout', 'checkout')->name('checkout')->middleware(CheckoutSession::class);
+
     Route::post('/checkout-session', 'checkoutSession')->name('checkoutSession');
-    Route::post('/payment', 'payment')->name('payment');
 });
+
+
+
+
 // Route::get('/checkout-reservation', [ReservationController::class, 'checkout'])->name('checkout-reservation');
 
 Route::get('/dashboard', function () {

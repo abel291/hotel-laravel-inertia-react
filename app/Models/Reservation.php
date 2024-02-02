@@ -12,15 +12,22 @@ class Reservation extends Model
     protected $guarded = [];
 
     protected $casts = [
+
         'start_date' => 'datetime:Y-m-d',
         'end_date' => 'datetime:Y-m-d',
-        'discount_data' => 'object',
-        'room_data' => 'object',
-        'user_data' => 'object',
-        'complements_data' => 'object',
-        'refund_data' => 'object',
         'total' => 'float',
         'sub_total' => 'float',
+        'adults' => 'integer',
+        'kids' => 'integer',
+        'nights' => 'integer',
+
+        'data' => 'object',
+        // 'discount_data' => 'object',
+        // 'room_data' => 'object',
+        // 'user_data' => 'object',
+        // 'complements_data' => 'object',
+        // 'refund_data' => 'object',
+        'offer' => 'object',
         // 'canceled_date' => 'datetime:Y-m-d',
     ];
 

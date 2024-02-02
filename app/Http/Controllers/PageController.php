@@ -201,4 +201,11 @@ class PageController extends Controller
 
         ]);
     }
+    public function legalPolicies()
+    {
+        $page = Page::where('type', 'legal-policies')->first();
+        return Inertia::render('LegalPolicies/LegalPolicies', [
+            'page' => $page
+        ]);
+    }
 }

@@ -4,24 +4,28 @@ import { CheckoutContext } from './Checkout';
 import { Link, usePage } from '@inertiajs/react';
 import { formatCurrency } from '@/Helpers/helper';
 import PrimaryButton from '@/Components/PrimaryButton';
+import RoomListBeds from '@/Components/RoomListBeds';
 
 const OrderSummary = ({ handleClickReservation, formUser }) => {
     const { room, reservation, charge } = usePage().props;
 
-
     return (
         <Card className=' overflow-hidden'>
+            {/* Gracias. Tu orden ha sido recibida. */}
 
             <div className="p-8 bg-white  divide-dashed divide-y">
                 <div className='pb-3'>
                     <ItemOrderSummary title="Habitacion">
-                        <Link href={route('room', { slug: room.slug })} className="text-primary-700 font-medium ">{room.name} d</Link>
+                        <div className='text-right'>
+                            <Link href={route('room', { slug: room.slug })} className="text-primary-700 font-medium ">{room.name} d</Link>
+                        </div>
                     </ItemOrderSummary>
+
                     <ItemOrderSummary title="Adultos">
                         {reservation.adults}
                     </ItemOrderSummary>
 
-                    {reservation.kids && (
+                    {(reservation.kids > 0) && (
                         <ItemOrderSummary title="Niños">
                             {reservation.kids}
                         </ItemOrderSummary>
@@ -32,11 +36,11 @@ const OrderSummary = ({ handleClickReservation, formUser }) => {
                     </ItemOrderSummary>
 
                     <ItemOrderSummary title="Fehca llegada">
-                        {reservation.startDate}
+                        {reservation.start_date}
                     </ItemOrderSummary>
 
                     <ItemOrderSummary title="Fecha Salida">
-                        {reservation.endDate}
+                        {reservation.end_date}
                     </ItemOrderSummary>
 
                     <ItemOrderSummary title="Precio por noche">
@@ -46,7 +50,7 @@ const OrderSummary = ({ handleClickReservation, formUser }) => {
                 <div className='py-3'>
                     {charge.offer && (
                         <>
-                            <ItemOrderSummary title={"Precio por " + charge.nights + " noche(s)"}>
+                            <ItemOrderSummary title={formatCurrency(room.price) + " x " + charge.nights + " noche(s)"}>
                                 {formatCurrency(charge.subTotal)}
                             </ItemOrderSummary>
 
@@ -80,8 +84,8 @@ const OrderSummary = ({ handleClickReservation, formUser }) => {
                     <PrimaryButton
                         onClick={handleClickReservation}
                         className='w-full'
-                        isLoading={true}
-                        disabled={true}
+                        isLoading={formUser.processing}
+                        disabled={formUser.processing}
                     >
                         Reservar
                     </PrimaryButton>
@@ -94,7 +98,7 @@ const OrderSummary = ({ handleClickReservation, formUser }) => {
 
 const ItemOrderSummary = ({ title, children }) => {
     return (
-        <div className="py-1  flex items-center justify-between text-base">
+        <div className="py-1  flex items-start justify-between text-base">
             <div>
                 {title}
             </div>

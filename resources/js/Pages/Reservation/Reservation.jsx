@@ -4,7 +4,7 @@ import React from 'react'
 import Filters from './Filters'
 import CardReservationRoom from './CardReservationRoom'
 
-const Reservation = ({ dates, rooms, }) => {
+const Reservation = ({ rooms, }) => {
 
     return (
         <Layout>

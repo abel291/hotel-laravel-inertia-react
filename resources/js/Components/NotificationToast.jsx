@@ -6,7 +6,7 @@ const NotificationToast = () => {
     const { flash, errors } = usePage().props
 
     useEffect(() => {
-        flash.success && toast.success(flash.success, { description: flash.success });
+        flash.success && toast.success(flash.success);
         flash.error && toast.warning(flash.error);
 
 

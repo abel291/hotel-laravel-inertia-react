@@ -17,11 +17,12 @@ return new class extends Migration
             $table->string('slug');
             $table->text('entry');
             $table->text('description');
-            $table->tinyInteger('quantity')->default(0);
-            $table->decimal('price', 10, 2)->default(0); //price per 1 night
+            $table->unsignedTinyInteger('quantity')->default(0);
+            $table->unsignedTinyInteger('remaining')->default(0);
+            $table->unsignedDecimal('price', 10, 2)->default(0); //price per 1 night
             $table->boolean('active')->default(1);
-            $table->tinyInteger('adults')->default(0);
-            $table->tinyInteger('kids')->default(0)->nullable();
+            $table->unsignedTinyInteger('adults')->default(0);
+            $table->unsignedTinyInteger('kids')->default(0)->nullable();
             $table->string('img');
             $table->string('thumb');
             $table->boolean('home')->default(0);

@@ -45,7 +45,7 @@ const Checkout = ({ }) => {
 
     function handleClickReservation(e) {
         e.preventDefault()
-        formUser.post(route('payment'))
+        formUser.post(route('create-reservation'))
     }
     return (
         <Layout>
@@ -57,8 +57,8 @@ const Checkout = ({ }) => {
 
             <CheckoutContext.Provider value={formUser}>
                 <section className='py-section'>
-                    <div className='container grid grid-cols-12 gap-16'>
-                        <div className=' col-span-7'>
+                    <div className='container grid lg:grid-cols-12 gap-16'>
+                        <div className=' lg:col-span-7'>
                             <div>
                                 <h4 className="font-semibold block mb-3 ">
                                     Información del contacto
@@ -74,7 +74,7 @@ const Checkout = ({ }) => {
                             </div> */}
 
                         </div>
-                        <div className=' col-span-5'>
+                        <div className=' lg:col-span-5'>
                             <h4 className="font-semibold block mb-3 ">Resumen del pedido</h4>
                             <OrderSummary handleClickReservation={handleClickReservation} formUser={formUser} />
                         </div>

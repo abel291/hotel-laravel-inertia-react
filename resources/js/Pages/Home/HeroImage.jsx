@@ -6,22 +6,10 @@ import "flatpickr/dist/themes/material_blue.css";
 import { useForm } from '@inertiajs/react';
 import { CalendarDays, UserRound } from 'lucide-react';
 import InputDate from '@/Components/InputDate';
+import UseReservation from '@/Hooks/UseReservation';
 const HeroImage = () => {
+    const { handleSubmit, formReservation, optionInputDate, errors } = UseReservation();
 
-    const { data, setData, get, processing } = useForm({
-        startDate: '',
-        endDate: '',
-        adults: 1
-    })
-    const optionInputDate = {
-        mode: 'range',
-        minDate: "today",
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        get(route('search-reservation'))
-    }
     return (
 
         <div className='overflow-hidden py-section lg:pt-10'>
@@ -50,14 +38,18 @@ const HeroImage = () => {
                                         <div className='flex items-center mt-1 border-b pb-1'>
                                             <CalendarDays strokeWidth={1.5} className='w-6 h-6 text-primary-700 mr-3' />
                                             <InputDate
-                                                options={optionInputDate}
+                                                options={{
+                                                    mode: 'range',
+                                                    defaultDate: [formReservation.data.start_date, formReservation.data.end_date],
+                                                    ...optionInputDate
+                                                }}
                                                 className='w-full ring-none focus:ring-0 border-none'
-                                                value={data.date}
-                                                onChange={(date) => {
 
-                                                    setData('startDate', date[0])
-                                                    if (date[1]) {
-                                                        setData('endDate', date[1])
+                                                onChange={(date, dateString) => {
+                                                    let dateArray = dateString.split(' a ')
+                                                    formReservation.setData('start_date', dateArray[0])
+                                                    if (dateArray[1]) {
+                                                        formReservation.setData('end_date', dateArray[1])
                                                     }
                                                 }}
                                             />
@@ -80,8 +72,12 @@ const HeroImage = () => {
                                     <div className='lg:px-4 '>
                                         <label htmlFor="" className='font-bold'>Adultos</label>
                                         <div className='flex items-center mt-1 border-b pb-1'>
-                                            <UserRound strokeWidth={1.5} className='w-6 h-6 text-primary-700 mr-3 shrink-0' />
-                                            <select className='select-form ring-none ring-0 focus:ring-0 border-none shadow-none' onChange={(e) => setData('adults', e.target.value)}>
+                                            <UserRound strokeWidth={1.5}
+                                                className='w-6 h-6 text-primary-700 mr-3 shrink-0' />
+                                            <select
+                                                className='select-form ring-none ring-0 focus:ring-0 border-none shadow-none'
+                                                onChange={(e) => formReservation.setData('adults', e.target.value)}
+                                            >
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>

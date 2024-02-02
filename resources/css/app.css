@@ -37,14 +37,28 @@
     .btn-secondary {
         @apply inline-flex justify-center rounded-lg h-10  items-center  px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-primary-100  hover:bg-primary-200 text-primary-800 active:bg-primary-300 active:text-primary-900;
     }
-
-    .shadow-neutral {
-        @apply shadow-[0_2px_30px_rgba(44,60,74,.08)];
-    }
     .bg-primary {
         @apply bg-primary-700/5;
     }
     .transition-color-text {
         @apply hover:text-primary-700 transition-colors ease-out;
+    }
+
+    .table-list {
+        @apply w-full;
+    }
+
+    .table-list thead tr th {
+        @apply py-4 text-start font-semibold;
+    }
+    .table-list tbody {
+        @apply divide-y;
+    }
+    .table-list tbody tr td {
+        @apply px-3 py-3.5 text-start;
+    }
+    .table-list tbody tr td:last-child,
+    .table-list thead tr th:last-child {
+        @apply text-right;
     }
 }

@@ -11,8 +11,8 @@ const Rules = () => {
     ]
     return (
         <div className='grid lg:grid-cols-2 gap-4'>
-            {rules.map((rule) => (
-                <div className='flex'>
+            {rules.map((rule, index) => (
+                <div key={index} className='flex'>
                     <CheckIcon className='text-primary-700 shrink-0 w-6 h-6 mr-1.5' />
                     <span className='text-lg text-neutral-700 font-light '>{rule}</span>
                 </div>
