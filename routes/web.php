@@ -1,11 +1,14 @@
 <?php
 
 use App\Http\Controllers\CheckoutController;
+use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\DashboardRoomController;
+use App\Http\Controllers\Dashboard\RoomController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\CheckoutSession;
-use Illuminate\Foundation\Application;
+
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -58,14 +61,16 @@ Route::controller(CheckoutController::class)->group(function () {
     Route::post('/checkout-session', 'checkoutSession')->name('checkoutSession');
 });
 
-
-
-
 // Route::get('/checkout-reservation', [ReservationController::class, 'checkout'])->name('checkout-reservation');
+Route::prefix('dashboard')->middleware('auth')->name('dashboard.')
+    // ->middleware(['role:admin'])
+    ->group(function () {
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+        Route::get('/', [DashboardController::class, 'home'])->name('home');
+
+        Route::resource('rooms', RoomController::class);
+    });
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

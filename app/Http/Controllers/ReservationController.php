@@ -74,7 +74,7 @@ class ReservationController extends Controller
 
             $reservation->save();
 
-            Mail::to($reservation->data->user->email)->send(new OrderShipped($reservation));
+            // Mail::to($reservation->data->user->email)->send(new OrderShipped($reservation));
 
             session()->forget(['reservation', 'room', 'charge']);
         });

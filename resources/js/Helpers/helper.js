@@ -1,6 +1,6 @@
 const currencyFormat = Intl.NumberFormat("de-DE", {
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
 });
 export const formatCurrency = (n) => {
     n = n ? n : 0; // number NaN = 0

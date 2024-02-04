@@ -14,6 +14,7 @@ class RoomService
 
         $rooms = Room::where('active', 1)
             ->where('adults', '>=', $adults)
+            ->where('remaining', '>', 0)
             ->when($kids, function (Builder $query, string $kids) {
                 $query->where('kids', '>=', $kids);
             })

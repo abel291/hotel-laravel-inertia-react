@@ -29,7 +29,7 @@ class UserCheckoutRequest extends FormRequest
             'city' => 'required|string|max:255',
             'note' => 'nullable|string|max:255',
             'newsletter' => 'boolean',
-            'terms' => 'boolean',
+            'terms' => 'required|boolean',
         ];
     }
     public function attributes(): array

@@ -1,4 +1,5 @@
 import Card from '@/Components/Card'
+import Checkbox from '@/Components/Checkbox'
 import InputError from '@/Components/InputError'
 import TextInput from '@/Components/TextInput'
 import { useForm, usePage } from '@inertiajs/react'
@@ -52,11 +53,10 @@ const UserForm = ({ handleChange, formUser }) => {
                 <div className='lg:col-span-12'>
                     <div className='flex'>
                         <div className='flex h-6 items-center'>
-                            <input id="newsletter"
+                            <Checkbox id="newsletter"
                                 onChange={handleChange}
-                                type="checkbox"
-                                className=' input-checkbox'
-                                defaultValue={formUser.data.newsletter}
+
+                                checked={formUser.data.newsletter}
                             />
                         </div>
                         <label htmlFor="newsletter" className='ml-2 block'>
@@ -69,7 +69,7 @@ const UserForm = ({ handleChange, formUser }) => {
                 <div className='lg:col-span-12'>
                     <div className='flex'>
                         <div className='flex h-6 items-center'>
-                            <input id="terms"
+                            <Checkbox id="terms"
                                 onChange={handleChange}
                                 type="checkbox"
                                 className='input-checkbox'

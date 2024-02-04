@@ -21,22 +21,16 @@ use Inertia\Inertia;
 
 class PageController extends Controller
 {
-    public function home(Request $request)
+    public function home()
     {
-        // $request->validate([
-        //     'title' => 'required|unique:posts|max:255',
-        //     'body' => 'required',
-        // ]);
-
         $page = Page::where('type', 'home')->first();
-
         $rooms = Room::select('id', 'slug', 'name', 'thumb', 'entry', 'adults', 'price', 'home')
             ->with('beds')
             ->where('active', 1)
             ->get();
 
         $cheap_rooms = $rooms->sortBy('price')->first();
-        $rooms_home = $rooms->where('home', true)->values();
+        $rooms_home = $rooms->where('home', true)->where('active', 1)->values();
 
         $posts = Blog::with('category:id,name')->where('home', true)->where('active', 1)->get();
 
@@ -109,7 +103,8 @@ class PageController extends Controller
     {
         $room = Room::with('beds', 'images', 'amenities')
             ->where('slug', $slug)
-            ->where('active', 1)->firstOrFail();
+            ->where('active', 1)
+            ->firstOrFail();
 
         $nights = 7;
         $offer = OfferService::findOffer($nights);

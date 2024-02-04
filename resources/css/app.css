@@ -62,3 +62,11 @@
         @apply text-right;
     }
 }
+
+/* --------------- dashboard -------------- */
+.table-button-option-danger {
+    @apply text-red-600 hover:text-red-700 font-medium;
+}
+.table-button-option {
+    @apply text-primary-600 hover:text-primary-700 font-medium;
+}

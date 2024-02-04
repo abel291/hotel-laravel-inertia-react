@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('slug');
             $table->text('entry');
             $table->text('description');
-            $table->unsignedTinyInteger('quantity')->default(0);
-            $table->unsignedTinyInteger('remaining')->default(0);
+            $table->unsignedSmallInteger('quantity')->default(1);
             $table->unsignedDecimal('price', 10, 2)->default(0); //price per 1 night
             $table->boolean('active')->default(1);
             $table->unsignedTinyInteger('adults')->default(0);
