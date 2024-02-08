@@ -18,20 +18,26 @@
     }
     .select-form,
     .input-form,
-    .input-textarea {
+    .textarea-form {
         @apply block w-full rounded-md border-0 py-2 text-gray-800 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600  sm:leading-6 disabled:bg-gray-200;
     }
     .input-radio {
-        @apply h-4 w-4 border-primary-300 text-primary-600 focus:ring-primary-600;
+        @apply h-4 w-4 border-primary-700 text-primary-700 focus:ring-primary-800;
     }
     .input-checkbox {
         @apply h-4 w-4 rounded border-primary-700 text-primary-700 focus:ring-primary-800;
+    }
+    .input-label {
+        @apply block font-medium text-sm text-gray-700;
     }
     .title {
         @apply text-lg leading-6 font-semibold;
     }
     .btn-primary {
         @apply inline-flex justify-center rounded-lg h-10  items-center  px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-primary-800 text-white hover:bg-primary-900 active:bg-primary-900 active:text-white/80;
+    }
+    .btn-danger {
+        @apply inline-flex justify-center rounded-lg h-10  items-center  px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-red-600 text-white hover:bg-red-700 active:bg-red-700 active:text-white/80;
     }
 
     .btn-secondary {
@@ -61,12 +67,4 @@
     .table-list thead tr th:last-child {
         @apply text-right;
     }
-}
-
-/* --------------- dashboard -------------- */
-.table-button-option-danger {
-    @apply text-red-600 hover:text-red-700 font-medium;
-}
-.table-button-option {
-    @apply text-primary-600 hover:text-primary-700 font-medium;
 }

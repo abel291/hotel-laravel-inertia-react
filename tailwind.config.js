@@ -24,6 +24,19 @@ export default {
         },
         colors: {
             ...colors,
+            // primary: {
+            //     50: "#EFF5FB",
+            //     100: "#E3EEF8",
+            //     200: "#C3DAEF",
+            //     300: "#A6C9E7",
+            //     400: "#86B5DF",
+            //     500: "#6AA4D7",
+            //     600: "#4A91CF",
+            //     700: "#337FC2",
+            //     800: "#2B6AA1",
+            //     900: "#235784",
+            //     950: "#112A41"
+            // }
             primary: colors.sky,
         },
         extend: {

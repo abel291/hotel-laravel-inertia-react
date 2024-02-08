@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -child {
+    @apply pr-4;
+}
+.table-list tr th:last-child,
+.table-list tr td:last-child {
+    @apply pl-4;
+}
+.table-list tr th:not(:first-child, :last-child),
+.table-list tr td:not(:first-child, :last-child) {
+    @apply px-2;
+} */
+.btn {
+    @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-neutral-300;
+}
+
+.btn-primary {
+    @apply bg-primary-800 text-white  hover:bg-primary-800/90;
+}
+
+.btn-secondary {
+    @apply bg-neutral-100 text-neutral-900  hover:bg-neutral-100/80;
+}
+.btn-danger {
+    @apply bg-red-600 text-red-50 hover:bg-red-500 active:bg-red-700 focus:ring-red-500;
+}
+.input-form,
+.select-form,
+.textarea-form {
+    @apply text-sm block w-full rounded-md border-0 py-2 text-gray-800 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-700 sm:leading-6 disabled:bg-gray-200;
+}
+.input-radio {
+    @apply h-4 w-4 border-primary-700 text-primary-700 focus:ring-primary-800;
+}
+.input-checkbox {
+    @apply h-4 w-4 rounded border-primary-700 text-primary-700 focus:ring-primary-800;
+}
+
+.pagination-current-page {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 border hover:bg-neutral-100  h-9 px-3.5;
+}
+.pagination-page {
+    @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 hover:bg-neutral-100 h-9 px-3.5;
+}
+
+.table-button-option-danger {
+    @apply text-red-600 hover:text-red-700 font-medium;
+}
+.table-button-option {
+    @apply text-primary-700 hover:text-primary-900 font-medium;
+}

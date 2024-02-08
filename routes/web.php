@@ -8,7 +8,10 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\CheckoutSession;
-
+use App\Livewire\Dashboard;
+use App\Livewire\Offer\OfferList;
+use App\Livewire\Room\RoomCreate;
+use App\Livewire\Room\RoomList;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -66,9 +69,14 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')
     // ->middleware(['role:admin'])
     ->group(function () {
 
-        Route::get('/', [DashboardController::class, 'home'])->name('home');
+        Route::get('/', Dashboard::class)->name('home');
+        Route::get('/dd', Dashboard::class)->name('home2');
+        Route::get('/rooms', RoomList::class)->name('rooms.index');
+        Route::get('/rooms/create', RoomCreate::class)->name('rooms.create');
+        Route::get('/rooms/{id}/edit', RoomCreate::class)->name('rooms.edit');
 
-        Route::resource('rooms', RoomController::class);
+        Route::get('/offers', OfferList::class)->name('offers.index');
+        Route::get('/offer/{edit}/edit', RoomCreate::class)->name('offers.edit');
     });
 
 

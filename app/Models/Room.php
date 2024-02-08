@@ -13,27 +13,36 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Room extends Model
 {
     use HasFactory;
+    protected $guarded = [];
+    protected $casts = [
+        // 'name' => 'string',
+        // 'slug' => 'string',
+        // 'entry' => 'string',
+        // 'description' => 'string',
+        // 'quantity' => 'integer',
+        // 'price' => 'float',
+        // 'active' => 'boolean',
+        // 'adults' => 'integer',
+        // 'kids' => 'integer',
+        // 'home' => 'boolean',
+        // 'about' => 'boolean',
+    ];
 
-    // protected $casts = [
-    //     'name' => 'string',
-    //     'slug' => 'string',
-    //     'entry' => 'string',
-    //     'description' => 'string',
-    //     'quantity' => 'integer',
-    //     'price' => 'float',
-    //     'active' => 'boolean',
-    //     'adults' => 'integer',
-    //     'kids' => 'integer',
-    // ];
-
-    // protected $attributes = [
-    //     'active' => 0,
-    //     'quantity' => 0,
-    //     'price' => 0,
-    //     // 'beds' => 0,
-    //     'adults' => 0,
-    //     'kids' => 0,
-    // ];
+    protected $attributes = [
+        'name' => '',
+        'slug' => '',
+        'entry' => '',
+        'description' => '',
+        'quantity' => 1,
+        'price' => null,
+        'active' => 1,
+        'adults' => 1,
+        'kids' => 0,
+        'img' => null,
+        'thumb' => null,
+        'home' => 1,
+        'about' => 1,
+    ];
 
     public function images()
     {

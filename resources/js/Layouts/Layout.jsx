@@ -11,7 +11,6 @@ const Layout = ({ children }) => {
     return (
         <>
             <NotificationToast />
-
             <Navbar />
             <main>{children}</main>
             <Footer />
