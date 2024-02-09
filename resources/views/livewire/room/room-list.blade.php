@@ -1,24 +1,37 @@
 @section('title', $labelPlural)
+
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ $labelPlural }}
-    </h2>
-</x-slot>
-
-<div>
-    <div class="flex flex-col md:flex-row md:justify-between md:items-center gap-2 my-4">
-        <x-form.input-search />
+    <div class="flex justify-between items-end">
         <div>
-            <a href="{{ route('dashboard.rooms.create') }}" class="btn btn-primary">
-                Agregar {{ $label }}
-            </a>
+            <x-breadcrumb :data="[
+                [
+                    'path' => route('dashboard.rooms.index'),
+                    'name' => $labelPlural,
+                ],
+                [
+                    'path' => null,
+                    'name' => 'Lista',
+                ],
+            ]" />
+            <x-header-title class="mt-2">
+                {{ $labelPlural }}
+            </x-header-title>
         </div>
-    </div>
 
-    <x-content>
+        <a href="{{ route('dashboard.rooms.create') }}" class="btn btn-primary">
+            Agregar {{ $label }}
+        </a>
+    </div>
+</x-slot>
+<div>
+
+    <div class=" bg-white overflow-hidden rounded-lg border">
+        <div class="flex justify-end gap-2 py-4 px-6">
+            <x-form.input-search />
+        </div>
         <x-table.table :data="$list" wire:target="search">
             @php
-                $headList = ['Nombre', 'Comodidades', 'Tipos de camas', 'Cantidad', 'Precio x noche', 'Activo', 'opciones'];
+                $headList = ['Nombre', 'Comodidades', 'Tipos de camas', 'Cantidad', 'Precio', 'Activo', 'opciones'];
             @endphp
             <x-table.table-head>
                 @foreach ($headList as $name)
@@ -49,7 +62,7 @@
                         </x-table.td>
                         <x-table.td>
 
-                            <span class="font-medium">
+                            <span class="font-medium whitespace-nowrap">
                                 @money($item->price)
                             </span>
                         </x-table.td>
@@ -87,6 +100,6 @@
                 @endforeach
             </x-table.tbody>
         </x-table.table>
-    </x-content>
+    </div>
     <x-modal-confirmation-delete />
 </div>

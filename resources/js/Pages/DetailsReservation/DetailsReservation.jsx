@@ -156,7 +156,7 @@ const DetailsReservation = ({ reservation }) => {
                                                 Sub Total
                                             </td>
                                             <td className=''>
-                                                {formatCurrency(reservation.offer.priceTotalOffer)}
+                                                {formatCurrency(reservation.sub_total)}
                                             </td>
                                         </tr>
                                         <tr>

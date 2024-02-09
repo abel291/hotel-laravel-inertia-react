@@ -1,5 +1,5 @@
- <thead>
-     <tr>
+ <thead class="bg-gray-50">
+     <x-table.tr>
          {{ $slot }}
-     </tr>
+     </x-table.tr>
  </thead>

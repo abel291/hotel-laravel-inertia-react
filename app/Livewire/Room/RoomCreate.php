@@ -15,7 +15,7 @@ class RoomCreate extends Component
 {
     use TraitUploadImage, WithFileUploads;
     public $label = 'Habitacion';
-    public $labelPlural = 'Crear Habitacion';
+    public $labelPlural = 'Habitaciones';
 
     public RoomForm $form;
 
@@ -75,6 +75,6 @@ class RoomCreate extends Component
     }
     public function render()
     {
-        return view('<livewire class="roo"></livewire>m.room-create');
+        return view('livewire.room.room-create');
     }
 }

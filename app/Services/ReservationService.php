@@ -13,32 +13,27 @@ use Illuminate\Database\Eloquent\Collection;
 class ReservationService
 {
 
-    public static function createReservation($start_date, $end_date, $room, $complements = null, $discount = null)
+    public static function createReservation($start_date, $end_date, $room)
     {
-        $start_date = Carbon::createFromFormat('Y-m-d', $start_date);
-        $end_date = Carbon::createFromFormat('Y-m-d', $end_date);
+
         $nights = $start_date->diffInDays($end_date);
-
+        $offer = OfferService::findOffer($nights);
+        $charge = ReservationService::totalCalculation($room->price, $nights, $offer);
+        // dd($charge);
         $reservation = new Reservation([
-            'code' => fake()->bothify('?#?#?#?#'),
-            'start_date' => $start_date,
-            'end_date' => $end_date,
+            'start_date' => $start_date->format('Y-m-d'),
+            'end_date' => $end_date->format('Y-m-d'),
             'nights' => $nights,
+            'code' => fake()->bothify('########'),
+            'price' => $charge['pricePerNight'],
+            'nights' => $nights,
+            'sub_total' => $charge['subTotal'],
+            'tax_percent' => $charge['taxPercent'],
+            'tax_amount' => $charge['taxAmount'],
+            'total' => $charge['total'],
+            'offer' => $charge['offer'],
             'room_id' => $room->id,
-            'room_data' => $room->only('name', 'price', 'img', 'beds'),
         ]);
-
-        $calculated_price = ReservationService::totalCalculation(
-            price: $room->price,
-            night: $reservation->night,
-            complements: $complements,
-        );
-
-        $reservation->sub_total = $calculated_price['sub_total'];
-        $reservation->total = $calculated_price['total'];
-        $reservation->complements_data = $calculated_price['complements_data'];
-        $reservation->discount_data = $calculated_price['discount_data'];
-
 
         return $reservation;
     }

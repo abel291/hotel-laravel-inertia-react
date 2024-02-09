@@ -25,29 +25,25 @@
         </div>
 
         <div class="md:ml-72">
-            <div class="min-h-screen bg-neutral-100">
+            <div class="min-h-screen bg-neutral-50">
                 <x-layouts.navigation />
-
 
                 <!-- Page Heading -->
                 @if (isset($header))
-                    <header class="bg-white shadow">
-                        <div class="max-w-7xl mx-auto py-5 px-4 sm:px-6 lg:px-8">
-                            <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-                                {{ $header }}
-                            </h2>
+                    <header>
+                        <div class="max-w-7xl mx-auto pt-12 px-4 md:px-6 lg:px-8">
+                            {{-- <h2 class="font-semibold text-xl text-gray-800 leading-tight"> --}}
+                            {{ $header }}
+                            {{-- </h2> --}}
                         </div>
                     </header>
                 @endif
 
                 <!-- Page Content -->
                 <main>
-                    <div class="py-12">
-
-                        <div class="max-w-7xl mx-auto ">
-                            <x-notification />
-                            {{ $slot }}
-                        </div>
+                    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6">
+                        <x-notification />
+                        {{ $slot }}
                     </div>
                 </main>
             </div>

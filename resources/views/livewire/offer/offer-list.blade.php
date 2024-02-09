@@ -1,13 +1,32 @@
 @section('title', $labelPlural)
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ $labelPlural }}
-    </h2>
+    <div class="flex justify-between items-end">
+        <div>
+            <x-breadcrumb :data="[
+                [
+                    'path' => route('dashboard.offers.index'),
+                    'name' => $labelPlural,
+                ],
+                [
+                    'path' => null,
+                    'name' => 'Lista',
+                ],
+            ]" />
+            <x-header-title class="mt-2">
+                {{ $labelPlural }}
+            </x-header-title>
+        </div>
+
+
+    </div>
 </x-slot>
 
 <div>
 
-    <x-content>
+    <div class=" bg-white overflow-hidden rounded-lg border">
+        <div class="flex justify-end gap-2 py-4 px-6">
+            <x-form.input-search />
+        </div>
         <x-table.table :data="$list" wire:target="search">
             @php
                 $headList = ['N° Noches', 'Porcentaje de descuento', 'Fecha de Modificaion', ''];
@@ -49,7 +68,7 @@
                 @endforeach
             </x-table.tbody>
         </x-table.table>
-    </x-content>
+    </div>
     <livewire:offer.offer-edit :label="$label" :label-plural="$labelPlural" />
 
 </div>

@@ -1,1 +1,1 @@
-<td class='px-3 py-3.5 text-start'>{{ $slot }}</td>
+<td class='px-3 py-4 text-start '>{{ $slot }}</td>

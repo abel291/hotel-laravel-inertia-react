@@ -3,7 +3,7 @@ if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
 "
     x-init="" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
     <!-- Primary Navigation Menu -->
-    <div class="mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
+    <div class="mx-auto max-w-7xl">
         <div class="flex justify-between h-16">
             <div class="items-center hidden md:flex">
                 <x-application-logo class="text-neutral-800" />
@@ -83,7 +83,16 @@ if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Perfil') }}
+
+                            <div class="flex items-center gap-2 whitespace-nowrap">
+                                <x-lucide-user class="h-5 w-5 text-gray-400 dark:text-gray-500" />
+                                <span class="flex-1 truncate text-start text-gray-700 dark:text-gray-200">
+                                    Pefil
+                                </span>
+                            </div>
+
+
+
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -91,9 +100,14 @@ if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                onclick="event.preventDefault();
-                                            this.closest('form').submit();">
-                                {{ __('Salir') }}
+                                onclick="event.preventDefault(); this.closest('form').submit();">
+                                <div class="flex items-center gap-2 whitespace-nowrap">
+                                    <x-lucide-log-out class="h-5 w-5 text-gray-400 dark:text-gray-500" />
+                                    <span class="flex-1 truncate text-start text-gray-700 dark:text-gray-200">
+                                        {{ __('Salir') }}
+                                    </span>
+                                </div>
+
                             </x-dropdown-link>
                         </form>
                     </x-slot>

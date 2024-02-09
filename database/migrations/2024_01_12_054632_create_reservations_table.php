@@ -21,7 +21,7 @@ return new class extends Migration
             $table->unsignedInteger('room_quantity')->default(1);
             $table->string('check_in', 8)->default('02:30 PM')->nullable();
             $table->text('special_request')->nullable();
-            $table->enum('state', ['canceled', 'refunded', 'successful'])->default('successful');
+            $table->string('state')->default('successful');
             $table->tinyInteger('nights');
             $table->unsignedDecimal('price');
             $table->unsignedDecimal('sub_total', 12, 2);

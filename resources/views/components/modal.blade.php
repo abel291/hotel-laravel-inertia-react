@@ -36,7 +36,7 @@
 
 
                 <div class="p-6 ">
-                    <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                    <h2 class="text-xl font-semibold text-gray-900 dark:text-gray-100">
                         {{ $title }}
                     </h2>
 

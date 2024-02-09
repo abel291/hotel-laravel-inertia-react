@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Enums\PaymentStatus;
+use App\Enums\ReservationStatus;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -29,6 +31,7 @@ class Reservation extends Model
         // 'refund_data' => 'object',
         'offer' => 'object',
         // 'canceled_date' => 'datetime:Y-m-d',
+        'state' => ReservationStatus::class,
     ];
 
     public function room()

@@ -8,7 +8,7 @@
     @endif
 
     <div class="relative sm:max-w-md">
-        <div class="absolute inset-y-0 left-3  flex items-center">
+        <div class="absolute inset-y-0 left-2  flex items-center">
             {{ $text }}
         </div>
         <input {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge([

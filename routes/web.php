@@ -10,6 +10,8 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\CheckoutSession;
 use App\Livewire\Dashboard;
 use App\Livewire\Offer\OfferList;
+use App\Livewire\Reservation\ReservationList;
+use App\Livewire\Reservation\ReservationShow;
 use App\Livewire\Room\RoomCreate;
 use App\Livewire\Room\RoomList;
 use Illuminate\Support\Facades\Route;
@@ -77,6 +79,9 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')
 
         Route::get('/offers', OfferList::class)->name('offers.index');
         Route::get('/offer/{edit}/edit', RoomCreate::class)->name('offers.edit');
+
+        Route::get('/reservations', ReservationList::class)->name('reservations.index');
+        Route::get('/reservations/{reservation}/show', ReservationShow::class)->name('reservations.show');
     });
 
 

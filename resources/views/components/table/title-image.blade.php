@@ -8,17 +8,17 @@
 
             @if ($title)
                 @if ($path)
-                    <a class="text-blue-500 font-medium" target='_blank' href={{ $path }}>
+                    <a class="font-medium" target='_blank' href={{ $path }}>
                         {{ $title }}
                     </a>
                 @else
-                    <div class="font-medium text-neutral-800">
+                    <div class="font-medium ">
                         {{ $title }}
                     </div>
                 @endif
             @endif
             @if ($subTitle)
-                <div class="mt-0.5 text-gray-500 text-xs">
+                <div class="mt-0.5 text-gray-700">
                     {{ $subTitle }}
                 </div>
             @endif

@@ -50,5 +50,5 @@
     @apply text-red-600 hover:text-red-700 font-medium;
 }
 .table-button-option {
-    @apply text-primary-700 hover:text-primary-900 font-medium;
+    @apply text-primary-600 hover:text-primary-700 font-medium;
 }

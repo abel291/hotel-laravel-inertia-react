@@ -40,7 +40,7 @@ class DatabaseSeeder extends Seeder
             OfferSeeder::class,
             RoomSeeder::class,
             UserSeeder::class,
-            // ReservationSeeder::class,
+            ReservationSeeder::class,
         ]);
         Schema::enableForeignKeyConstraints();
     }

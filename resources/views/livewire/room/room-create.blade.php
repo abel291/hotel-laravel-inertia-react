@@ -1,22 +1,32 @@
 @section('title', $labelPlural)
 <x-slot name="header">
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-        {{ $labelPlural }}
-    </h2>
+    <div>
+        <x-breadcrumb :data="[
+            [
+                'path' => route('dashboard.rooms.index'),
+                'name' => $labelPlural,
+            ],
+            [
+                'path' => null,
+                'name' => $isEdit ? 'Edicion' : 'Creacion',
+            ],
+        ]" />
+        <x-header-title class="mt-2">
+            {{ $label }}
+        </x-header-title>
+    </div>
 </x-slot>
 
 <div class="max-w-6xl">
 
-    <x-content>
 
+    <x-content>
         <form wire:submit.prevent="{{ $isEdit ? 'update' : 'save' }}" class="space-y-10">
 
             <section class="border-b border-neutral-900/10 pb-12">
                 <header>
                     <x-title>Datos de la habitacion</x-title>
                 </header>
-
-
 
                 <x-form.grid class="mt-6">
                     <div class="lg:col-span-8">
