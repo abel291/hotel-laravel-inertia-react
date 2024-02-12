@@ -9,13 +9,12 @@ const Layout = ({ children }) => {
     const { auth } = usePage().props
 
     return (
-        <>
+        <div >
             <NotificationToast />
             <Navbar />
             <main>{children}</main>
             <Footer />
-
-        </>
+        </div>
     );
 }
 

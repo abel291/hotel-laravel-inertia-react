@@ -8,6 +8,6 @@
         {{-- <x-text-input type="text" wire:model.live.debounce.500ms="search" placeholder="Buscar" class="md:w-64" /> --}}
     </div>
     {{ $slot }}
-    <x-spinner-loading wire:loading class="mt-1" />
+    <x-spinner-loading wire:loading wire:target="search" class="mt-1" />
 
 </div>

@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('beds', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('icon');
             $table->text('entry');
+            $table->string('icon');
             //$table->boolean('active')->default(1);
             $table->timestamps();
         });

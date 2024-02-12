@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Bed extends Model
 {
     use HasFactory;
-
+    protected $guarded = [];
     public function rooms()
     {
         return $this->belongsToMany(Room::class)->withPivot('quantity');

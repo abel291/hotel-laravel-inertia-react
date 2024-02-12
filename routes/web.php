@@ -2,12 +2,15 @@
 
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\DashboardRoomController;
 use App\Http\Controllers\Dashboard\RoomController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\CheckoutSession;
+use App\Livewire\Amenity\AmenityCreate;
+use App\Livewire\Amenity\AmenityList;
+use App\Livewire\bed\BedCreate;
+use App\Livewire\Bed\BedList;
 use App\Livewire\Dashboard;
 use App\Livewire\Offer\OfferList;
 use App\Livewire\Reservation\ReservationList;
@@ -71,6 +74,9 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')
     // ->middleware(['role:admin'])
     ->group(function () {
 
+        // Route::get('/', [DashboardController::class, 'home'])->name('home');
+        // Route::resource('rooms', RoomController::class);
+
         Route::get('/', Dashboard::class)->name('home');
         Route::get('/dd', Dashboard::class)->name('home2');
         Route::get('/rooms', RoomList::class)->name('rooms.index');
@@ -82,6 +88,14 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')
 
         Route::get('/reservations', ReservationList::class)->name('reservations.index');
         Route::get('/reservations/{reservation}/show', ReservationShow::class)->name('reservations.show');
+
+        Route::get('/amenities', AmenityList::class)->name('amenities.index');
+        Route::get('/amenities/create', AmenityCreate::class)->name('amenities.create');
+        Route::get('/amenities/{id}/edit', AmenityCreate::class)->name('amenities.edit');
+
+        Route::get('/beds', BedList::class)->name('beds.index');
+        Route::get('/beds/create', BedCreate::class)->name('beds.create');
+        Route::get('/beds/{id}/edit', BedCreate::class)->name('beds.edit');
     });
 
 

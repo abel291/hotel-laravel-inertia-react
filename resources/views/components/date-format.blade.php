@@ -2,11 +2,10 @@
 <div class="text-sm">
     <div class="whitespace-nowrap font-medium text-neutral-600 ">
         {!! $date->isoFormat('DD MMM YYYY hh:mm A') !!}
-        @if (now()->diffInMinutes($date) < 120)
-            <x-badge color="green" class="ml-3">recien</x-badge>
-        @endif
-
     </div>
+    @if (now()->diffInMinutes($date) < 120)
+        <x-badge color="green" class="block">Recien</x-badge>
+    @endif
 
     {{-- 20 MIN --}}
     {{-- <div class="flex items-center gap-x-4 mt-1">

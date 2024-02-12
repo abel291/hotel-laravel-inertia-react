@@ -39,14 +39,14 @@
         ],
         [
             'title' => 'Comodidades',
-            'route' => 'dashboard.home2',
-            'routeActive' => 'dashboard.home2',
+            'route' => 'dashboard.amenities.index',
+            'routeActive' => 'dashboard.amenities.*',
             'icon' => 'lucide-lamp',
         ],
         [
             'title' => 'Camas',
-            'route' => 'dashboard.home2',
-            'routeActive' => 'dashboard.home2',
+            'route' => 'dashboard.beds.index',
+            'routeActive' => 'dashboard.beds.*',
             'icon' => 'lucide-sofa',
         ],
     ];

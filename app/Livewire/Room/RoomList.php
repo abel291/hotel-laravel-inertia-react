@@ -24,7 +24,7 @@ class RoomList extends Component
         $room = Room::find($id);
         // Storage::delete([$room->img, $room->thumb]);
         $room->delete();
-        $this->open_modal_confirmation_delete = false;
+
 
         $this->open_modal_confirmation_delete = false;
         $this->dispatch('renderListRoom');

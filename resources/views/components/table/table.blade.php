@@ -11,11 +11,11 @@
                 {{ $slot }}
             </table>
         </div>
-        <div class="text-sm mt-10">
+        <div class="text-sm  pt-10 pb-6 px-6">
             {{ $data->links() }}
         </div>
     @else
-        <div class="text-center">
+        <div class="text-center py-3.5 px-3">
             <span class=" text-sm text-gray-500">No hay registros disponibles</span>
         </div>
     @endif

@@ -25,7 +25,7 @@
         </div>
 
         <div x-show="show"
-            class="fixed inset-0 flex justify-center items-start transform transition-all px-4 pt-6 sm:px-4  overflow-y-auto max-h-screen"
+            class="fixed inset-0 flex justify-center items-center transform transition-all px-4 pt-6 sm:px-4 overflow-y-auto max-h-screen"
             x-transition:enter="ease-out duration-300"
             x-transition:enter-start="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
             x-transition:enter-end="opacity-100 translate-y-0 sm:scale-100" x-transition:leave="ease-in duration-200"

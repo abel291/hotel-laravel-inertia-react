@@ -1,6 +1,6 @@
 @if (session('success'))
-    <div x-data="{ show: true }" class="max-w-7xl mx-auto" x-transition.duration.500ms x-show="show">
-        <div class="rounded-md p-4 bg-green-50 mt-2 border border-green-300">
+    <div x-data="{ show: true }" class="max-w-7xl mx-auto my-4" x-transition.duration.500ms x-show="show">
+        <div class="rounded-md p-4 bg-green-50 border border-green-300">
             <div class="flex items-center">
                 <div class="flex-shrink">
                     <x-heroicon-m-check-circle class="w-5 h-5 text-green-400" />

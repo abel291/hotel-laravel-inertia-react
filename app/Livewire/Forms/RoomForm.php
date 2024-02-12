@@ -32,7 +32,7 @@ class RoomForm extends Form
     protected  $rules = [
         'name' => ['required', 'string', 'min:1', 'max:255'],
         'slug' => ['required', 'string', 'min:1', 'max:255'],
-        'entry' => ['required', 'string', 'min:1'],
+        'entry' => ['required', 'string', 'min:1', 'max:255'],
         'description' => ['required', 'string', 'min:1'],
         'quantity' => ['required', 'integer', 'min:0', 'max:65535'],
         'price' => ['required', 'numeric', 'min:0'],

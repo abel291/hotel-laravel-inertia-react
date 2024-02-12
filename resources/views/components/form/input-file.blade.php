@@ -25,7 +25,7 @@
     </div>
     <div class="flex items-start gap-3">
         @if ($saved)
-            <div class="w-full lg:w-1/2 flex justify-center">
+            <div class="w-full lg:w-1/2 flex ">
                 <div>
                     <span class="text-sm text-gray-500 mb-1 block">Imagen actual</span>
                     <img class="border rounded-md overflow-hidden" src="{{ $saved }}?{{ rand(1, 300) }}">
@@ -33,7 +33,7 @@
             </div>
         @endif
         @if ($temp)
-            <div class="w-full lg:w-1/2 flex justify-center">
+            <div class="w-full lg:w-1/2 flex ">
                 <div>
                     <span class="text-sm text-gray-500 mb-1 block">Imagen nueva</span>
                     <img class="border rounded-md overflow-hidden" src="{{ $temp->temporaryUrl() }}">
