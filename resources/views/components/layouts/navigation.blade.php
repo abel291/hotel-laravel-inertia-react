@@ -91,8 +91,6 @@ if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
                                 </span>
                             </div>
 
-
-
                         </x-dropdown-link>
 
                         <!-- Authentication -->
@@ -110,43 +108,69 @@ if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
 
                             </x-dropdown-link>
                         </form>
+                        <div x-data="{
+                            theme: null,
+                            init: function() {
+                                this.theme = localStorage.getItem('theme') || 'system'
+                        
+                                $watch('theme', (theme) => {
+                                    localStorage.setItem('theme', theme);
+                        
+                                    if (theme === 'dark' || theme === 'system') {
+                                        document.querySelector('html').classList.add('dark');
+                                    } else {
+                                        document.querySelector('html').classList.remove('dark');
+                                    }
+                                })
+                            },
+                        
+                        
+                        }" chageTheme(theme) { this.theme=theme localStorage.setItem('theme',
+                            theme); document.querySelector('html').classList.add(theme); },
+                            class="fi-theme-switcher grid grid-flow-col gap-x-1">
+                            <button aria-label="Enable light theme" type="button"
+                                x-bind:class="theme === 'light' ?
+                                    'bg-gray-50 text-primary-500 dark:bg-white/5 dark:text-primary-400' :
+                                    'text-gray-400 hover:text-gray-500 focus-visible:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:text-gray-400'"
+                                x-on:click="(theme = 'light') &amp;&amp; close()"
+                                x-tooltip="{
+                            content: 'Enable light theme',
+                            theme: $store.theme,
+                        }"
+                                class="flex justify-center rounded-lg p-2 outline-none transition duration-75 hover:bg-gray-50 focus-visible:bg-gray-50 dark:hover:bg-white/5 dark:focus-visible:bg-white/5 bg-gray-50 text-primary-500 dark:bg-white/5 dark:text-primary-400">
+                                <x-heroicon-s-sun class="h-5 w-5" />
+                            </button>
+
+                            <button aria-label="Enable dark theme" type="button"
+                                x-bind:class="theme === 'dark' ?
+                                    'bg-gray-50 text-primary-500 dark:bg-white/5 dark:text-primary-400' :
+                                    'text-gray-400 hover:text-gray-500 focus-visible:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:text-gray-400'"
+                                x-on:click="(theme = 'dark') &amp;&amp; close()"
+                                x-tooltip="{
+                            content: 'Enable dark theme',
+                            theme: $store.theme,
+                        }"
+                                class="flex justify-center rounded-lg p-2 outline-none transition duration-75 hover:bg-gray-50 focus-visible:bg-gray-50 dark:hover:bg-white/5 dark:focus-visible:bg-white/5 text-gray-400 hover:text-gray-500 focus-visible:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:text-gray-400">
+
+                                <x-heroicon-s-moon class="h-5 w-5" /></button>
+
+                            <button aria-label="Enable system theme" type="button"
+                                x-bind:class="theme === 'system' ?
+                                    'bg-gray-50 text-primary-500 dark:bg-white/5 dark:text-primary-400' :
+                                    'text-gray-400 hover:text-gray-500 focus-visible:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:text-gray-400'"
+                                x-on:click="(theme = 'system') &amp;&amp; close()"
+                                x-tooltip="{
+                            content: 'Enable system theme',
+                            theme: $store.theme,
+                        }"
+                                class="flex justify-center rounded-lg p-2 outline-none transition duration-75 hover:bg-gray-50 focus-visible:bg-gray-50 dark:hover:bg-white/5 dark:focus-visible:bg-white/5 text-gray-400 hover:text-gray-500 focus-visible:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:text-gray-400">
+                                <x-heroicon-s-computer-desktop class="h-5 w-5" />
+                            </button>
+                        </div>
                     </x-slot>
                 </x-dropdown>
             </div>
         </div>
     </div>
 
-    {{-- <!-- Responsive Navigation Menu -->
-    <div :class="{ 'block': open, 'hidden': !open }" class="hidden sm:hidden">
-        <div class="pt-2 pb-3 space-y-1">
-            <x-responsive-nav-link :href="route('dashboard.home')" :active="request()->routeIs('dashboard.home')">
-                {{ __('Dashboard.home') }}
-            </x-responsive-nav-link>
-        </div>
-
-        <!-- Responsive Settings Options -->
-        <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
-            <div class="px-4">
-                <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
-            </div>
-
-            <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile')">
-                    {{ __('Profile') }}
-                </x-responsive-nav-link>
-
-                <!-- Authentication -->
-                <form method="POST" action="{{ route('logout') }}">
-                    @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                        onclick="event.preventDefault();
-                                        this.closest('form').submit();">
-                        {{ __('Log Out') }}
-                    </x-responsive-nav-link>
-                </form>
-            </div>
-        </div>
-    </div> --}}
 </nav>
