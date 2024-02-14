@@ -74,11 +74,7 @@
     </div>
 
     @livewireScripts
-    <script>
-        document.addEventListener('alpine:init', () => {
-            Alpine.store('theme', localStorage.theme)
-        })
-    </script>
+
 </body>
 
 </html>

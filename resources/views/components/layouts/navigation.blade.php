@@ -1,7 +1,7 @@
 <nav x-data="{ openSidebar: false }" x-on:resize.window="
 if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
 "
-    x-init="" class="bg-white dark:bg-gray-800 border-b border-gray-100 dark:border-gray-700">
+    x-init="" class="bg-white dark:bg-neutral-800 border-b border-neutral-100 dark:border-neutral-700">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto max-w-7xl">
         <div class="flex justify-between h-16">
@@ -10,7 +10,7 @@ if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
             </div>
             <div class="-mr-2 flex items-center md:hidden">
                 <button x-on:click="openSidebar=!openSidebar" aria-controls="default-sidebar" type="button"
-                    class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 dark:text-gray-500 hover:text-gray-500 dark:hover:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-900 focus:outline-none focus:bg-gray-100 dark:focus:bg-gray-900 focus:text-gray-500 dark:focus:text-gray-400 transition duration-150 ease-in-out">
+                    class="inline-flex items-center justify-center p-2 rounded-md text-neutral-400 dark:text-neutral-500 hover:text-neutral-500 dark:hover:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-900 focus:outline-none focus:bg-neutral-100 dark:focus:bg-neutral-900 focus:text-neutral-500 dark:focus:text-neutral-400 transition duration-150 ease-in-out">
                     <x-heroicon-o-bars-3 class="w-6 h-6" />
                 </button>
                 <div class="relative">
@@ -65,108 +65,88 @@ if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
 
                             </button>
                         </span>
-                        {{-- <button
-                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150">
-                            <div>{{ Auth::user()->name }}</div>
-
-                            <div class="ml-1">
-                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg"
-                                    viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd"
-                                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                        clip-rule="evenodd" />
-                                </svg>
-                            </div>
-                        </button> --}}
-
                     </x-slot>
 
                     <x-slot name="content">
                         <x-dropdown-link :href="route('profile.edit')">
 
                             <div class="flex items-center gap-2 whitespace-nowrap">
-                                <x-lucide-user class="h-5 w-5 text-gray-400 dark:text-gray-500" />
-                                <span class="flex-1 truncate text-start text-gray-700 dark:text-gray-200">
+                                <x-heroicon-m-user-circle class="h-5 w-5 text-gray-400 dark:text-gray-500" />
+                                <span class="flex-1 truncate text-start text-neutral-700 dark:text-neutral-200">
                                     Pefil
                                 </span>
                             </div>
 
                         </x-dropdown-link>
 
-                        <!-- Authentication -->
+                        <div class="border-y my-1 py-1">
+                            <div x-data="{
+                                theme: '',
+                                init: function() {
+                                    this.theme = localStorage.getItem('theme') || 'system'
+                            
+                                    $watch('theme', (value) => {
+                                        this.theme = value
+                                        localStorage.setItem('theme', value);
+                            
+                                        if (value === 'dark' || value === 'system') {
+                                            document.querySelector('html').classList.add('dark');
+                                        } else {
+                                            document.querySelector('html').classList.remove('dark');
+                                        }
+                                    })
+                                },
+                            
+                            
+                            }" chageTheme(theme) { this.theme=theme
+                                localStorage.setItem('theme', theme);
+                                document.querySelector('html').classList.add(theme); },
+                                class="fi-theme-switcher grid grid-flow-col gap-x-1">
+                                <button aria-label="Enable light theme" type="button"
+                                    x-bind:class="theme === 'light' ?
+                                        'bg-neutral-100 text-primary-600 dark:bg-white/5 dark:text-primary-400' :
+                                        'text-neutral-400 hover:text-neutral-500 focus-visible:text-neutral-500 dark:text-neutral-500 dark:hover:text-neutral-400 dark:focus-visible:text-neutral-400'"
+                                    x-on:click="(theme = 'light') &amp;&amp; close()"
+                                    class="flex justify-center rounded-lg p-2 outline-none transition duration-75 ">
+                                    <x-heroicon-s-sun class="h-5 w-5" />
+                                </button>
+
+                                <button aria-label="Enable dark theme" type="button"
+                                    x-bind:class="theme === 'dark' ?
+                                        'bg-neutral-100 text-primary-600 dark:bg-white/5 dark:text-primary-400' :
+                                        'text-neutral-400 hover:text-neutral-500 focus-visible:text-neutral-500 dark:text-neutral-500 dark:hover:text-neutral-400 dark:focus-visible:text-neutral-400'"
+                                    x-on:click="(theme = 'dark') &amp;&amp; close()"
+                                    class="flex justify-center rounded-lg p-2 outline-none transition duration-75 ">
+
+                                    <x-heroicon-s-moon class="h-5 w-5" /></button>
+
+                                <button aria-label="Enable system theme" type="button"
+                                    x-bind:class="theme === 'system' ?
+                                        'bg-neutral-100 text-primary-600 dark:bg-white/5 dark:text-primary-400' :
+                                        'text-neutral-400 hover:text-neutral-500 focus-visible:text-neutral-500 dark:text-neutral-500 dark:hover:text-neutral-400 dark:focus-visible:text-neutral-400'"
+                                    x-on:click="(theme = 'system') &amp;&amp; close()"
+                                    class="flex justify-center rounded-lg p-2 outline-none transition duration-75 ">
+                                    <x-heroicon-s-computer-desktop class="h-5 w-5" />
+                                </button>
+                            </div>
+                        </div>
+
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
                                 onclick="event.preventDefault(); this.closest('form').submit();">
                                 <div class="flex items-center gap-2 whitespace-nowrap">
-                                    <x-lucide-log-out class="h-5 w-5 text-gray-400 dark:text-gray-500" />
-                                    <span class="flex-1 truncate text-start text-gray-700 dark:text-gray-200">
+                                    <x-heroicon-s-arrow-left-on-rectangle
+                                        class="h-5 w-5 text-neutral-400 dark:text-neutral-500" />
+                                    <span>
                                         {{ __('Salir') }}
                                     </span>
                                 </div>
 
                             </x-dropdown-link>
                         </form>
-                        <div x-data="{
-                            theme: null,
-                            init: function() {
-                                this.theme = localStorage.getItem('theme') || 'system'
-                        
-                                $watch('theme', (theme) => {
-                                    localStorage.setItem('theme', theme);
-                        
-                                    if (theme === 'dark' || theme === 'system') {
-                                        document.querySelector('html').classList.add('dark');
-                                    } else {
-                                        document.querySelector('html').classList.remove('dark');
-                                    }
-                                })
-                            },
-                        
-                        
-                        }" chageTheme(theme) { this.theme=theme localStorage.setItem('theme',
-                            theme); document.querySelector('html').classList.add(theme); },
-                            class="fi-theme-switcher grid grid-flow-col gap-x-1">
-                            <button aria-label="Enable light theme" type="button"
-                                x-bind:class="theme === 'light' ?
-                                    'bg-gray-50 text-primary-500 dark:bg-white/5 dark:text-primary-400' :
-                                    'text-gray-400 hover:text-gray-500 focus-visible:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:text-gray-400'"
-                                x-on:click="(theme = 'light') &amp;&amp; close()"
-                                x-tooltip="{
-                            content: 'Enable light theme',
-                            theme: $store.theme,
-                        }"
-                                class="flex justify-center rounded-lg p-2 outline-none transition duration-75 hover:bg-gray-50 focus-visible:bg-gray-50 dark:hover:bg-white/5 dark:focus-visible:bg-white/5 bg-gray-50 text-primary-500 dark:bg-white/5 dark:text-primary-400">
-                                <x-heroicon-s-sun class="h-5 w-5" />
-                            </button>
 
-                            <button aria-label="Enable dark theme" type="button"
-                                x-bind:class="theme === 'dark' ?
-                                    'bg-gray-50 text-primary-500 dark:bg-white/5 dark:text-primary-400' :
-                                    'text-gray-400 hover:text-gray-500 focus-visible:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:text-gray-400'"
-                                x-on:click="(theme = 'dark') &amp;&amp; close()"
-                                x-tooltip="{
-                            content: 'Enable dark theme',
-                            theme: $store.theme,
-                        }"
-                                class="flex justify-center rounded-lg p-2 outline-none transition duration-75 hover:bg-gray-50 focus-visible:bg-gray-50 dark:hover:bg-white/5 dark:focus-visible:bg-white/5 text-gray-400 hover:text-gray-500 focus-visible:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:text-gray-400">
-
-                                <x-heroicon-s-moon class="h-5 w-5" /></button>
-
-                            <button aria-label="Enable system theme" type="button"
-                                x-bind:class="theme === 'system' ?
-                                    'bg-gray-50 text-primary-500 dark:bg-white/5 dark:text-primary-400' :
-                                    'text-gray-400 hover:text-gray-500 focus-visible:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:text-gray-400'"
-                                x-on:click="(theme = 'system') &amp;&amp; close()"
-                                x-tooltip="{
-                            content: 'Enable system theme',
-                            theme: $store.theme,
-                        }"
-                                class="flex justify-center rounded-lg p-2 outline-none transition duration-75 hover:bg-gray-50 focus-visible:bg-gray-50 dark:hover:bg-white/5 dark:focus-visible:bg-white/5 text-gray-400 hover:text-gray-500 focus-visible:text-gray-500 dark:text-gray-500 dark:hover:text-gray-400 dark:focus-visible:text-gray-400">
-                                <x-heroicon-s-computer-desktop class="h-5 w-5" />
-                            </button>
-                        </div>
                     </x-slot>
                 </x-dropdown>
             </div>
