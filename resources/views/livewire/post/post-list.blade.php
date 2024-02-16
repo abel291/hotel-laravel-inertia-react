@@ -16,7 +16,7 @@
                 {{ $labelPlural }}
             </x-header-title>
         </div>
-        <a href="{{ route('dashboard.amenities.create') }}" class="btn btn-primary">
+        <a href="{{ route('dashboard.posts.create') }}" class="btn btn-primary">
             Agregar {{ $label }}
         </a>
 
@@ -32,7 +32,7 @@
         </div>
         <x-table.table :data="$list" wire:target="search">
             @php
-                $headList = ['Icono', 'Nombre', 'Pequeña descripcion', 'Habitaciones', 'Fechas', ''];
+                $headList = ['Titulo', 'Pequeña descripcion', 'activo', 'Fechas', ''];
             @endphp
             <x-table.table-head>
                 @foreach ($headList as $name)
@@ -44,10 +44,8 @@
                 @foreach ($list as $item)
                     <x-table.tr>
                         <x-table.td>
-                            <img src="{{ $item->icon }}" alt="" class="w-10 h-10">
-                        </x-table.td>
-                        <x-table.td>
-                            <x-table.title-image :title="$item->name" />
+                            <x-table.title-image :title="$item->title" :path="route('post', $item->slug)" :img="$item->thumb"
+                                :sub-title="$item->slug" />
                         </x-table.td>
 
                         <x-table.td>
@@ -56,17 +54,15 @@
                             </p>
                         </x-table.td>
                         <x-table.td>
-                            {{ $item->rooms_count }}
+                            <x-badge-active :active="$item->active" />
                         </x-table.td>
-
-
                         <x-table.td>
                             <x-date-format :date="$item->updated_at" />
                         </x-table.td>
 
                         <x-table.td>
                             <div class="flex items-center gap-x-2">
-                                <a href="{{ route('dashboard.amenities.edit', $item->id) }}"
+                                <a href="{{ route('dashboard.posts.edit', $item->id) }}"
                                     class="table-button-option">Editar</a>
                                 <button class="table-button-option-danger" x-data
                                     x-on:click="$dispatch('open-modal-confirmation-delete',{{ $item->id }})">

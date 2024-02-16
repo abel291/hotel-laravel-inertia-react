@@ -9,8 +9,8 @@ class Image extends Model
 {
     use HasFactory;
 
-    public function gallery()
+    public function model()
     {
-        return $this->morphTo(Gallery::class);
+        return $this->morphTo();
     }
 }

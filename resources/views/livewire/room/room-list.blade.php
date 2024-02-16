@@ -83,7 +83,8 @@
                                         <x-dropdown-link href="{{ route('dashboard.rooms.edit', $item->id) }}">
                                             Datos Basicos
                                         </x-dropdown-link>
-                                        <x-dropdown-link href="{{ route('dashboard.rooms.edit', $item->id) }}">
+                                        <x-dropdown-link
+                                            href="{{ route('dashboard.images.index', ['room', $item->id]) }}">
                                             Imagenes
                                         </x-dropdown-link>
                                     </x-slot>

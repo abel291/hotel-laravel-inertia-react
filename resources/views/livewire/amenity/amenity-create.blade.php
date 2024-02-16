@@ -32,9 +32,7 @@
                     </div>
 
                     <div class="lg:col-span-8">
-                        <x-form.textarea rows="4" wire:model="entry">
-                            Pequeña descripcion
-                        </x-form.textarea>
+                        <x-form.textarea label='Pequeña descripcion' rows="4" wire:model="entry" />
                     </div>
 
                     <div class="md:col-span-6">

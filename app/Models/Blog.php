@@ -9,7 +9,7 @@ class Blog extends Model
 {
     use HasFactory;
     protected $table = 'blog';
-
+    protected $guarded = [];
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'blog_tag');

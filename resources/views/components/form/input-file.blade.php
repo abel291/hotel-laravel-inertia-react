@@ -23,12 +23,13 @@
         </label>
         <x-input-error :messages="$errors->get($model)" />
     </div>
-    <div class="flex items-start gap-3">
+    <div class="flex items-start gap-3 max-h-32">
         @if ($saved)
             <div class="w-full lg:w-1/2 flex ">
                 <div>
                     <span class="text-sm text-gray-500 mb-1 block">Imagen actual</span>
-                    <img class="border rounded-md overflow-hidden" src="{{ $saved }}?{{ rand(1, 300) }}">
+                    <img class="max-h-32 border rounded-md overflow-hidden"
+                        src="{{ $saved }}?{{ rand(1, 300) }}">
                 </div>
             </div>
         @endif
@@ -36,7 +37,7 @@
             <div class="w-full lg:w-1/2 flex ">
                 <div>
                     <span class="text-sm text-gray-500 mb-1 block">Imagen nueva</span>
-                    <img class="border rounded-md overflow-hidden" src="{{ $temp->temporaryUrl() }}">
+                    <img class="max-h-32 border rounded-md overflow-hidden" src="{{ $temp->temporaryUrl() }}">
                 </div>
             </div>
         @endif

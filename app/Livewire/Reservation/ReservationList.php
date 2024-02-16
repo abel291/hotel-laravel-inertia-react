@@ -19,7 +19,9 @@ class ReservationList extends Component
     #[On('renderReservationList')]
     public function render()
     {
-        $list = Reservation::with('room')->orderBy('id', 'desc')->paginate(20);
+        $list = Reservation::with('room')
+            ->where('code', 'like', '%' . $this->search . '%')
+            ->orderBy('id', 'desc')->paginate(20);
         // dd($list->first()->data->user->name);
         return view('livewire.reservation.reservation-list', compact('list'));
     }

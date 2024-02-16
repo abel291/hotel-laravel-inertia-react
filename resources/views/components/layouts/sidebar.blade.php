@@ -31,12 +31,12 @@
             'icon' => 'lucide-book-open-check',
         ],
 
-        [
-            'title' => 'Paginas',
-            'route' => 'dashboard.home2',
-            'routeActive' => 'dashboard.home2',
-            'icon' => 'lucide-sticky-note',
-        ],
+        // [
+        //     'title' => 'Paginas',
+        //     'route' => 'dashboard.home2',
+        //     'routeActive' => 'dashboard.home2',
+        //     'icon' => 'lucide-sticky-note',
+        // ],
         [
             'title' => 'Comodidades',
             'route' => 'dashboard.amenities.index',
@@ -54,16 +54,16 @@
     $navigation_2 = [
         [
             'title' => 'Post',
-            'route' => 'dashboard.home2',
-            'routeActive' => 'dashboard.home2',
+            'route' => 'dashboard.posts.index',
+            'routeActive' => 'dashboard.posts.*',
             'icon' => 'lucide-newspaper',
         ],
-        [
-            'title' => 'Autores',
-            'route' => 'dashboard.home2',
-            'routeActive' => 'dashboard.home2',
-            'icon' => 'lucide-pencil',
-        ],
+        // [
+        //     'title' => 'Autores',
+        //     'route' => 'dashboard.home2',
+        //     'routeActive' => 'dashboard.home2',
+        //     'icon' => 'lucide-pencil',
+        // ],
     ];
     $navigation_3 = [
         [

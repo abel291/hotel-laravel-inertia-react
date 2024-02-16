@@ -19,6 +19,9 @@ class ImageFactory extends Factory
         return [
             "img" => '/img/rooms/room-' . rand(1, 11) . '.jpg',
             "thumb" => '/img/thumbnail/rooms/room-' . rand(1, 11) . '.jpg',
+            "alt" => fake()->sentence(),
+            "title" => fake()->sentence(),
+
         ];
     }
 }

@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('images', function (Blueprint $table) {
             $table->id();
             $table->string('img');
-            $table->string('thumb');
+            $table->string('thumb')->nullable();
             $table->tinyInteger('order')->default(0)->nullable();
             $table->string('alt')->nullable();
-            $table->integer('model_id');
-            $table->string('model_type');
+            $table->string('title')->nullable();
+            $table->morphs('model');
             $table->timestamps();
         });
     }

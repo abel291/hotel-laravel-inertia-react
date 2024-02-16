@@ -26,6 +26,8 @@ class BlogFactory extends Factory
             'thumb' => '/img/posts/post-' . rand(1, 10) . '.jpg',
             'seo_title' => fake()->sentence(),
             'seo_desc' => fake()->sentence(),
+            'active' => 1,
+            'home' => 0
         ];
     }
 }

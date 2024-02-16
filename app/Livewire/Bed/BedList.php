@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\bed;
+namespace App\Livewire\Bed;
 
 use App\Models\bed;
 use App\Traits\WithSorting;

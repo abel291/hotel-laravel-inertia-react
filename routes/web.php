@@ -1,18 +1,23 @@
 <?php
 
 use App\Http\Controllers\CheckoutController;
-use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\RoomController;
+
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+
 use App\Http\Middleware\CheckoutSession;
 use App\Livewire\Amenity\AmenityCreate;
 use App\Livewire\Amenity\AmenityList;
 use App\Livewire\bed\BedCreate;
 use App\Livewire\Bed\BedList;
 use App\Livewire\Dashboard;
+use App\Livewire\Image\ImageCreate;
+use App\Livewire\Image\ImageList;
+
 use App\Livewire\Offer\OfferList;
+use App\Livewire\Post\PostCreate;
+use App\Livewire\Post\PostList;
 use App\Livewire\Reservation\ReservationList;
 use App\Livewire\Reservation\ReservationShow;
 use App\Livewire\Room\RoomCreate;
@@ -83,6 +88,10 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')
         Route::get('/rooms/create', RoomCreate::class)->name('rooms.create');
         Route::get('/rooms/{id}/edit', RoomCreate::class)->name('rooms.edit');
 
+        Route::get('/{modelName}/{modelId}/images', ImageList::class)->name('images.index');
+        Route::get('/{modelName}/{modelId}/images.create', ImageCreate::class)->name('images.create');
+        Route::get('/{modelName}/{modelId}/images/{imageId}/edit', ImageCreate::class)->name('images.edit');
+
         Route::get('/offers', OfferList::class)->name('offers.index');
         Route::get('/offer/{edit}/edit', RoomCreate::class)->name('offers.edit');
 
@@ -96,6 +105,10 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')
         Route::get('/beds', BedList::class)->name('beds.index');
         Route::get('/beds/create', BedCreate::class)->name('beds.create');
         Route::get('/beds/{id}/edit', BedCreate::class)->name('beds.edit');
+
+        Route::get('/posts', PostList::class)->name('posts.index');
+        Route::get('/posts/create', PostCreate::class)->name('posts.create');
+        Route::get('/posts/{id}/edit', PostCreate::class)->name('posts.edit');
     });
 
 

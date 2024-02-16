@@ -4,7 +4,7 @@
         <div>
             <x-breadcrumb :data="[
                 [
-                    'path' => route('dashboard.amenities.index'),
+                    'path' => route('dashboard.images.index', [$modelName, $modelId]),
                     'name' => $labelPlural,
                 ],
                 [
@@ -16,23 +16,22 @@
                 {{ $labelPlural }}
             </x-header-title>
         </div>
-        <a href="{{ route('dashboard.amenities.create') }}" class="btn btn-primary">
+        <x-primary-button x-data x-on:click="$dispatch('modal-create')">
             Agregar {{ $label }}
-        </a>
-
-
+        </x-primary-button>
     </div>
 </x-slot>
 
 <div>
-
     <div class=" bg-white overflow-hidden rounded-lg border">
-        <div class="flex justify-end gap-2 py-4 px-6">
+
+        <div class="flex justify-between items-end gap-2 py-4 px-6">
+            <x-desc-model :img="$modelData->img" :title="$modelData->name" />
             <x-form.input-search />
         </div>
         <x-table.table :data="$list" wire:target="search">
             @php
-                $headList = ['Icono', 'Nombre', 'Pequeña descripcion', 'Habitaciones', 'Fechas', ''];
+                $headList = ['Imagen', 'title', 'alt', 'order', 'fechas', ''];
             @endphp
             <x-table.table-head>
                 @foreach ($headList as $name)
@@ -43,31 +42,33 @@
             <x-table.tbody>
                 @foreach ($list as $item)
                     <x-table.tr>
+
                         <x-table.td>
-                            <img src="{{ $item->icon }}" alt="" class="w-10 h-10">
-                        </x-table.td>
-                        <x-table.td>
-                            <x-table.title-image :title="$item->name" />
+                            <x-table.title-image :img="$item->img" />
                         </x-table.td>
 
                         <x-table.td>
-                            <p class="max-w-sm">
-                                {{ $item->entry }}
-                            </p>
+                            {{ $item->title }}
                         </x-table.td>
                         <x-table.td>
-                            {{ $item->rooms_count }}
+                            {{ $item->alt }}
                         </x-table.td>
-
+                        <x-table.td>
+                            {{ $item->order }}
+                        </x-table.td>
 
                         <x-table.td>
                             <x-date-format :date="$item->updated_at" />
                         </x-table.td>
 
                         <x-table.td>
-                            <div class="flex items-center gap-x-2">
-                                <a href="{{ route('dashboard.amenities.edit', $item->id) }}"
-                                    class="table-button-option">Editar</a>
+                            <div class="inline-flex items-center gap-x-2">
+                                {{-- <a href="{{ route('dashboard.images.edit', [$modelName, $modelId, $item->id]) }}"
+                                    class="table-button-option">Editar</a> --}}
+                                <button type="button" x-data :key="'edit_' + {{ $item->id }}"
+                                    class="table-button-option" x-on:click="$dispatch('modal-edit',{{ $item->id }})">
+                                    Editar
+                                </button>
                                 <button class="table-button-option-danger" x-data
                                     x-on:click="$dispatch('open-modal-confirmation-delete',{{ $item->id }})">
                                     Eliminar
@@ -81,6 +82,6 @@
         </x-table.table>
     </div>
     <x-modal-confirmation-delete />
-
+    <livewire:image.image-create :model-data="$modelData" :label="$label" :label-plural="$labelPlural" />
 
 </div>

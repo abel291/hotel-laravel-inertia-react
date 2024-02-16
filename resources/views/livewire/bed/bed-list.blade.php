@@ -60,9 +60,9 @@
                         </x-table.td>
 
 
-                        <td>
+                        <x-table.td>
                             <x-date-format :date="$item->updated_at" />
-                        </td>
+                        </x-table.td>
 
                         <x-table.td>
                             <div class="flex items-center gap-x-2">

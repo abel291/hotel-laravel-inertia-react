@@ -31,7 +31,7 @@
         </div>
         <x-table.table :data="$list" wire:target="search">
             @php
-                $headList = ['Nombre', 'Fechas', 'Habitacion', 'Pago', 'Estado', 'opciones'];
+                $headList = ['Codigo', 'Nombre', 'Fechas', 'Habitacion', 'Pago', 'Estado', 'opciones'];
             @endphp
             <x-table.table-head>
                 @foreach ($headList as $name)
@@ -42,7 +42,9 @@
             <x-table.tbody>
                 @foreach ($list as $item)
                     <x-table.tr>
-
+                        <x-table.td>
+                            <x-table.title-image :title="$item->code" />
+                        </x-table.td>
                         <x-table.td>
                             <x-table.title-image :title="$item->data->user->name" :sub-title="$item->data->user->email" />
                         </x-table.td>
@@ -72,7 +74,7 @@
                         <x-table.td>
 
                             <a href="{{ route('dashboard.reservations.show', $item->id) }}"
-                                class="table-button-option flex items-center gap-x-2">
+                                class="table-button-option flex items-center gap-x-2 whitespace-nowrap">
                                 <x-lucide-eye class="w-4 h-4" />
                                 Ver detales
                             </a>
