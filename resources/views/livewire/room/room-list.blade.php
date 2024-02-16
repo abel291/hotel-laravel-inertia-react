@@ -17,59 +17,60 @@
                 {{ $labelPlural }}
             </x-header-title>
         </div>
-
+    </div>
+</x-slot>
+<div>
+    <div class="flex justify-between items-end gap-2">
+        <x-form.input-search />
         <a href="{{ route('dashboard.rooms.create') }}" class="btn btn-primary">
             Agregar {{ $label }}
         </a>
     </div>
-</x-slot>
-<div>
+    <x-content class="mt-4">
 
-    <div class=" bg-white overflow-hidden rounded-lg border">
-        <div class="flex justify-end gap-2 py-4 px-6">
-            <x-form.input-search />
-        </div>
         <x-table.table :data="$list" wire:target="search">
             @php
                 $headList = ['Nombre', 'Comodidades', 'Tipos de camas', 'Cantidad', 'Precio', 'Activo', 'opciones'];
             @endphp
-            <x-table.table-head>
-                @foreach ($headList as $name)
-                    <x-table.th>{{ $name }}</x-table.th>
-                @endforeach
+            <thead>
+                <tr>
+                    @foreach ($headList as $name)
+                        <th>{{ $name }}</th>
+                    @endforeach
 
-            </x-table.table-head>
-            <x-table.tbody>
+                </tr>
+            </thead>
+            <tbody>
                 @foreach ($list as $item)
-                    <x-table.tr>
+                    <tr>
 
-                        <x-table.td>
+                        <td>
                             <x-table.title-image :title="$item->name" :img="$item->thumb" :path="route('room', $item->slug)"
                                 :sub-title="$item->slug" />
 
-                        </x-table.td>
+                        </td>
 
-                        <x-table.td>
+                        <td>
                             <div class='max-w-80'>
                                 <x-room.list-amenities :amenities="$item->amenities" />
                             </div>
-                        </x-table.td>
-                        <x-table.td>
+                        </td>
+                        <td>
                             <x-room.list-beds :beds="$item->beds" />
-                        </x-table.td>
-                        <x-table.td>
+                        </td>
+                        <td>
                             {{ $item->quantity }}
-                        </x-table.td>
-                        <x-table.td>
+                        </td>
+                        <td>
 
                             <span class="font-medium whitespace-nowrap">
                                 @money($item->price)
                             </span>
-                        </x-table.td>
-                        <x-table.td>
+                        </td>
+                        <td>
                             <x-badge-active :active="$item->active" />
-                        </x-table.td>
-                        <x-table.td>
+                        </td>
+                        <td>
 
                             <div class="flex items-center gap-x-2">
                                 <x-dropdown>
@@ -96,11 +97,11 @@
                                 </button>
                             </div>
 
-                        </x-table.td>
-                    </x-table.tr>
+                        </td>
+                    </tr>
                 @endforeach
-            </x-table.tbody>
+            </tbody>
         </x-table.table>
-    </div>
+    </x-content>
     <x-modal-confirmation-delete />
 </div>

@@ -52,3 +52,31 @@
 .table-button-option {
     @apply text-primary-600 hover:text-primary-700 font-medium;
 }
+
+.table-list tr {
+    @apply text-sm;
+}
+.table-list tbody {
+    @apply border-t border-neutral-300 divide-y divide-neutral-200;
+}
+.table-list tbody tr {
+    @apply hover:bg-neutral-50;
+}
+.table-list tr th {
+    @apply py-3 text-sm font-medium text-left text-neutral-500;
+}
+.table-list tr td {
+    @apply py-2;
+}
+.table-list tr th:first-child,
+.table-list tr td:first-child {
+    @apply pr-2;
+}
+.table-list tr th:last-child,
+.table-list tr td:last-child {
+    @apply pl-2;
+}
+.table-list tr th:not(:first-child, :last-child),
+.table-list tr td:not(:first-child, :last-child) {
+    @apply px-2;
+}

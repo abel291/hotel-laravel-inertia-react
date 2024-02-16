@@ -20,14 +20,14 @@ class ReservationSeeder extends Seeder
 
         Reservation::truncate();
         $rooms = Room::with('beds')->get();
-        for ($i = 0; $i < 30; $i++) {
+        for ($i = 0; $i < 100; $i++) {
 
-            $rooms_selected = $rooms->random(2);
+            $rooms_selected = $rooms;
 
             // $discount = $discounts->random();
             foreach ($rooms_selected as $room) {
 
-                $reservation_date = Carbon::now()->addDays(rand(0, 50));
+                $reservation_date = Carbon::parse(fake()->dateTimeInInterval('-2 month', '+2 month'));
                 $start_date = Carbon::parse($reservation_date);
                 $nights = rand(2, 8);
                 $end_date = $reservation_date->addDays($nights);

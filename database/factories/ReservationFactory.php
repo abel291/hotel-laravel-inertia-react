@@ -16,7 +16,7 @@ class ReservationFactory extends Factory
      */
     public function definition(): array
     {
-        $reservation_date = fake()->dateTimeInInterval('now', '+5 month');
+        $reservation_date = fake()->dateTimeInInterval('-5 month', '+5 month');
 
         $start_date = $reservation_date;
         $night = rand(2, 8);

@@ -11,7 +11,7 @@ use App\Livewire\Amenity\AmenityCreate;
 use App\Livewire\Amenity\AmenityList;
 use App\Livewire\bed\BedCreate;
 use App\Livewire\Bed\BedList;
-use App\Livewire\Dashboard;
+use App\Livewire\Home\Dashboard;
 use App\Livewire\Image\ImageCreate;
 use App\Livewire\Image\ImageList;
 
@@ -22,6 +22,7 @@ use App\Livewire\Reservation\ReservationList;
 use App\Livewire\Reservation\ReservationShow;
 use App\Livewire\Room\RoomCreate;
 use App\Livewire\Room\RoomList;
+use App\Livewire\Settings\Settings;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -79,8 +80,6 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')
     // ->middleware(['role:admin'])
     ->group(function () {
 
-        // Route::get('/', [DashboardController::class, 'home'])->name('home');
-        // Route::resource('rooms', RoomController::class);
 
         Route::get('/', Dashboard::class)->name('home');
         Route::get('/dd', Dashboard::class)->name('home2');
@@ -109,6 +108,8 @@ Route::prefix('dashboard')->middleware('auth')->name('dashboard.')
         Route::get('/posts', PostList::class)->name('posts.index');
         Route::get('/posts/create', PostCreate::class)->name('posts.create');
         Route::get('/posts/{id}/edit', PostCreate::class)->name('posts.edit');
+
+        Route::get('/settings', Settings::class)->name('settings.index');
     });
 
 

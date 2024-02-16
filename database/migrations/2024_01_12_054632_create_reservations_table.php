@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('end_date');
             $table->tinyInteger('adults')->default(0);
             $table->tinyInteger('kids')->default(0)->nullable();
-            $table->unsignedInteger('room_quantity')->default(1);
+            $table->unsignedInteger('quantity')->default(1);
             $table->string('check_in', 8)->default('02:30 PM')->nullable();
             $table->text('special_request')->nullable();
             $table->string('state')->default('successful');

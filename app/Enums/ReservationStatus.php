@@ -7,7 +7,7 @@ enum ReservationStatus: string
     case CANCELED = 'canceled';
     case REFUNDED = 'refunded';
     case SUCCESSFUL = 'successful';
-    case PENDING = 'pending';
+    // case PENDING = 'pending';
 
     public function text(): string
     {
@@ -15,7 +15,7 @@ enum ReservationStatus: string
             ReservationStatus::CANCELED => 'Cancelado',
             ReservationStatus::REFUNDED => 'Reembolsado',
             ReservationStatus::SUCCESSFUL => 'Aceptado',
-            ReservationStatus::PENDING => 'Pendiente',
+            // ReservationStatus::PENDING => 'Pendiente',
         };
     }
 
@@ -25,7 +25,7 @@ enum ReservationStatus: string
             ReservationStatus::CANCELED => 'red',
             ReservationStatus::REFUNDED => 'red',
             ReservationStatus::SUCCESSFUL => 'green',
-            ReservationStatus::PENDING => 'gray',
+            // ReservationStatus::PENDING => 'gray',
         };
     }
 
@@ -35,7 +35,7 @@ enum ReservationStatus: string
             ReservationStatus::CANCELED => 'heroicon-s-x',
             ReservationStatus::REFUNDED => 'heroicon-o-receipt-refund',
             ReservationStatus::SUCCESSFUL => 'heroicon-s-check',
-            ReservationStatus::PENDING => 'heroicon-s-check',
+            // ReservationStatus::PENDING => 'heroicon-s-check',
         };
     }
 }

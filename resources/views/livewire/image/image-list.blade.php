@@ -16,57 +16,62 @@
                 {{ $labelPlural }}
             </x-header-title>
         </div>
-        <x-primary-button x-data x-on:click="$dispatch('modal-create')">
-            Agregar {{ $label }}
-        </x-primary-button>
+
     </div>
 </x-slot>
 
 <div>
-    <div class=" bg-white overflow-hidden rounded-lg border">
-
-        <div class="flex justify-between items-end gap-2 py-4 px-6">
+    <div class="flex justify-between items-end gap-2">
+        <x-form.input-search />
+        <x-primary-button x-data x-on:click="$dispatch('modal-create')">
+            Agregar {{ $label }}
+        </x-primary-button>
+    </div>
+    <x-content class="mt-4">
+        <div class="flex justify-between items-end gap-2">
             <x-desc-model :img="$modelData->img" :title="$modelData->name" />
-            <x-form.input-search />
         </div>
-        <x-table.table :data="$list" wire:target="search">
+        <x-table.table class="mt-6" :data="$list" wire:target="search">
             @php
                 $headList = ['Imagen', 'title', 'alt', 'order', 'fechas', ''];
             @endphp
-            <x-table.table-head>
-                @foreach ($headList as $name)
-                    <x-table.th>{{ $name }}</x-table.th>
-                @endforeach
+            <thead>
+                <tr>
+                    @foreach ($headList as $name)
+                        <th>{{ $name }}</th>
+                    @endforeach
 
-            </x-table.table-head>
-            <x-table.tbody>
+                </tr>
+            </thead>
+            <tbody>
                 @foreach ($list as $item)
-                    <x-table.tr>
+                    <tr>
 
-                        <x-table.td>
+                        <td>
                             <x-table.title-image :img="$item->img" />
-                        </x-table.td>
+                        </td>
 
-                        <x-table.td>
+                        <td>
                             {{ $item->title }}
-                        </x-table.td>
-                        <x-table.td>
+                        </td>
+                        <td>
                             {{ $item->alt }}
-                        </x-table.td>
-                        <x-table.td>
+                        </td>
+                        <td>
                             {{ $item->order }}
-                        </x-table.td>
+                        </td>
 
-                        <x-table.td>
+                        <td>
                             <x-date-format :date="$item->updated_at" />
-                        </x-table.td>
+                        </td>
 
-                        <x-table.td>
+                        <td>
                             <div class="inline-flex items-center gap-x-2">
                                 {{-- <a href="{{ route('dashboard.images.edit', [$modelName, $modelId, $item->id]) }}"
                                     class="table-button-option">Editar</a> --}}
                                 <button type="button" x-data :key="'edit_' + {{ $item->id }}"
-                                    class="table-button-option" x-on:click="$dispatch('modal-edit',{{ $item->id }})">
+                                    class="table-button-option"
+                                    x-on:click="$dispatch('modal-edit',{{ $item->id }})">
                                     Editar
                                 </button>
                                 <button class="table-button-option-danger" x-data
@@ -75,12 +80,12 @@
                                 </button>
                             </div>
 
-                        </x-table.td>
-                    </x-table.tr>
+                        </td>
+                    </tr>
                 @endforeach
-            </x-table.tbody>
+            </tbody>
         </x-table.table>
-    </div>
+    </x-content>
     <x-modal-confirmation-delete />
     <livewire:image.image-create :model-data="$modelData" :label="$label" :label-plural="$labelPlural" />
 

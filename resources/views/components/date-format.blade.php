@@ -1,9 +1,10 @@
-@props(['date'])
+@props(['date', 'showRecent' => true])
 <div class="text-sm">
     <div class="whitespace-nowrap font-medium text-neutral-600 ">
         {!! $date->isoFormat('DD MMM YYYY hh:mm A') !!}
     </div>
-    @if (now()->diffInMinutes($date) < 120)
+
+    @if ($showRecent && now()->diffInMinutes($date) < 120)
         <x-badge color="green" class="block">Recien</x-badge>
     @endif
 

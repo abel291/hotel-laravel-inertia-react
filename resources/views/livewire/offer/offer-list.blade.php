@@ -23,52 +23,55 @@
 
 <div>
 
-    <div class=" bg-white overflow-hidden rounded-lg border">
-        <div class="flex justify-end gap-2 py-4 px-6">
-            <x-form.input-search />
-        </div>
+    <div class="flex justify-between items-end gap-2">
+        <x-form.input-search />
+
+    </div>
+    <x-content class="mt-4">
         <x-table.table :data="$list" wire:target="search">
             @php
                 $headList = ['N° Noches', 'Porcentaje de descuento', 'Fecha de Modificaion', ''];
             @endphp
-            <x-table.table-head>
-                @foreach ($headList as $name)
-                    <x-table.th>{{ $name }}</x-table.th>
-                @endforeach
+            <thead>
+                <tr>
+                    @foreach ($headList as $name)
+                        <th>{{ $name }}</th>
+                    @endforeach
 
-            </x-table.table-head>
-            <x-table.tbody>
+                </tr>
+            </thead>
+            <tbody>
                 @foreach ($list as $item)
-                    <x-table.tr>
+                    <tr>
 
-                        <x-table.td>
+                        <td>
                             <x-table.title-image :title="$item->nights . ' noches'" />
 
-                        </x-table.td>
+                        </td>
 
-                        <x-table.td>
+                        <td>
                             <x-badge>
                                 {{ $item->percent }}%
                             </x-badge>
-                        </x-table.td>
+                        </td>
 
-                        <x-table.td>
+                        <td>
                             <x-date-format :date="$item->updated_at" />
-                        </x-table.td>
+                        </td>
 
-                        <x-table.td>
+                        <td>
                             <button type="button" x-data :key="'edit_' + {{ $item->id }}"
                                 class="text-indigo-600 hover:text-indigo-700 font-medium"
                                 x-on:click="$dispatch('modal-edit-offer',{{ $item->id }})">
                                 Editar
                             </button>
 
-                        </x-table.td>
-                    </x-table.tr>
+                        </td>
+                    </tr>
                 @endforeach
-            </x-table.tbody>
+            </tbody>
         </x-table.table>
-    </div>
+    </x-content>
     <livewire:offer.offer-edit :label="$label" :label-plural="$labelPlural" />
 
 </div>

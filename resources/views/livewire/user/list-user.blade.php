@@ -17,14 +17,22 @@
         <x-table.table :data="$list" wire:target="search">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Telefono</th>
-                    <th>Pais - Ciudad</th>
-                    {{-- <th>Role</th> --}}
-                    <th></th>
                 </tr>
+            </thead>ID</th>
+            </tr>
+            </thead>Nombre</th>
+            </tr>
+            </thead>Email</th>
+            </tr>
+            </thead>Telefono</th>
+            </tr>
+            </thead>Pais - Ciudad</th>
+            {{-- </tr>
+                    </thead>Role</th> --}}
+            </tr>
+            </thead>
+            </th>
+            </tr>
             </thead>
             <tbody>
                 @foreach ($list as $item)

@@ -25,53 +25,56 @@
 </x-slot>
 <div>
 
-    <div class=" bg-white overflow-hidden rounded-lg border">
-        <div class="flex justify-end gap-2 py-4 px-6">
-            <x-form.input-search />
-        </div>
+    <div class="flex justify-between items-end gap-2">
+        <x-form.input-search />
+    </div>
+    <x-content class="mt-4">
         <x-table.table :data="$list" wire:target="search">
             @php
-                $headList = ['Codigo', 'Nombre', 'Fechas', 'Habitacion', 'Pago', 'Estado', 'opciones'];
+                $headList = ['Codigo', 'Nombre', 'Fechas', 'Habitacion', 'Estado', 'Pago', 'opciones'];
             @endphp
-            <x-table.table-head>
-                @foreach ($headList as $name)
-                    <x-table.th>{{ $name }}</x-table.th>
-                @endforeach
+            <thead>
+                <tr>
+                    @foreach ($headList as $name)
+                        <th>{{ $name }}</th>
+                    @endforeach
 
-            </x-table.table-head>
-            <x-table.tbody>
+                </tr>
+            </thead>
+            <tbody>
                 @foreach ($list as $item)
-                    <x-table.tr>
-                        <x-table.td>
+                    <tr>
+                        <td>
                             <x-table.title-image :title="$item->code" />
-                        </x-table.td>
-                        <x-table.td>
+                        </td>
+                        <td>
                             <x-table.title-image :title="$item->data->user->name" :sub-title="$item->data->user->email" />
-                        </x-table.td>
-                        <x-table.td>
+                        </td>
+                        <td>
                             <div class="flex  gap-x-1">
                                 <span>{{ $item->start_date->isoFormat('DD MMM ') }} </span>
                                 <span>-</span>
                                 <span>{{ $item->end_date->isoFormat('DD MMM') }} </span>
                             </div>
-                            <x-badge class="mt-2">{{ $item->nights }} noche{{ $item->nights > 1 ? 's' : '' }}</x-badge>
-                        </x-table.td>
-                        <x-table.td>
+                            <x-badge class="mt-2">{{ $item->nights }}
+                                noche{{ $item->nights > 1 ? 's' : '' }}</x-badge>
+                        </td>
+                        <td>
                             <div class="flex flex-col gap-y-0.5">
                                 <span class="font-medium">{{ $item->data->room->name }} </span>
                             </div>
-                        </x-table.td>
+                        </td>
 
-                        <x-table.td>
-                            <span class="font-medium whitespace-nowrap">
+                        <td>
+                            <span class="font-semibold text-{{ $item->state->color() }}-600 whitespace-nowrap">
                                 @money($item->total)
                             </span>
-                        </x-table.td>
-                        <x-table.td>
+                        </td>
+                        <td>
                             <x-badge :color="$item->state->color()">{{ $item->state->text() }}</x-badge>
-                        </x-table.td>
+                        </td>
 
-                        <x-table.td>
+                        <td>
 
                             <a href="{{ route('dashboard.reservations.show', $item->id) }}"
                                 class="table-button-option flex items-center gap-x-2 whitespace-nowrap">
@@ -79,10 +82,10 @@
                                 Ver detales
                             </a>
 
-                        </x-table.td>
-                    </x-table.tr>
+                        </td>
+                    </tr>
                 @endforeach
-            </x-table.tbody>
+            </tbody>
         </x-table.table>
-    </div>
+    </x-content>
 </div>
