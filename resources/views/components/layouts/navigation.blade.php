@@ -1,7 +1,7 @@
 <nav x-data="{ openSidebar: false }" x-on:resize.window="
 if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
 "
-    x-init="" class="bg-white dark:bg-neutral-800 border-b border-neutral-100 dark:border-neutral-700">
+    x-init="" class="bg-white dark:bg-neutral-800  shadow">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto max-w-7xl">
         <div class="flex justify-between h-16">

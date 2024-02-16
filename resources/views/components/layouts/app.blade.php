@@ -23,17 +23,6 @@
         } else {
             document.querySelector('html').classList.remove('dark');
         }
-
-
-
-        // // Whenever the user explicitly chooses light mode
-        // localStorage.theme = 'light'
-
-        // // Whenever the user explicitly chooses dark mode
-        // localStorage.theme = 'dark'
-
-        // // Whenever the user explicitly chooses to respect the OS preference
-        // localStorage.removeItem('theme')
     </script>
 
 
@@ -53,7 +42,7 @@
                 <!-- Page Heading -->
                 @if (isset($header))
                     <header>
-                        <div class="max-w-7xl mx-auto pt-12 px-4 md:px-6 lg:px-8">
+                        <div class="max-w-7xl mx-auto pt-12 pb-4 px-2 sm:px-4 ">
                             {{-- <h2 class="font-semibold text-xl text-gray-800 leading-tight"> --}}
                             {{ $header }}
                             {{-- </h2> --}}
@@ -64,7 +53,7 @@
                 <!-- Page Content -->
                 <main>
 
-                    <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8 py-6">
+                    <div class="max-w-7xl mx-auto py-6 px-2 sm:px-4">
                         <x-notification />
                         {{ $slot }}
                     </div>
@@ -74,6 +63,7 @@
     </div>
 
     @livewireScripts
+    @stack('js')
 
 </body>
 

@@ -7,7 +7,7 @@
     </div>
     @if ($data->isNotEmpty())
         <div wire:loading.class="blur-sm" {{ $attributes->whereStartsWith('wire:target') }}>
-            <table class="w-full table-auto text-sm">
+            <table class="table-list w-full table-auto text-sm">
                 {{ $slot }}
             </table>
         </div>

@@ -4,7 +4,7 @@
             'title' => 'Inicio',
             'route' => 'dashboard.home',
             'routeActive' => 'dashboard.home',
-            'icon' => 'lucide-home',
+            'icon' => 'heroicon-m-home',
         ],
         // [
         //     'title' => 'Ususarios',
@@ -16,19 +16,19 @@
             'title' => 'Habitaciones',
             'route' => 'dashboard.rooms.index',
             'routeActive' => 'dashboard.rooms.*',
-            'icon' => 'lucide-building',
+            'icon' => 'heroicon-m-home-modern',
         ],
         [
             'title' => 'Ofertas',
             'route' => 'dashboard.offers.index',
             'routeActive' => 'dashboard.offers.*',
-            'icon' => 'lucide-percent',
+            'icon' => 'heroicon-m-receipt-percent',
         ],
         [
             'title' => 'Reservaciones',
             'route' => 'dashboard.reservations.index',
             'routeActive' => 'dashboard.reservations.*',
-            'icon' => 'lucide-book-open-check',
+            'icon' => 'heroicon-m-book-open',
         ],
 
         // [
@@ -56,7 +56,7 @@
             'title' => 'Post',
             'route' => 'dashboard.posts.index',
             'routeActive' => 'dashboard.posts.*',
-            'icon' => 'lucide-newspaper',
+            'icon' => 'heroicon-m-newspaper',
         ],
         // [
         //     'title' => 'Autores',
@@ -67,41 +67,36 @@
     ];
     $navigation_3 = [
         [
-            'title' => 'Configuraciones',
-            'route' => 'dashboard.home2',
-            'routeActive' => 'dashboard.home2',
+            'title' => 'Ajustes',
+            'route' => 'dashboard.settings.index',
+            'routeActive' => 'dashboard.settings.*',
             'role' => 'super-admin',
-            'icon' => 'lucide-settings',
+            'icon' => 'heroicon-s-cog-6-tooth',
         ],
     ];
 @endphp
-<div class="w-72 bg-white z-40">
+<div class="flex w-72 bg-neutral-900 z-40">
 
-    <div class=" flex flex-col overflow-y-auto w-full  h-full  ">
-        <div class="flex items-center gap-[13px] px-6 h-16 bg-white ">
-            <a class="brand flex items-center" target="_blank" href={{ route('home') }}>
+    <div class="  flex flex-col overflow-y-auto w-full gap-y-3  ">
+        <div class="flex items-center gap-[13px] px-6 h-16  ">
+            <a class="brand flex items-center text-white" target="_blank" href={{ route('home') }}>
                 <span class="flex items-center p-2 rounded-full mr-2 bg-primary-600 ">
-                    <x-lucide-baggage-claim class='h-6 w-6 text-white' />
+                    <x-lucide-baggage-claim class='h-6 w-6 ' />
                 </span>
-                <span class="text-xl font-bold text-gray-700">
+                <span class="text-xl font-bold ">
                     {{ config('app.name') }}
                 </span>
             </a>
         </div>
 
-        <nav class="flex flex-col flex-1 divide-y divide-neutral-100/5 gap-y-7">
-            <x-sidebar.secction-sidebar class="">
-                <x-sidebar-list-items :items-navigation="$navigation_1" />
-            </x-sidebar.secction-sidebar>
+        <nav class="flex flex-col flex-1 divide-y divide-neutral-600/10">
+            <x-sidebar.sidebar-list :list-navigation="$navigation_1" />
 
-            <x-sidebar.secction-sidebar class="grow">
-                <div class="text-sm font-semibold leading-6 text-gray-700 dark:text-gray-200">Blog</div>
-                <x-sidebar-list-items :items-navigation="$navigation_2" />
-            </x-sidebar.secction-sidebar>
+            <div class="grow">
+                <x-sidebar.sidebar-list title="Blog" :list-navigation="$navigation_2" />
+            </div>
 
-            <x-sidebar.secction-sidebar>
-                <x-sidebar-list-items :items-navigation="$navigation_3" />
-            </x-sidebar.secction-sidebar>
+            <x-sidebar.sidebar-list :list-navigation="$navigation_3" />
         </nav>
     </div>
 </div>
