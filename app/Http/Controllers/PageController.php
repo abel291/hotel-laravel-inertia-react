@@ -24,14 +24,17 @@ class PageController extends Controller
     public function home()
     {
         $page = Page::where('type', 'home')->first();
+
         $rooms = Room::select('id', 'slug', 'name', 'thumb', 'entry', 'adults', 'price', 'home')
             ->with('beds')
             ->where('active', 1)
             ->get();
 
         $cheap_rooms = $rooms->sortBy('price')->first();
-        $rooms_home = $rooms->where('home', true)->where('active', 1)->values();
 
+        $rooms_home = $rooms->where('home', true);
+
+        // dd($rooms_home);
         $posts = Blog::with('category:id,name')->where('home', true)->where('active', 1)->get();
 
         return Inertia::render('Home/Home', [

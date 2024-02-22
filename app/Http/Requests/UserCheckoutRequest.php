@@ -22,7 +22,7 @@ class UserCheckoutRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'email' => 'required|email|confirmed|max:250',
+            // 'email' => 'required|email|confirmed|max:250',
             'name' => 'required|string|max:255',
             'phone' => 'required|string|max:255',
             'country' => 'required|string|max:255',

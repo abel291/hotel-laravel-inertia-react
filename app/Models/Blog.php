@@ -12,7 +12,7 @@ class Blog extends Model
     protected $guarded = [];
     public function tags()
     {
-        return $this->belongsToMany(Tag::class, 'blog_tag');
+        return $this->belongsToMany(Tag::class, 'blog_tag', 'blog_id', 'tag_id');
     }
     public function category()
     {

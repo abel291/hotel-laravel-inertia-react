@@ -22,8 +22,12 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return Inertia::location(route('dashboard.home'));
-                // return redirect(RouteServiceProvider::HOME);
+                if (Auth::user()->hasRole('admin')) {
+                    //return to_route('shopping-cart.index');
+                    return Inertia::location(route('dashboard.home'));
+                } else {
+                    return redirect(RouteServiceProvider::HOME);
+                }
             }
         }
 

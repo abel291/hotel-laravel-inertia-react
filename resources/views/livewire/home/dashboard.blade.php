@@ -30,8 +30,8 @@
             </x-stat>
         </div>
         <div class="lg:col-span-2">
-            <x-stat label="Total ingresos">
-                @money($totalIncome)
+            <x-stat label="Usuarios registrados">
+                {{ $registeredUserCount }}
             </x-stat>
         </div>
 
@@ -45,12 +45,12 @@
         </x-content>
 
         <x-content class="lg:col-span-4">
-            {{-- <x-title>
+            <x-title>
                 Nuevo usuarios
-                <div class="mt-6 lg:h-96 chart-container " style="position: relative; width:100%">
-                    <canvas id="chart-new-users" class="w-full"></canvas>
+                <div class="mt-6 chart-container ">
+                    <canvas id="chart-new-users" class="w-full lg:h-96 relative"></canvas>
                 </div>
-            </x-title> --}}
+            </x-title>
         </x-content>
 
         <div class="lg:col-span-6">
@@ -69,23 +69,10 @@
         const chartRegisterUsers = document.getElementById('chart-new-users');
         const chartReservationRoom = document.getElementById('chart-order-reservations-rooms');
 
-        const getDaysInMonth = () => {
-            let daysCount = new Date(
-                new Date().getFullYear(),
-                new Date().getMonth() + 1,
-                0
-            ).getDate();
 
-            return Array.from({
-                length: daysCount
-            }, (_, i) => i + 1)
-        };
-        const arrayDaysInMonth = getDaysInMonth();
 
         const options = {
-            // maintainAspectRatio: false,
             responsive: true,
-
             scales: {
                 y: {
                     beginAtZero: true
@@ -95,7 +82,6 @@
                 x: {
                     display: false
                 },
-
             }
         }
         const data = {
@@ -108,6 +94,19 @@
             type: 'bar',
             options: options
         });
+
+        const chart2 = new Chart(chartRegisterUsers, {
+            type: 'bar',
+
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                },
+            }
+        });
         document.addEventListener('livewire:init', () => {
             Livewire.on('update-chart', (event) => {
                 console.log(event[0].chart1)
@@ -119,29 +118,18 @@
                     }]
                 };
                 chart1.update();
+
+                chart2.data = {
+                    labels: event[0].chart2.labels,
+                    datasets: [{
+                        label: 'Usuarios Registrados',
+                        data: event[0].chart2.datasets,
+                    }]
+                };
+                chart2.update();
                 // chart1.resize();
 
             });
         });
-        // const chart2 = new Chart(chartRegisterUsers, {
-        //     type: 'bar',
-        //     data: {
-        //         labels: arrayDaysInMonth,
-        //         datasets: [{
-        //             label: 'Usuarios Registrados',
-        //             data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
-        //             backgroundColor: ['#3b82f6']
-        //         }]
-        //     },
-        //     options: {
-        //         responsive: true,
-        //         maintainAspectRatio: false,
-        //         scales: {
-        //             y: {
-        //                 beginAtZero: true
-        //             }
-        //         }
-        //     }
-        // });
     </script>
 @endpush

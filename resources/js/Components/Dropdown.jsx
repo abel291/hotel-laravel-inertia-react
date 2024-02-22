@@ -30,7 +30,7 @@ const Trigger = ({ children }) => {
     );
 };
 
-const Content = ({ align = 'right', width = '48', contentClasses = 'py-1 bg-white', children }) => {
+const Content = ({ align = 'right', width = '52', contentClasses = 'py-1 bg-white', children }) => {
     const { open, setOpen } = useContext(DropDownContext);
 
     let alignmentClasses = 'origin-top';
@@ -43,8 +43,8 @@ const Content = ({ align = 'right', width = '48', contentClasses = 'py-1 bg-whit
 
     let widthClasses = '';
 
-    if (width === '48') {
-        widthClasses = 'w-48';
+    if (width === '52') {
+        widthClasses = 'w-52';
     }
 
     return (
@@ -75,7 +75,7 @@ const DropdownLink = ({ className = '', children, ...props }) => {
         <Link
             {...props}
             className={
-                'block w-full px-4 py-2 text-start text-sm leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out ' +
+                'dropdown-link ' +
                 className
             }
         >

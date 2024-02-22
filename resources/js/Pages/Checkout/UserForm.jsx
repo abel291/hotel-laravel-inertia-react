@@ -13,14 +13,10 @@ const UserForm = ({ handleChange, formUser }) => {
 
                 <div className=' lg:col-span-10' >
                     <label htmlFor="email" className='  text-sm font-medium mb-1 block'>Email</label>
-                    <TextInput onChange={handleChange} id='email' defaultValue={formUser.data.email} className="w-full" />
+                    <TextInput disabled id='email' defaultValue={formUser.data.email} className="w-full" />
                     <InputError message={formUser.errors.email} className="mt-2" />
                 </div>
-                <div className=' lg:col-span-10' >
-                    <label htmlFor="email_confirmation" className='  text-sm font-medium mb-1 block'>Confirmar Email</label>
-                    <TextInput onChange={handleChange} id='email_confirmation' defaultValue={formUser.data.email_confirmation} className="w-full" />
-                    <InputError message={formUser.errors.email_confirmation} className="mt-2" />
-                </div>
+
                 <div className=' lg:col-span-6'>
                     <label htmlFor="name" className='text-sm font-medium mb-1 block'>Nombre</label>
                     <TextInput onChange={handleChange} id='name' defaultValue={formUser.data.name} />
@@ -46,7 +42,7 @@ const UserForm = ({ handleChange, formUser }) => {
 
                 <div className='lg:col-span-12'>
                     <label htmlFor="note" className='text-sm font-medium mb-1 block'>Comentario o petición (opcional)</label>
-                    <textarea onChange={handleChange} defaultValue={formUser.data.note} id='note' rows={4} className='input-textarea'></textarea>
+                    <textarea onChange={handleChange} defaultValue={formUser.data.note} id='note' rows={4} className='textarea-form '></textarea>
                     <InputError message={formUser.errors.note} className="mt-2" />
                 </div>
 

@@ -46,19 +46,22 @@ const RoomSingle = ({ room, charge, recommendedRooms }) => {
                         <div >
                             <RoomListBeds adults={room.adults} beds={room.beds} />
                         </div>
-                        <div className='mt-8'>
-                            <p className='text-lg font-light'>{room.description}</p>
-                        </div>
-                        <div className='mt-10 lg:mt-14'>
-                            <h4>Comodidades</h4>
-                            <div className='mt-5 lg:mt-6'>
-                                <RoomAmenities amenities={room.amenities} />
+                        <div className='space-y-10 lg:space-y-14 mt-4'>
+                            <div >
+                                <p className='text-lg font-light'>{room.description}</p>
                             </div>
-                        </div>
-                        <div className='mt-10 lg:mt-14'>
-                            <h4>Reglas del Hotel</h4>
-                            <div className='mt-5 lg:mt-6'>
-                                <Rules />
+
+                            <div >
+                                <h4>Comodidades</h4>
+                                <div className='mt-5 lg:mt-6'>
+                                    <RoomAmenities amenities={room.amenities} />
+                                </div>
+                            </div>
+                            <div >
+                                <h4>Reglas del Hotel</h4>
+                                <div className='mt-5 lg:mt-6'>
+                                    <Rules />
+                                </div>
                             </div>
                         </div>
                     </div>

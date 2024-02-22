@@ -20,13 +20,14 @@ class ReservationSeeder extends Seeder
 
         Reservation::truncate();
         $rooms = Room::with('beds')->get();
+        $users = User::select('id', 'name', 'email', 'phone', 'country', 'city')->get();
         for ($i = 0; $i < 100; $i++) {
 
-            $rooms_selected = $rooms;
+            $rooms_selected = $rooms->random(6);
 
             // $discount = $discounts->random();
             foreach ($rooms_selected as $room) {
-
+                $user = $users->random();
                 $reservation_date = Carbon::parse(fake()->dateTimeInInterval('-2 month', '+2 month'));
                 $start_date = Carbon::parse($reservation_date);
                 $nights = rand(2, 8);
@@ -44,11 +45,12 @@ class ReservationSeeder extends Seeder
                             ];
                         })
                     ],
-                    'user' => User::factory()->make()->only(['name', 'email', 'phone', 'country', 'city'])
+                    'user' => $user->only(['name', 'email', 'phone', 'country', 'city'])
                 ];
                 $reservation->state = fake()->randomElement(ReservationStatus::cases());
                 $reservation->adults = rand(1, 3);
                 $reservation->kids = rand(0, 1);
+                $reservation->user_id = $user->id;
 
                 $reservation->save();
             }

@@ -65,21 +65,26 @@ class ReservationController extends Controller
         $reservation->offer = $charge['offer'];
         $reservation->data = [
             'room' => session('room'),
-            'user' => $request->safe()->except(['note']),
+            'user' => [
+                'email' => auth()->user()->email,
+                ...$request->safe()->except(['note'])
+            ],
         ];
         $reservation->special_request = $request->note;
         $reservation->room_id = session('room')['id'];
+        $reservation->user_id = auth()->user()->id;
+        $reservation->save();
+        return to_route('profile.reservation', ['code' => $reservation->code])->with('orderSuccess', 'Reservacion creada con exito');
+        // DB::transaction(function () use ($reservation) {
 
-        DB::transaction(function () use ($reservation) {
 
-            $reservation->save();
 
-            // Mail::to($reservation->data->user->email)->send(new OrderShipped($reservation));
+        //     // Mail::to($reservation->data->user->email)->send(new OrderShipped($reservation));
 
-            session()->forget(['reservation', 'room', 'charge']);
-        });
+        //     // session()->forget(['reservation', 'room', 'charge']);
 
-        return to_route('details-reservation', ['code' => $reservation->code])->with('orderSuccess', 'Reservacion creada con exito');
+
+        // });
     }
 
     public function detailsReservation(Request $request)
@@ -96,7 +101,7 @@ class ReservationController extends Controller
         // $markdown = new Markdown(view(), config('mail.markdown'));
         // return $markdown->render('mail.orders.shipped', compact('reservation'));
 
-        return Inertia::render('DetailsReservation/DetailsReservation', [
+        return Inertia::render('DetailsOrder/DetailsOrder', [
             'reservation' => $reservation,
         ]);
     }

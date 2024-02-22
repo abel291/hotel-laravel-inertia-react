@@ -11,12 +11,15 @@
                 {{ $slot }}
             </table>
         </div>
-        <div class="text-sm  pt-10 pb-6 px-6">
-            {{ $data->links() }}
-        </div>
+        @if ($data->hasPages())
+            <div class="text-sm  pt-10 pb-6 px-6">
+                {{ $data->links() }}
+            </div>
+        @endif
     @else
-        <div class="text-center py-3.5 px-3">
-            <span class=" text-sm text-gray-500">No hay registros disponibles</span>
+        <div class=" py-3.5 px-3 text-gray-500 flex items-center flex-col">
+            <x-heroicon-m-no-symbol class="w-10 h-10 inline-block" />
+            <span class="">No hay registros disponibles</span>
         </div>
     @endif
 

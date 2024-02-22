@@ -55,7 +55,7 @@ const CardCheckIn = ({ room, charge }) => {
                             <UserRound strokeWidth={1.5} className='w-6 h-6 text-primary-700 mr-3 shrink-0' />
                             <select
                                 id="adults"
-                                className='select-form ring-none ring-0 focus:ring-0 border-none shadow-none'
+                                className=' ring-none ring-0 focus:ring-0 border-none shadow-none'
                                 onChange={(e) => formReservation.setData('adults', e.target.value)}
                             >
                                 <option value="1">1</option>
@@ -69,7 +69,7 @@ const CardCheckIn = ({ room, charge }) => {
                         <div className='flex items-center mt-1 border-b pb-1'>
                             <BabyIcon strokeWidth={1.5} className='w-6 h-6 text-primary-700 mr-3 shrink-0' />
                             <select id="kids"
-                                className='select-form ring-none ring-0 focus:ring-0 border-none shadow-none'
+                                className=' ring-none ring-0 focus:ring-0 border-none shadow-none'
                                 onChange={(e) => formReservation.setData('kids', e.target.value)}
                             >
                                 <option value="0">0</option>

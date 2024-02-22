@@ -17,7 +17,9 @@ const CardRoomOffer = ({ room, children }) => {
                 <div className='xl:flex h-full justify-between gap-x-10'>
                     <div className='flex flex-col font-light'>
                         <div className='grow'>
-                            <Link href={route('room', { slug: room.slug })} className='font-bold text-2xl hover:text-primary-800 transition-colors ease-out duration-700'>{room.name}</Link>
+                            <Link href={route('room', { slug: room.slug })} className='font-semibold text-2xl hover:text-primary-800 transition-colors ease-out duration-700'>
+                                {room.name}
+                            </Link>
                             <p className='  mt-2  md:text-lg  font-light'>
                                 {room.entry}
                             </p>

@@ -1,5 +1,6 @@
 import React from 'react'
 import SecondaryButton from './SecondaryButton'
+import { Link } from '@inertiajs/react'
 
 const CardOffer = ({ isButton = true }) => {
     return (
@@ -11,7 +12,8 @@ const CardOffer = ({ isButton = true }) => {
                 <p className='text-base mt-5'>Ahorre hasta un 20 % de descuento en la tarifa por noche entre 7 y 14 noches</p>
             </div>
             {isButton && (
-                <SecondaryButton className='mt-8'>Elige habitación</SecondaryButton>
+                <Link href={route('rooms')} className='btn-secondary mt-8'>Elegir habitación</Link>
+
             )}
         </div>
     )

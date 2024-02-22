@@ -19,6 +19,7 @@ class BlogSeeder extends Seeder
         Blog::truncate();
 
         $tags = Tag::select('id')->get();
+
         $categories = Category::select('id')->get();
 
         Blog::factory(10)

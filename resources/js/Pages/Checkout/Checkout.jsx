@@ -14,23 +14,19 @@ const Checkout = ({ }) => {
             title: 'Checkout'
         },
     ]
-    const { user, note } = usePage().props
+    const { auth, note } = usePage().props
 
     const { } = usePage().props
     const formUser = useForm({
-        // email: '',
-        // email_confirmation: '',
-        // name: '',
-        // lastName: '',
-        // phone: '',
-        // country: '',
-        // city: '',
-        // note: '',
-        ...user,
-        email_confirmation: user.email,
+        email: auth.user.email,
+        name: auth.user.name,
+        phone: auth.user.phone,
+        country: auth.user.country,
+        city: auth.user.city,
+        note: '',
         newsletter: false,
         terms: false,
-        note: note
+
     })
     function handleChange(e) {
         const key = e.target.id;
@@ -60,22 +56,21 @@ const Checkout = ({ }) => {
                     <div className='container grid lg:grid-cols-12 gap-16'>
                         <div className=' lg:col-span-7'>
                             <div>
-                                <h4 className="font-semibold block mb-3 ">
+                                <h4 className="font-medium block mb-3 ">
                                     Información del contacto
                                 </h4>
                                 <UserForm handleChange={handleChange} formUser={formUser} />
                             </div>
 
                             {/* <div className='mt-5'>
-                                <h4 className="font-semibold block mb-3 ">
+                                <h4 className="font-medium block mb-3 ">
                                     Información del Pago
                                 </h4>
-
                             </div> */}
 
                         </div>
                         <div className=' lg:col-span-5'>
-                            <h4 className="font-semibold block mb-3 ">Resumen del pedido</h4>
+                            <h4 className="font-medium block mb-3 ">Resumen del pedido</h4>
                             <OrderSummary handleClickReservation={handleClickReservation} formUser={formUser} />
                         </div>
                     </div>

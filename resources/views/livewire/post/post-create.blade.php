@@ -64,9 +64,28 @@
                             <option value="0">No</option>
                         </x-form.select>
                     </div>
-                    <div class="md:col-span-12">
-                        <x-form.textarea rows="5" label="Descripcion amplia " wire:model="description" />
+                    <div class="md:col-span-3">
+                        <x-form.select label="Categoria" wire:model="category_id">
+                            @foreach ($categoryList as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </x-form.select>
                     </div>
+
+                    <div class="md:col-span-12">
+                        <x-form.textarea rows="10" label="Descripcion amplia " wire:model="description" />
+                    </div>
+
+                    <div class="md:col-span-12 py-5">
+                        <x-input-label for="form.amenities">Tags</x-input-label>
+                        <div class="grid grid-cols-1 lg:grid-cols-6 gap-2 ">
+                            @foreach ($tagList as $tag)
+                                <x-form.input-checkbox wire:model="selectedTags" value="{{ $tag->id }}"
+                                    label="{{ $tag->name }}" />
+                            @endforeach
+                        </div>
+                    </div>
+
                     <div class="md:col-span-6">
                         <x-form.input-file model="img" :temp="$img" :saved="$imgSaved" label="Imagen amplia" />
                     </div>

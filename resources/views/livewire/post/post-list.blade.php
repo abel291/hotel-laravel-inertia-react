@@ -17,8 +17,6 @@
             </x-header-title>
         </div>
 
-
-
     </div>
 </x-slot>
 
@@ -34,7 +32,7 @@
 
         <x-table.table :data="$list" wire:target="search">
             @php
-                $headList = ['Titulo', 'Pequeña descripcion', 'activo', 'Fechas', ''];
+                $headList = ['Titulo', 'tags', 'activo', 'Fechas', ''];
             @endphp
             <thead>
                 <tr>
@@ -49,13 +47,15 @@
                     <tr>
                         <td>
                             <x-table.title-image :title="$item->title" :path="route('post', $item->slug)" :img="$item->thumb"
-                                :sub-title="$item->slug" />
+                                :sub-title="$item->category->name" />
                         </td>
 
                         <td>
-                            <p class="max-w-sm">
-                                {{ $item->entry }}
-                            </p>
+                            <div class="flex gap-1.5 flex-wrap">
+                                @foreach ($item->tags as $tag)
+                                    <x-badge color="indigo">{{ $tag->name }}</x-badge>
+                                @endforeach
+                            </div>
                         </td>
                         <td>
                             <x-badge-active :active="$item->active" />

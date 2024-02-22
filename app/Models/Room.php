@@ -40,8 +40,8 @@ class Room extends Model
         'kids' => 0,
         'img' => null,
         'thumb' => null,
-        'home' => 1,
-        'about' => 1,
+        'home' => 0,
+        'about' => 0,
     ];
 
     public function images()

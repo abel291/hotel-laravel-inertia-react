@@ -2,6 +2,7 @@ import InfoIconItem from '@/Components/InfoIconItem'
 import PrimaryButton from '@/Components/PrimaryButton'
 import SecondaryButton from '@/Components/SecondaryButton'
 import TitleSectionLink from '@/Components/TitleSectionLink'
+import { formatCurrency } from '@/Helpers/helper'
 import { BuildingOffice2Icon, HomeModernIcon, UserGroupIcon } from '@heroicons/react/24/outline'
 import { usePage } from '@inertiajs/react'
 import React from 'react'
@@ -38,7 +39,7 @@ const RoomPrice = () => {
                             <div className='p-11  shadow-lg  bg-white rounded-xl'>
                                 <h4 className='text-2xl font-bold'> {cheapRoom.name}</h4>
                                 <p className='mt-3 text-lg font-light'>
-                                    <strong className='text-3xl font-extrabold'>${cheapRoom.price}</strong> / 1 night
+                                    <strong className='text-3xl font-extrabold'>{formatCurrency(cheapRoom.price)}</strong> / 1 noche
                                 </p>
                                 <SecondaryButton className='mt-5'>Ver disponibilidad</SecondaryButton>
                             </div>

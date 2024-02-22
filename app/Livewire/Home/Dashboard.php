@@ -4,6 +4,7 @@ namespace App\Livewire\Home;
 
 use App\Enums\ReservationStatus;
 use App\Models\Reservation;
+use App\Models\User;
 use Carbon\Carbon;
 use Livewire\Component;
 
@@ -58,21 +59,35 @@ class Dashboard extends Component
 
         // $this->emit('updateChart');
 
+        $usersRegister = User::select('id', 'created_at')
+            ->where('created_at', '>=', $lastDays)
+            ->orderBy('created_at')
+            ->get();
+
+        $registeredUserMonth = $usersRegister->groupBy(function ($user, $key) {
+            return ucfirst($user->created_at->isoFormat('MMMM'));
+        })->map(function ($item) {
+            return $item->count();
+        });
+
         $this->dispatch('update-chart', [
             'chart1' => [
                 'labels' => $reservationForRoom->keys()->toArray(),
                 'datasets' =>   $reservationForRoom->values()->toArray(),
             ],
+            'chart2' => [
+                'labels' => $registeredUserMonth->keys()->toArray(),
+                'datasets' =>   $registeredUserMonth->values()->toArray(),
+            ],
         ]);
         return view('livewire.home.dashboard', [
-
             'totalIncome' => $totalIncome,
             'totalRoomsReservation' => $totalRoomsReservation,
             'averageNights' => $averageNights,
             'reservationForRoom' => $reservationForRoom,
             'reservationRecent' => $reservationRecent,
             'popularRoom' => $popularRoom,
-
+            'registeredUserCount' => $registeredUserMonth->sum(),
         ]);
     }
 }

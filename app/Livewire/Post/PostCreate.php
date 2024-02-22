@@ -3,6 +3,8 @@
 namespace App\Livewire\Post;
 
 use App\Models\Blog;
+use App\Models\Category;
+use App\Models\Tag;
 use App\Traits\TraitUploadImage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -13,6 +15,9 @@ class PostCreate extends Component
     public $label = 'Post';
     public $labelPlural = 'Posts';
     public Blog $post;
+
+    public $isEdit = false;
+
     public $title;
     public $slug;
     public $entry;
@@ -23,8 +28,8 @@ class PostCreate extends Component
     public $home;
     public $img;
     public $thumb;
-
-    public $isEdit = false;
+    public $category_id;
+    public $selectedTags = [];
 
     public $thumbSaved;
     public $imgSaved;
@@ -40,6 +45,8 @@ class PostCreate extends Component
         'img' => ['required', 'image', 'mimes:jpg,png', 'max:2024',],
         'thumb' => ['required', 'image', 'mimes:jpg,png', 'max:2024',],
         'home' => ['required', 'boolean'],
+        'category_id' => ['required', 'exists:categories,id'],
+        'selectedTags' => ['required'],
     ];
     public function validationAttributes()
     {
@@ -60,11 +67,9 @@ class PostCreate extends Component
         $this->isEdit = boolval($id);
 
         if ($id) {
-            $this->post = Blog::findOrFail($id);
+            $this->post = Blog::with('tags')->findOrFail($id);
 
-
-            // $this->img = $this->post->img;
-            // $this->thumb = $this->post->thumb;
+            $this->selectedTags = $this->post->tags->pluck('id')->toArray();
 
             $this->thumbSaved = $this->post->thumb;
             $this->imgSaved = $this->post->img;
@@ -80,6 +85,7 @@ class PostCreate extends Component
         $this->seo_title = $this->post->seo_title;
         $this->seo_desc = $this->post->seo_desc;
         $this->home = $this->post->home;
+        $this->category_id = $this->post->category_id;
     }
 
     public function store()
@@ -91,15 +97,13 @@ class PostCreate extends Component
             $this->post = new Blog();
         }
 
-
         $this->validate();
 
         $post = $this->post;
 
-        $post->fill($this->only(['title', 'slug', 'entry', 'active', 'description', 'seo_title', 'seo_desc', 'home']));
+        $post->fill($this->only(['title', 'slug', 'entry', 'active', 'description', 'seo_title', 'seo_desc', 'home', 'category_id']));
 
         if ($this->thumb) {
-
             if ($post->thumb) {
                 // Storage::delete($post->thumb);
             }
@@ -115,11 +119,19 @@ class PostCreate extends Component
 
         $post->save();
 
+        $this->selectedTags = array_map('intval', $this->selectedTags);
+
+        $post->tags()->sync($this->selectedTags);
+
         return redirect()->route('dashboard.posts.index')->with('success', 'Registro Guardados');
     }
 
     public function render()
     {
-        return view('livewire.post.post-create');
+
+        $categoryList = Category::select('id', 'name')->where('active', true)->get();
+        $tagList = Tag::select('id', 'name')->where('active', true)->get();
+        // dd($categoryList);
+        return view('livewire.post.post-create', compact('categoryList', 'tagList'));
     }
 }

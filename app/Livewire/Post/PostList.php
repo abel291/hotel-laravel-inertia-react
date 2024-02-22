@@ -33,7 +33,9 @@ class PostList extends Component
     #[On('renderBlogList')]
     public function render()
     {
-        $list = Blog::select('id', 'title', 'slug', 'entry', 'active', 'thumb', 'updated_at')->where('name', 'like', '%' . $this->search . '%')
+        $list = Blog::select('id', 'title', 'slug', 'entry', 'active', 'thumb', 'category_id', 'updated_at')
+            ->with('tags', 'category')
+            ->where('title', 'like', '%' . $this->search . '%')
             ->orderBy('id', 'desc')
             ->paginate(24);
 

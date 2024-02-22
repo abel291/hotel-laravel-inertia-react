@@ -22,7 +22,7 @@ const CardPost = ({ post }) => {
                         {post.title}
                     </Link>
 
-                    <p className=' grow mt-4  md:text-lg  font-light'>
+                    <p className=' grow mt-4 font-light'>
                         {post.entry}
                     </p>
                     <div className='mt-5 flex items-center gap-8  '>

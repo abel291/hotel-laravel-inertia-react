@@ -16,6 +16,7 @@
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.4",
         "mallardduck/blade-lucide-icons": "^1.11",
+        "spatie/laravel-permission": "^6.3",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {

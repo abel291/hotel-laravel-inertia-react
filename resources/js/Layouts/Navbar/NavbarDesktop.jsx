@@ -1,11 +1,12 @@
 import React from 'react'
 import { BuildingOffice2Icon } from '@heroicons/react/16/solid'
-import { Link } from '@inertiajs/react'
+import { Link, usePage } from '@inertiajs/react'
 import PrimaryButton from '@/Components/PrimaryButton'
 import ApplicationLogo from '@/Components/ApplicationLogo'
 import ButtonReserve from './ButtonReserve'
+import ProfileDropdown from './ProfileDropdown'
 const NavbarDesktop = ({ navigations }) => {
-
+    const { auth } = usePage().props
     return (
 
         <nav className="h-28 items-center z-40 relative hidden lg:flex">
@@ -21,10 +22,22 @@ const NavbarDesktop = ({ navigations }) => {
                             {navigation.title}
                         </Link>
                     ))}
-                    <div>
+                    <div >
                         {/* <Link href={route('contact')} className='btn-primary'>Reservar</Link> */}
-                        <ButtonReserve />
+                        {auth.user ? (
+                            <ProfileDropdown />
+                        ) : (
+                            <>
+                                <div className="flex lg:flex-1 lg:items-center lg:justify-end lg:space-x-4">
+                                    <Link href={route('login')} className=" font-medium text-gray-700 hover:text-gray-800">Acceder</Link>
+                                    {/* <span className="h-6 w-px bg-gray-200" aria-hidden="true"></span>
+                                    <Link href={route('register')} className=" font-medium text-gray-700 hover:text-gray-800">Crear cuenta</Link> */}
+                                </div>
+                            </>
+                        )}
+
                     </div>
+                    <ButtonReserve />
 
                 </div>
             </div>

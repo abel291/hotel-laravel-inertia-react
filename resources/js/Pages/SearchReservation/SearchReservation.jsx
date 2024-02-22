@@ -27,7 +27,6 @@ const SearchReservation = ({ errors }) => {
         get(route('details-reservation'), {
             preserveScroll: true,
             preserveState: true
-
         })
     }
 
@@ -48,12 +47,12 @@ const SearchReservation = ({ errors }) => {
                             <div className=' lg:col-span-10' >
                                 <label htmlFor="code" className='text-sm font-medium mb-1 block'>Numero de reservacion</label>
                                 <TextInput required placeholder="ejp:441934" onChange={handleChange} id='code' defaultValue={data.code} className="w-full" />
-                                <InputError message={errors.code} className="mt-2" />
                             </div>
                             <div>
                                 <PrimaryButton isLoading={processing} disabled={processing}>Buscar</PrimaryButton>
                             </div>
                         </div>
+                        <InputError message={errors.code} className="mt-2" />
                     </form>
                 </div>
             </section>

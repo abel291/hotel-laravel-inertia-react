@@ -5,7 +5,7 @@ import { Link } from '@inertiajs/react'
 import { Briefcase, Map, MapIcon, ParkingCircle, Wifi } from 'lucide-react'
 import React from 'react'
 
-const Services = () => {
+const HomeServices = () => {
     return (
         <section className='py-section overflow-hidden'>
             <div className='container'>
@@ -67,4 +67,4 @@ const Services = () => {
     )
 }
 
-export default Services
+export default HomeServices

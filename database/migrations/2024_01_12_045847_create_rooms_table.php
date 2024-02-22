@@ -24,8 +24,8 @@ return new class extends Migration
             $table->unsignedTinyInteger('kids')->default(0)->nullable();
             $table->string('img');
             $table->string('thumb');
-            $table->boolean('home')->default(0);
-            $table->boolean('about')->default(0);
+            $table->boolean('home')->default(false);
+            $table->boolean('about')->default(false);
 
             $table->timestamps();
         });

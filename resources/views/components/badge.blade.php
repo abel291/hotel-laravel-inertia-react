@@ -9,7 +9,7 @@
         'indigo' => 'bg-indigo-100 text-indigo-700',
         'purple' => 'bg-purple-100 text-purple-700',
         'pink' => 'bg-pink-100 text-pink-700',
-        'orange' => 'bg-orange-100 text-orange-600',
+        'orange' => 'bg-orange-100 text-orange-700',
     ];
 @endphp
 <span

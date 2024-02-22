@@ -33,7 +33,7 @@ class RoomSeeder extends Seeder
                 $room->complements()->sync($complements->random(rand(5, 10)));
             });
 
-        Room::inRandomOrder()->limit(2)->update(['home' => 1]);
-        Room::inRandomOrder()->limit(3)->update(['about' => 1]);
+        Room::inRandomOrder()->limit(2)->update(['home' => true]);
+        Room::inRandomOrder()->limit(3)->update(['about' => true]);
     }
 }

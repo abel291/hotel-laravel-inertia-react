@@ -4,7 +4,7 @@ import React, { useState } from 'react'
 import ImageGallery from './ImageGallery'
 import FsLightbox from "fslightbox-react";
 import TitleSectionLink from '@/Components/TitleSectionLink';
-const Photos = () => {
+const HomeSectionPhotos = () => {
     const [lightboxController, setLightboxController] = useState({
         toggler: false,
         slide: 1
@@ -51,4 +51,4 @@ const Photos = () => {
 
 
 
-export default Photos
+export default HomeSectionPhotos

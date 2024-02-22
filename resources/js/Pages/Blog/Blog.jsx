@@ -21,7 +21,9 @@ const Blog = ({ page, posts, filters }) => {
             </Head>
             <div className='space-y-8'>
                 {posts.map((post) => (
-                    <CardPost post={post} />
+                    <div key={post.slug} >
+                        <CardPost post={post} />
+                    </div>
                 ))}
             </div>
         </LayoutBlog>

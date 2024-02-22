@@ -98,11 +98,11 @@ const OrderSummary = ({ handleClickReservation, formUser }) => {
 
 const ItemOrderSummary = ({ title, children }) => {
     return (
-        <div className="py-1  flex items-start justify-between text-base">
-            <div>
+        <div className="py-1.5  flex items-start justify-between text-base">
+            <div className='font-light'>
                 {title}
             </div>
-            <span className=" text-gray-600">
+            <span>
                 {children}
             </span>
         </div>

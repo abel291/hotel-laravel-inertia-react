@@ -23,10 +23,7 @@
 
 <div>
 
-    <div class="flex justify-between items-end gap-2">
-        <x-form.input-search />
 
-    </div>
     <x-content class="mt-4">
         <x-table.table :data="$list" wire:target="search">
             @php

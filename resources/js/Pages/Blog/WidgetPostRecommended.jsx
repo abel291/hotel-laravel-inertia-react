@@ -10,8 +10,10 @@ const WidgetPostRecommended = () => {
         <div>
             <h4 >Artículos recomendados</h4>
             <div className='mt-4  space-y-5'>
-                {postsRecommended.map((post) => (
-                    <ItemPostRecommended post={post} />
+                {postsRecommended.map((post, index) => (
+                    <div key={index}>
+                        <ItemPostRecommended post={post} />
+                    </div>
                 ))}
             </div>
         </div>

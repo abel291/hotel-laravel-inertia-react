@@ -14,7 +14,7 @@ class RoomService
 
         $rooms = Room::where('active', 1)
             ->where('adults', '>=', $adults)
-            ->where('remaining', '>', 0)
+            // ->where('remaining', '>', 0)
             ->when($kids, function (Builder $query, string $kids) {
                 $query->where('kids', '>=', $kids);
             })
@@ -40,7 +40,7 @@ class RoomService
             ->get()
             ->filter(function ($value, $key) {
 
-                return $value->quantity > $value->reservations->sum('room_quantity');
+                return $value->quantity > $value->reservations->sum('quantity');
             });
         // ->transform(function ($item, $key) use ($night) {
 

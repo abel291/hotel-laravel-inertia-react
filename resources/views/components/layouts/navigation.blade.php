@@ -68,7 +68,7 @@ if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
+                        <x-dropdown-link :href="route('profile.index')">
 
                             <div class="flex items-center gap-2 whitespace-nowrap">
                                 <x-heroicon-m-user-circle class="h-5 w-5 text-gray-400 dark:text-gray-500" />

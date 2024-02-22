@@ -27,7 +27,7 @@
             </thead>
             <tbody>
                 @foreach ($reservationsRecent as $item)
-                    <tr>
+                    <tr x-auto-animate.175ms>
                         <td>
                             <a href="{{ route('dashboard.reservations.show', $item->id) }}"
                                 class="table-button-option flex items-center gap-x-2 whitespace-nowrap">

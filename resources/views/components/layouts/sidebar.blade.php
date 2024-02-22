@@ -6,12 +6,12 @@
             'routeActive' => 'dashboard.home',
             'icon' => 'heroicon-m-home',
         ],
-        // [
-        //     'title' => 'Ususarios',
-        //     'route' => 'dashboard.home2',
-        //     'routeActive' => 'dashboard.home2',
-        //     'icon' => 'lucide-user',
-        // ],
+        [
+            'title' => 'Usuarios',
+            'route' => 'dashboard.users.index',
+            'routeActive' => 'dashboard.users.*',
+            'icon' => 'heroicon-m-user-circle',
+        ],
         [
             'title' => 'Habitaciones',
             'route' => 'dashboard.rooms.index',
@@ -58,12 +58,18 @@
             'routeActive' => 'dashboard.posts.*',
             'icon' => 'heroicon-m-newspaper',
         ],
-        // [
-        //     'title' => 'Autores',
-        //     'route' => 'dashboard.home2',
-        //     'routeActive' => 'dashboard.home2',
-        //     'icon' => 'lucide-pencil',
-        // ],
+        [
+            'title' => 'Categorias',
+            'route' => 'dashboard.categories.index',
+            'routeActive' => 'dashboard.categories.*',
+            'icon' => 'heroicon-m-pencil',
+        ],
+        [
+            'title' => 'Tags',
+            'route' => 'dashboard.tags.index',
+            'routeActive' => 'dashboard.tags.*',
+            'icon' => 'heroicon-m-tag',
+        ],
     ];
     $navigation_3 = [
         [

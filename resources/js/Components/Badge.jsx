@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Badge = ({ color, children }) => {
+const Badge = ({ color = 'gray', className, children }) => {
     const colors = {
         gray: 'bg-gray-200 text-gray-600',
         red: 'bg-red-100 text-red-700',
@@ -13,7 +13,7 @@ const Badge = ({ color, children }) => {
         orange: 'bg-orange-100 text-orange-700',
     }
     return (
-        <span className={'text-xs inline-flex items-center rounded-md whitespace-nowrap px-2 py-1 font-medium ' + colors[color]
+        <span className={className + ' text-xs inline-flex items-center rounded-md whitespace-nowrap px-2 py-1 font-medium ' + colors[color]
         }>
             {children}
         </span >

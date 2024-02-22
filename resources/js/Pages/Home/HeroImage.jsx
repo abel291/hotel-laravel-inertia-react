@@ -22,16 +22,16 @@ const HeroImage = () => {
 
                             <div className='z-10 lg:pr-20'>
                                 <h1 className="max-w-4xl text-4xl sm:text-5xl font-bold lg:text-[52px]">
-                                    Hotel Medellin: El confort y descanso que necesitas
+                                    Hotel Boka: El confort y descanso que necesitas
                                 </h1>
                                 <p className=" font-light max-w-2xl mt-6 text-lg lg:text-xl  pl-4 border-l-4 border-primary-600">
-                                    El Hotel Medellin representa un concepto de alojamiento innovador, con prestaciones y
+                                    El Hotel Boka representa un concepto de alojamiento innovador, con prestaciones y
                                     espacios donde prima el confort de cada huésped, todo ello revestido por un diseño
                                     sorprendente e innovador.
                                 </p>
 
                             </div>
-                            <div className='mt-10 mr-0 md:mr-4 xl:mr-0 p-5 lg:p-4 flex gap-6 xl:gap-0 shadow-lg shadow-primary-700/5  rounded-lg lg:rounded-l-lg  bg-white relative'>
+                            <div className='mt-10 mr-0 md:mr-4 xl:mr-0 p-5 lg:p-4 flex flex-wrap lg:flex-nowrap gap-6 xl:gap-0 shadow-lg shadow-primary-700/5  rounded-lg lg:rounded-l-lg  lg:rounded-r-none bg-white relative'>
                                 <div className='grow'>
                                     <div className='lg:pr-4 lg:pl-8 xl:border-r-2 xl:border-primary-100'>
                                         <label htmlFor="" className='font-bold'>Llegada</label>
@@ -75,7 +75,7 @@ const HeroImage = () => {
                                             <UserRound strokeWidth={1.5}
                                                 className='w-6 h-6 text-primary-700 mr-3 shrink-0' />
                                             <select
-                                                className='select-form ring-none ring-0 focus:ring-0 border-none shadow-none'
+                                                className='ring-none ring-0 focus:ring-0 border-none shadow-none'
                                                 onChange={(e) => formReservation.setData('adults', e.target.value)}
                                             >
                                                 <option value="1">1</option>
@@ -85,8 +85,8 @@ const HeroImage = () => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className='self-end'>
-                                    <PrimaryButton className='xl:hidden  w-full'>Buscar</PrimaryButton>
+                                <div className='self-end xl:hidden w-full'>
+                                    <PrimaryButton className='w-full'>Buscar</PrimaryButton>
                                 </div>
                                 <button className='hidden xl:block absolute shrink-0 w-36 -right-36 inset-y-0 rounded-r-lg outline-2 outline-offset-2 transition-colors bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800 active:text-white/80'>Buscar</button>
                             </div>
