@@ -48,7 +48,7 @@ const RoomSingle = ({ room, charge, recommendedRooms }) => {
                         </div>
                         <div className='space-y-10 lg:space-y-14 mt-4'>
                             <div >
-                                <p className='text-lg font-light'>{room.description}</p>
+                                <p className='text-lg font-light leading-relaxed'>{room.description}</p>
                             </div>
 
                             <div >

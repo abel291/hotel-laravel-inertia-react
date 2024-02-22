@@ -9,10 +9,10 @@ const Layout = ({ children }) => {
     const { auth } = usePage().props
 
     return (
-        <div >
+        <div className='flex flex-col h-full' >
             <NotificationToast />
             <Navbar />
-            <main>{children}</main>
+            <main className='grow'>{children}</main>
             <Footer />
         </div>
     );

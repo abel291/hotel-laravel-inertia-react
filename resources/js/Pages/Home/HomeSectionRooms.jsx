@@ -8,7 +8,7 @@ import { UserIcon } from '@heroicons/react/24/outline'
 import { Link, usePage } from '@inertiajs/react'
 import React from 'react'
 
-const Rooms = () => {
+const HomeSectionRooms = () => {
     const { rooms } = usePage().props
 
     return (
@@ -32,4 +32,4 @@ const Rooms = () => {
     )
 }
 
-export default Rooms
+export default HomeSectionRooms

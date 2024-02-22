@@ -22,13 +22,12 @@ export default function Login({ status, canResetPassword }) {
 
     const submit = (e) => {
         e.preventDefault();
-
         post(route('login'));
     };
 
     return (
         <GuestLayout>
-            <Head title="Log in" />
+            <Head title="Acceder" />
 
             {status && <div className="mb-4 font-medium text-sm text-green-600">{status}</div>}
 
@@ -81,14 +80,14 @@ export default function Login({ status, canResetPassword }) {
                     {canResetPassword && (
                         <Link
                             href={route('password.request')}
-                            className="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                            className="underline text-sm text-gray-600 hover:text-gray-900 "
                         >
-                            Forgot your password?
+                            ¿Olvidaste tu contraseña?
                         </Link>
                     )}
 
                     <PrimaryButton isLoading={processing} className="ms-4" disabled={processing}>
-                        Log in
+                        Acceder
                     </PrimaryButton>
                 </div>
             </form>

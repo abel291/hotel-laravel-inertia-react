@@ -4,10 +4,10 @@ import SecondaryButton from '@/Components/SecondaryButton'
 import TitleSectionLink from '@/Components/TitleSectionLink'
 import { formatCurrency } from '@/Helpers/helper'
 import { BuildingOffice2Icon, HomeModernIcon, UserGroupIcon } from '@heroicons/react/24/outline'
-import { usePage } from '@inertiajs/react'
+import { Link, usePage } from '@inertiajs/react'
 import React from 'react'
 
-const RoomPrice = () => {
+const HomeSectionRoomPrice = () => {
     const { cheapRoom } = usePage().props
     return (
         <section className='py-section'>
@@ -41,7 +41,7 @@ const RoomPrice = () => {
                                 <p className='mt-3 text-lg font-light'>
                                     <strong className='text-3xl font-extrabold'>{formatCurrency(cheapRoom.price)}</strong> / 1 noche
                                 </p>
-                                <SecondaryButton className='mt-5'>Ver disponibilidad</SecondaryButton>
+                                <Link href={route('room', { slug: cheapRoom.slug })} className='btn btn-secondary mt-5'>Ver disponibilidad</Link>
                             </div>
                         </div>
                     </div>
@@ -54,4 +54,4 @@ const RoomPrice = () => {
 }
 
 
-export default RoomPrice
+export default HomeSectionRoomPrice

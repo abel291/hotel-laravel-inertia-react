@@ -2,10 +2,10 @@ import Layout from '@/Layouts/Layout'
 import { Head, usePage } from '@inertiajs/react'
 import React from 'react'
 import HeroImage from './HeroImage'
-import Rooms from './Rooms'
+import HomeSectionRooms from './HomeSectionRooms'
 import HomeServices from './HomeServices'
 import HomeSectionPhotos from './HomeSectionPhotos'
-import RoomPrice from './RoomPrice'
+import HomeSectionRoomPrice from './HomeSectionRoomPrice'
 import HomeSectionPost from './HomeSectionPost'
 import SectionContact from '@/Components/Section/SectionContact'
 
@@ -21,7 +21,7 @@ const Home = ({ page }) => {
 
             <HeroImage />
 
-            <Rooms />
+            <HomeSectionRooms />
 
             <div className='bg-primary-800/5'>
                 <HomeServices />
@@ -30,7 +30,7 @@ const Home = ({ page }) => {
             <HomeSectionPhotos />
 
             <div className='bg-primary-800/5'>
-                <RoomPrice />
+                <HomeSectionRoomPrice />
             </div>
 
             <HomeSectionPost />
