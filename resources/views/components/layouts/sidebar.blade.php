@@ -85,14 +85,7 @@
 
     <div class="  flex flex-col overflow-y-auto w-full gap-y-3  ">
         <div class="flex items-center gap-[13px] px-6 h-16  ">
-            <a class="brand flex items-center text-white" target="_blank" href={{ route('home') }}>
-                <span class="flex items-center p-2 rounded-full mr-2 bg-primary-600 ">
-                    <x-lucide-baggage-claim class='h-6 w-6 ' />
-                </span>
-                <span class="text-xl font-bold ">
-                    {{ config('app.name') }}
-                </span>
-            </a>
+            <x-application-logo class="text-neutral-800" />
         </div>
 
         <nav class="flex flex-col flex-1 divide-y divide-neutral-600/10">

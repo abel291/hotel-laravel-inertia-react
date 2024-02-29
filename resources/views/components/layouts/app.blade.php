@@ -28,7 +28,7 @@
 
 </head>
 
-<body class="font-sans antialiased text-neutral-800 relative">
+<body class="font-sans antialiased text-neutral-800 dark:text-neutral-300 relative">
     <x-toast />
     <div>
         <div class="hidden md:flex fixed top-0 bottom-0">
@@ -36,7 +36,7 @@
         </div>
 
         <div class="md:ml-72">
-            <div class="min-h-screen bg-neutral-50">
+            <div class="min-h-screen bg-neutral-50 dark:bg-neutral-800">
                 <x-layouts.navigation />
 
                 <!-- Page Heading -->
@@ -64,7 +64,9 @@
 
     @livewireScripts
     @stack('js')
-
+    <script src="
+        https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js
+        "></script>
 </body>
 
 </html>

@@ -13,16 +13,13 @@
     <div class="mt-10">
         <table class="table-list w-full table-auto text-sm">
             @php
-                $headList = ['Codigo', 'Habitacion', 'Estado', 'Fechas', 'Total'];
+                $headList = ['Codigo', 'Estado', 'Fechas', 'Fechas de pago', 'Total'];
             @endphp
             <thead>
-                <tr>
                 <tr>
                     @foreach ($headList as $name)
                         <th>{{ $name }}</th>
                     @endforeach
-                </tr>
-
                 </tr>
             </thead>
             <tbody>
@@ -34,29 +31,28 @@
                                 <x-table.title-image :title="'#' . $item->code" />
                             </a>
                         </td>
-                        <td>
-                            <x-table.title-image :title="$item->data->room->name" />
-                        </td>
+
                         <td>
                             <x-badge :color="$item->state->color()">{{ $item->state->text() }}</x-badge>
                         </td>
-                        <td>
 
-                            <div>
-                                <div class="flex items-center gap-x-3 text-sm">
-                                    <span class=" text-green-600 font-medium">
+                        <td>
+                            <div class="flex gap-x-4">
+                                <div class=" text-sm font-medium">
+                                    <span>
                                         {{ $item->start_date->isoFormat('DD MMM ') }}
                                     </span>
                                     al
-                                    <span class=" text-red-600 font-medium">
+                                    <span>
                                         {{ $item->end_date->isoFormat('DD MMM') }}
                                     </span>
                                 </div>
-                                <div class="text-neutral-600 text-xs mt-1">
-                                    {{ $item->nights }} noches(s)
-                                </div>
+                                <x-badge>{{ $item->nights }} noches</x-badge>
                             </div>
 
+                        </td>
+                        <td>
+                            <x-date-format :date="$item->updated_at" />
                         </td>
                         <td>
                             <span class="font-semibold text-{{ $item->state->color() }}-600 whitespace-nowrap">

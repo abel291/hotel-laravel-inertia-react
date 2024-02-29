@@ -1,13 +1,11 @@
 <nav x-data="{ openSidebar: false }" x-on:resize.window="
 if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
 "
-    x-init="" class="bg-white dark:bg-neutral-800  shadow">
+    x-init="" class="bg-white dark:bg-neutral-900  shadow dark:shadow-none">
     <!-- Primary Navigation Menu -->
     <div class="mx-auto max-w-7xl">
         <div class="flex justify-between h-16">
-            <div class="items-center hidden md:flex">
-                <x-application-logo class="text-neutral-800" />
-            </div>
+            <div></div>
             <div class="-mr-2 flex items-center md:hidden">
                 <button x-on:click="openSidebar=!openSidebar" aria-controls="default-sidebar" type="button"
                     class="inline-flex items-center justify-center p-2 rounded-md text-neutral-400 dark:text-neutral-500 hover:text-neutral-500 dark:hover:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-900 focus:outline-none focus:bg-neutral-100 dark:focus:bg-neutral-900 focus:text-neutral-500 dark:focus:text-neutral-400 transition duration-150 ease-in-out">
@@ -79,61 +77,10 @@ if(window.innerWidth > 768 && openSidebar ){openSidebar=false}
 
                         </x-dropdown-link>
 
-                        <div class="border-y my-1 py-1">
-                            <div x-data="{
-                                theme: '',
-                                init: function() {
-                                    this.theme = localStorage.getItem('theme') || 'system'
-                            
-                                    $watch('theme', (value) => {
-                                        this.theme = value
-                                        localStorage.setItem('theme', value);
-                            
-                                        if (value === 'dark' || value === 'system') {
-                                            document.querySelector('html').classList.add('dark');
-                                        } else {
-                                            document.querySelector('html').classList.remove('dark');
-                                        }
-                                    })
-                                },
-                            
-                            
-                            }" chageTheme(theme) { this.theme=theme
-                                localStorage.setItem('theme', theme);
-                                document.querySelector('html').classList.add(theme); },
-                                class="fi-theme-switcher grid grid-flow-col gap-x-1">
-                                <button aria-label="Enable light theme" type="button"
-                                    x-bind:class="theme === 'light' ?
-                                        'bg-neutral-100 text-primary-600 dark:bg-white/5 dark:text-primary-400' :
-                                        'text-neutral-400 hover:text-neutral-500 focus-visible:text-neutral-500 dark:text-neutral-500 dark:hover:text-neutral-400 dark:focus-visible:text-neutral-400'"
-                                    x-on:click="(theme = 'light') &amp;&amp; close()"
-                                    class="flex justify-center rounded-lg p-2 outline-none transition duration-75 ">
-                                    <x-heroicon-s-sun class="h-5 w-5" />
-                                </button>
-
-                                <button aria-label="Enable dark theme" type="button"
-                                    x-bind:class="theme === 'dark' ?
-                                        'bg-neutral-100 text-primary-600 dark:bg-white/5 dark:text-primary-400' :
-                                        'text-neutral-400 hover:text-neutral-500 focus-visible:text-neutral-500 dark:text-neutral-500 dark:hover:text-neutral-400 dark:focus-visible:text-neutral-400'"
-                                    x-on:click="(theme = 'dark') &amp;&amp; close()"
-                                    class="flex justify-center rounded-lg p-2 outline-none transition duration-75 ">
-
-                                    <x-heroicon-s-moon class="h-5 w-5" /></button>
-
-                                <button aria-label="Enable system theme" type="button"
-                                    x-bind:class="theme === 'system' ?
-                                        'bg-neutral-100 text-primary-600 dark:bg-white/5 dark:text-primary-400' :
-                                        'text-neutral-400 hover:text-neutral-500 focus-visible:text-neutral-500 dark:text-neutral-500 dark:hover:text-neutral-400 dark:focus-visible:text-neutral-400'"
-                                    x-on:click="(theme = 'system') &amp;&amp; close()"
-                                    class="flex justify-center rounded-lg p-2 outline-none transition duration-75 ">
-                                    <x-heroicon-s-computer-desktop class="h-5 w-5" />
-                                </button>
-                            </div>
-                        </div>
+                        <x-layouts.dropdown-dark-mode />
 
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
                             <x-dropdown-link :href="route('logout')"
                                 onclick="event.preventDefault(); this.closest('form').submit();">
                                 <div class="flex items-center gap-2 whitespace-nowrap">

@@ -79,7 +79,9 @@ class Dashboard extends Component
                 'labels' => $registeredUserMonth->keys()->toArray(),
                 'datasets' =>   $registeredUserMonth->values()->toArray(),
             ],
+
         ]);
+
         return view('livewire.home.dashboard', [
             'totalIncome' => $totalIncome,
             'totalRoomsReservation' => $totalRoomsReservation,
@@ -88,6 +90,7 @@ class Dashboard extends Component
             'reservationRecent' => $reservationRecent,
             'popularRoom' => $popularRoom,
             'registeredUserCount' => $registeredUserMonth->sum(),
+
         ]);
     }
 }

@@ -12,7 +12,7 @@
             {{ $text }}
         </div>
         <input {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge([
-            'class' => 'input-form pl-8  ',
+            'class' => 'input-form pl-9  ',
         ]) !!} />
     </div>
 

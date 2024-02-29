@@ -57,8 +57,7 @@
                         </td>
 
                         <td>
-                            <button type="button" x-data :key="'edit_' + {{ $item->id }}"
-                                class="text-indigo-600 hover:text-indigo-700 font-medium"
+                            <button type="button" x-data :key="'edit_' + {{ $item->id }}" class="table-button-option"
                                 x-on:click="$dispatch('modal-edit-offer',{{ $item->id }})">
                                 Editar
                             </button>

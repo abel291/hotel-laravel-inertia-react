@@ -30,9 +30,9 @@
         <header>
             <x-title>Detalles de la reservacion</x-title>
         </header>
-        <dl class="divide-y divide-gray-100 mt-4 border-t border-gray-100">
+        <dl
+            class="divide-y divide-neutral-200 dark:divide-white/10 mt-4 border-t border-neutral-100 dark:border-white/10">
             <x-descripction-list title="Codigo" :description="'#' . $reservation->code" />
-
             <x-descripction-list title="Fechas de llegada" :description="$reservation->start_date->isoFormat('DD MMM YYYY')" />
             <x-descripction-list title="Fechas de salida" :description="$reservation->end_date->isoFormat('DD MMM YYYY')" />
             <x-descripction-list title="Noches" :description="$reservation->nights" />
@@ -62,7 +62,8 @@
         <header>
             <x-title>Informacion de huesped</x-title>
         </header>
-        <dl class="divide-y divide-gray-100 mt-4 border-t border-gray-100">
+        <dl
+            class="divide-y divide-neutral-200 dark:divide-white/10 mt-4 border-t border-neutral-100 dark:border-white/10">
             <x-descripction-list title="Nombre" :description="$reservation->data->user->name" />
             <x-descripction-list title="Email" :description="$reservation->data->user->email" />
             <x-descripction-list title="Telefono" :description="$reservation->data->user->phone" />
@@ -76,7 +77,8 @@
             <x-title>Detalles de pago</x-title>
         </header>
 
-        <dl class="divide-y divide-gray-100 mt-4 border-t border-gray-100">
+        <dl
+            class="divide-y divide-neutral-200 dark:divide-white/10 mt-4 border-t border-neutral-100 dark:border-white/10">
             <x-descripction-list title="Estado">
                 <x-slot:description>
                     <x-badge :color="$reservation->state->color()">{{ $reservation->state->text() }}</x-badge>

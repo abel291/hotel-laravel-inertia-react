@@ -69,8 +69,6 @@
         const chartRegisterUsers = document.getElementById('chart-new-users');
         const chartReservationRoom = document.getElementById('chart-order-reservations-rooms');
 
-
-
         const options = {
             responsive: true,
             scales: {
@@ -84,12 +82,7 @@
                 },
             }
         }
-        const data = {
-            labels: @json($reservationForRoom->keys()->toArray()),
-            datasets: [{
-                data: @json($reservationForRoom->values()->toArray()),
-            }]
-        }
+
         const chart1 = new Chart(chartReservationRoom, {
             type: 'bar',
             options: options
@@ -97,7 +90,6 @@
 
         const chart2 = new Chart(chartRegisterUsers, {
             type: 'bar',
-
             options: {
                 responsive: true,
                 scales: {
@@ -114,7 +106,8 @@
                     labels: event[0].chart1.labels,
                     datasets: [{
                         label: 'Habitaciones',
-                        data: event[0].chart1.datasets
+                        data: event[0].chart1.datasets,
+                        backgroundColor: ['#0284c7']
                     }]
                 };
                 chart1.update();
@@ -124,6 +117,7 @@
                     datasets: [{
                         label: 'Usuarios Registrados',
                         data: event[0].chart2.datasets,
+                        backgroundColor: ['#0284c7']
                     }]
                 };
                 chart2.update();

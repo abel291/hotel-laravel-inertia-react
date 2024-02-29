@@ -12,7 +12,6 @@
     #frontend .pb-section {
         @apply pb-16 lg:pb-20 xl:pb-24;
     }
-
     h4,
     .title-section {
         @apply font-bold text-2xl;
@@ -74,47 +73,3 @@
         @apply text-right;
     }
 }
-
-/* dashboard */
-/* #dashboard .btn {
-    @apply rounded-md px-3 py-2 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
-}
-
-#dashboard .btn-primary {
-    @apply bg-neutral-800 text-neutral-50  hover:bg-neutral-800/90 dark:bg-neutral-50 dark:text-neutral-900 dark:hover:bg-neutral-50/90;
-}
-
-#dashboard .btn-secondary {
-    @apply bg-neutral-100 text-neutral-900  hover:bg-neutral-100/80;
-}
-#dashboard .btn-danger {
-    @apply bg-red-600 text-red-50 hover:bg-red-500 active:bg-red-700 focus:ring-red-500;
-}
-#dashboard .input-form,
-#dashboard .select-form,
-#dashboard .textarea-form {
-    @apply block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600 sm:text-sm sm:leading-6;
-}
-#dashboard .input-label {
-    @apply block font-medium text-sm text-gray-700;
-}
-#dashboard .input-radio {
-    @apply h-4 w-4 border-primary-700 text-primary-700 focus:ring-primary-800;
-}
-#dashboard .input-checkbox {
-    @apply h-4 w-4 rounded border-primary-700 text-primary-700 focus:ring-primary-800;
-}
-
-.pagination-current-page {
-    @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 border hover:bg-neutral-100  h-9 px-3.5;
-}
-.pagination-page {
-    @apply inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 disabled:pointer-events-none disabled:opacity-50 hover:bg-neutral-100 h-9 px-3.5;
-}
-
-.table-button-option-danger {
-    @apply text-red-600 hover:text-red-700 font-medium;
-}
-.table-button-option {
-    @apply text-primary-600 hover:text-primary-700 font-medium;
-} */

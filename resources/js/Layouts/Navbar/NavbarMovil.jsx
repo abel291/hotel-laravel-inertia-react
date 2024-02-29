@@ -13,7 +13,7 @@ export default function NavbarMovil({ navigations }) {
         return classes.filter(Boolean).join(' ')
     }
     return (
-        <nav className='bg-primary-700 lg:hidden fixed top-0 w-full z-40'>
+        <nav className='bg-primary-700 lg:hidden fixed top-0 w-full z-40 shadow'>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 ">
                 <div className="relative flex h-16 items-center justify-between">
                     {/* {open ? (
