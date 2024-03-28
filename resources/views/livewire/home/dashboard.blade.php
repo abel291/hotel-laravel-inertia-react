@@ -4,7 +4,6 @@
         <x-header-title>
             Dashboard
         </x-header-title>
-
     </div>
 </x-slot>
 

@@ -17,12 +17,12 @@ const Footer = () => {
     ]
     return (
         <footer className='bg-primary-800 text-white text-lg'>
-            <div className='container'>
-                <div className='py-14 xl:py-16 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-10 md:gap-y-5 xl:gap-x-10'>
+            <div className='container text-base'>
+                <div className='py-14 grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-y-10 md:gap-y-5 xl:gap-x-10'>
 
                     <div className=' md:col-span-2 lg:col-span-3 xl:col-span-2'>
                         <ApplicationLogo bgIcon='bg-white' colorIcon='text-primary-700' />
-                        <p className='mt-5 font-light'>
+                        <p className='mt-5'>
                             Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500
                         </p>
                     </div>
@@ -47,13 +47,13 @@ const Footer = () => {
                     <ItemFooter title={"Contactenos"}>
                         <ul >
                             <li className='flex '>
-                                <MapPinIcon className='w-7 h-7 mt-1 mr-3' />
+                                <MapPinIcon className='w-7 h-7 mr-3' />
                                 <p>86574 Jones Isle <br />
                                     North Aryanna, IN 51541-9327
                                 </p>
                             </li>
                             <li className='flex  mt-5'>
-                                <PhoneIcon className='w-6 h-6 mt-1 mr-3' />
+                                <PhoneIcon className='w-6 h-6 mr-3' />
                                 <p>316.960.3848 <br />
                                     +1-669-901-4595
                                 </p>

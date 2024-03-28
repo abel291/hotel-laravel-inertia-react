@@ -10,7 +10,7 @@ const TitleSectionLink = ({ title, titleLink, urlLink, children }) => {
                 {title}
             </TitleSection>
             {urlLink && (
-                <Link className="shrink-0 btn-secondary  mt-4 md:mt-0 w-full md:w-auto" href={urlLink}>{titleLink}</Link>
+                <Link data-aos="fade-up" className="shrink-0 btn-secondary  mt-4 md:mt-0 w-full md:w-auto" href={urlLink}>{titleLink}</Link>
             )}
         </div>
     )

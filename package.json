@@ -22,6 +22,7 @@
     "dependencies": {
         "@heroicons/react": "^2.1.1",
         "@tailwindcss/line-clamp": "^0.4.4",
+        "aos": "^2.3.4",
         "fslightbox-react": "^1.7.6",
         "lucide-react": "^0.312.0",
         "react-flatpickr": "^3.10.13",

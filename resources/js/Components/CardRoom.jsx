@@ -8,7 +8,7 @@ import { formatCurrency } from '@/Helpers/helper'
 
 const CardRoom = ({ room }) => {
     return (
-        <div key={room.id} className='rounded-lg shadow overflow-hidden bg-white flex flex-col'>
+        <div data-aos="fade-up" key={room.id} className='rounded-lg shadow overflow-hidden bg-white flex flex-col'>
             <div className='relative'>
                 <img className='h-64 w-full object-cover object-center bg-red-300' src={room.thumb} alt="" />
                 <div className='absolute bottom-8 right-0 bg-white h-10 px-4 flex items-center rounded-l-lg text-base'>

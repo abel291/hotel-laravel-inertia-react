@@ -59,7 +59,7 @@ const HomeServices = () => {
 
                     </div>
                     <div className='mt-10 xl:mt-0 xl:col-span-6 xl:w-[1000px]'>
-                        <img src="/img/home-2.jpg" alt="" />
+                        <img data-aos="fade-up" src="/img/home-2.jpg" alt="" />
                     </div>
                 </div>
             </div>

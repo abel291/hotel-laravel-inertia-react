@@ -3,53 +3,53 @@
 @tailwind utilities;
 
 @layer base {
-    #frontend .py-section {
+    .py-section {
         @apply py-16 lg:py-20 xl:py-24;
     }
-    #frontend .pt-section {
+    .pt-section {
         @apply pt-16 lg:pt-20 xl:pt-24;
     }
-    #frontend .pb-section {
+    .pb-section {
         @apply pb-16 lg:pb-20 xl:pb-24;
     }
     h4,
     .title-section {
         @apply font-bold text-2xl;
     }
-    #frontend .select-form,
-    #frontend .input-form,
-    #frontend .textarea-form {
+    .select-form,
+    .input-form,
+    .textarea-form {
         @apply block w-full rounded-md border-0 py-2 text-gray-800  ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-primary-600  sm:leading-6 disabled:bg-gray-200;
     }
-    #frontend .input-radio {
+    .input-radio {
         @apply h-4 w-4 border-primary-700 text-primary-700 focus:ring-primary-800;
     }
-    #frontend .input-checkbox {
+    .input-checkbox {
         @apply h-4 w-4 rounded border-primary-700 text-primary-700 focus:ring-primary-800;
     }
-    #frontend .input-label {
+    .input-label {
         @apply block font-medium text-sm text-gray-700;
     }
-    #frontend .title {
+    .title {
         @apply text-lg leading-6 font-semibold;
     }
-    #frontend .btn-primary {
-        @apply inline-flex justify-center rounded-lg h-10  items-center  px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-primary-800 text-white hover:bg-primary-900 active:bg-primary-900 active:text-white/80;
+    .btn-primary {
+        @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-primary-600 text-white hover:bg-primary-500 active:bg-primary-700 active:text-white/80;
     }
-    #frontend .btn-danger {
-        @apply inline-flex justify-center rounded-lg h-10  items-center  px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-red-600 text-white hover:bg-red-700 active:bg-red-700 active:text-white/80;
+    .btn-danger {
+        @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-red-600 text-white hover:bg-red-700 active:bg-red-700 active:text-white/80;
     }
 
-    #frontend .btn-secondary {
-        @apply inline-flex justify-center rounded-lg h-10  items-center  px-3.5 font-semibold outline-2 outline-offset-2 transition-colors bg-primary-100  hover:bg-primary-200 text-primary-800 active:bg-primary-300 active:text-primary-900;
+    .btn-secondary {
+        @apply px-3 py-2 inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 disabled:pointer-events-none disabled:opacity-50 bg-white text-primary-600 hover:text-primary-500 active:text-primary-700 border border-primary-600;
     }
-    #frontend .bg-primary {
+    .bg-primary {
         @apply bg-primary-700/5;
     }
-    #frontend .transition-color-text {
+    .transition-color-text {
         @apply hover:text-primary-700 transition-colors ease-out;
     }
-    #frontend .dropdown-link {
+    .dropdown-link {
         @apply block w-full px-4 py-2.5 text-start text-base leading-5 text-gray-700 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 transition duration-150 ease-in-out;
     }
 

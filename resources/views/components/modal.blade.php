@@ -32,7 +32,8 @@
             x-transition:leave-start="opacity-100 translate-y-0 sm:scale-100"
             x-transition:leave-end="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95">
 
-            <div class="bg-white rounded-lg overflow-hidden shadow-xl sm:w-full {{ $modalSize }} ">
+            <div
+                class="bg-white dark:bg-neutral-800 rounded-lg overflow-hidden shadow-xl sm:w-full {{ $modalSize }} ">
 
 
                 <div class="p-6 ">

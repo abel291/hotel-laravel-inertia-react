@@ -10,7 +10,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Middleware\CheckoutSession;
 use App\Livewire\Amenity\AmenityCreate;
 use App\Livewire\Amenity\AmenityList;
-use App\Livewire\bed\BedCreate;
+use App\Livewire\Bed\BedCreate;
 use App\Livewire\Bed\BedList;
 use App\Livewire\Category\CategoryCreate;
 use App\Livewire\Category\CategoryList;

@@ -90,7 +90,6 @@ class Dashboard extends Component
             'reservationRecent' => $reservationRecent,
             'popularRoom' => $popularRoom,
             'registeredUserCount' => $registeredUserMonth->sum(),
-
         ]);
     }
 }

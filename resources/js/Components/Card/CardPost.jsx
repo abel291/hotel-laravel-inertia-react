@@ -4,7 +4,7 @@ import React from 'react'
 
 const CardPost = ({ post }) => {
     return (
-        <Link href={route('post', { slug: post.slug })}>
+        <Link data-aos="fade-up" href={route('post', { slug: post.slug })}>
             <div className='rounded-lg shadow overflow-hidden bg-white flex flex-col'>
                 <div className='relative'>
                     <img className='h-60 w-full object-cover object-center bg-primary-300' src={post.thumb} alt="" />

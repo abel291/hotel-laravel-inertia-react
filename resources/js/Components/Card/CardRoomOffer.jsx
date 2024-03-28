@@ -9,7 +9,7 @@ import PriceOffer from '../PriceOffer'
 const CardRoomOffer = ({ room, children }) => {
 
     return (
-        <Card className='lg:flex overflow-hidden  '>
+        <Card data-aos="fade-up" className='lg:flex overflow-hidden  '>
             <div className='w-full lg:w-5/12 xl:w-4/12 overflow-hidden bg-cover bg-center'>
                 <img src={room.thumb} alt={room.alt} className='object-cover object-center w-full h-full xl:h-72   transition-transform hover:scale-110' />
             </div>

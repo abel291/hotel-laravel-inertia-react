@@ -22,7 +22,7 @@ const HeroImage = () => {
 
                             <div className='z-10 lg:pr-20'>
                                 <h1 className="max-w-4xl text-4xl sm:text-5xl font-bold lg:text-[52px]">
-                                    Hotel Boka: El confort y descanso que necesitas
+                                    <span className='text-primary-600'> Hotel Boka</span>: El confort y descanso que necesitas
                                 </h1>
                                 <p className=" font-light max-w-2xl mt-6 text-lg lg:text-xl  pl-4 border-l-4 border-primary-600">
                                     El Hotel Boka representa un concepto de alojamiento innovador, con prestaciones y
@@ -88,7 +88,7 @@ const HeroImage = () => {
                                 <div className='self-end xl:hidden w-full'>
                                     <PrimaryButton className='w-full'>Buscar</PrimaryButton>
                                 </div>
-                                <button className='hidden xl:block absolute shrink-0 w-36 -right-36 inset-y-0 rounded-r-lg outline-2 outline-offset-2 transition-colors bg-primary-600 text-white hover:bg-primary-700 active:bg-primary-800 active:text-white/80'>Buscar</button>
+                                <button className='hidden xl:block absolute shrink-0 w-36 -right-36 inset-y-0 rounded-r-lg outline-2 outline-offset-2 transition-colors bg-primary-600 text-white hover:bg-primary-500 active:bg-primary-800 active:text-white/80'>Buscar</button>
                             </div>
                         </form>
                     </div>

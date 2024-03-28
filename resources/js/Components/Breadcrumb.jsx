@@ -32,7 +32,7 @@ const Breadcrumb = ({ data }) => {
                     ))}
 
                 </ul>
-                <h1 className='mt-4 text-4xl lg:text-5xl font-semibold max-w-4xl'>{lastItem.title}</h1>
+                <h1 className='mt-4 text-4xl lg:text-5xl font-bold max-w-4xl'>{lastItem.title}</h1>
             </div>
         </header>
     )
