@@ -41,7 +41,9 @@ const Checkout = ({ }) => {
 
     function handleClickReservation(e) {
         e.preventDefault()
-        formUser.post(route('create-reservation'))
+        formUser.post(route('create-reservation'), {
+            preserveScroll: true,
+        })
     }
     return (
         <Layout>

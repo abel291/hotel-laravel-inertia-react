@@ -51,7 +51,6 @@ const UserForm = ({ handleChange, formUser }) => {
                         <div className='flex h-6 items-center'>
                             <Checkbox id="newsletter"
                                 onChange={handleChange}
-
                                 checked={formUser.data.newsletter}
                             />
                         </div>
