@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\BedResource;
+use App\Http\Resources\OfferResource;
 use App\Http\Resources\PostResource;
 use App\Http\Resources\RoomResource;
 use App\Models\Blog;
 use App\Models\Category;
 use App\Models\Gallery;
+use App\Models\Offer;
 use App\Models\Page;
 use App\Models\Reservation;
 use App\Models\Room;
@@ -37,10 +39,14 @@ class PageController extends Controller
         // dd($rooms_home);
         $posts = Blog::with('category:id,name')->where('home', true)->where('active', 1)->get();
 
+        $offers = Offer::select('nights', 'percent')->limit(2)->get();
+
+
         return Inertia::render('Home/Home', [
             'page' => $page,
             'posts' => PostResource::collection($posts),
             'rooms' => RoomResource::collection($rooms_home),
+            'offers' => OfferResource::collection($offers),
             'cheapRoom' => new RoomResource($cheap_rooms),
         ]);
     }
@@ -119,9 +125,13 @@ class PageController extends Controller
             ->where('active', 1)
             ->whereNot('slug', $slug)->get();
 
+
+        $offers = Offer::select('nights', 'percent')->limit(2)->get();
+
         return Inertia::render('RoomSingle/RoomSingle', [
             'room' => new RoomResource($room),
             'charge' => $charge,
+            'offers' => OfferResource::collection($offers),
             'recommendedRooms' => RoomResource::collection($recommendedRooms),
         ]);
     }
