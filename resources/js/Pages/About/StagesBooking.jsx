@@ -10,7 +10,7 @@ const StagesBooking = () => {
             <div className='container'>
                 <div className='grid lg:grid-cols-2 gap-10 lg:gap-20'>
                     <div className='flex items-center lg:max-w-2xl'>
-                        <div className=''>
+                        <div >
                             <TitleSection>
                                 Etapas de la reserva de una habitación.
                             </TitleSection>

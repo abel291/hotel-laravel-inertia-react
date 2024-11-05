@@ -17,7 +17,7 @@ const Breadcrumb = ({ data }) => {
                     {breadcrumb.map((item, key) => (
                         <li key={key} className='text-lg flex items-center'>
                             {(key != 0) && (
-                                <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" className="h-5 w-4 text-gray-300 mr-1">
+                                <svg width="16" height="20" viewBox="0 0 16 20" fill="currentColor" aria-hidden="true" className="h-5 w-4 text-gray-500 mr-1">
                                     <path d="M5.697 4.34L8.98 16.532h1.327L7.025 4.341H5.697z" />
                                 </svg>
                             )}

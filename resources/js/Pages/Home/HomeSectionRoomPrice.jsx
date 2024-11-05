@@ -14,7 +14,7 @@ const HomeSectionRoomPrice = () => {
             <div className='container relative '>
                 <div className='grid lg:grid-cols-2 gap-20'>
                     <div className='flex items-center max-w-2xl'>
-                        <div className=''>
+                        <div >
                             <TitleSectionLink title=" Encuentre alojamiento económico adecuado" />
 
                             <p className='text-lg mt-4 font-light'>

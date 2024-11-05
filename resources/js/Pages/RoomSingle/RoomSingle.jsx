@@ -74,7 +74,7 @@ const RoomSingle = ({ room, charge, recommendedRooms }) => {
 
             </section>
 
-            <div className='bg-primary-700/5'>
+            <div className='bg-primary'>
                 <StagesBooking />
             </div>
 

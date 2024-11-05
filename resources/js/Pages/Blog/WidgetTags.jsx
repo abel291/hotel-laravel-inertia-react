@@ -12,7 +12,7 @@ const WidgetTags = () => {
                         <li key={index}>
                             <Link href={route('blog', { tag: tag.slug })} className={
                                 ((filters?.tag == tag.slug)
-                                    ? 'bg-primary-700/5 text-primary-700 font-medium '
+                                    ? 'bg-primary text-primary-700 font-medium '
                                     : ' hover:text-primary-800 font-light  ') +
                                 '  block rounded-md  px-3 py-1.5'}>
 

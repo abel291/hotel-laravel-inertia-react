@@ -76,7 +76,7 @@ const FormReserve = () => {
                     </div>
                 </div>
 
-                <div className='mt-7'>
+                <div className='mt-12'>
                     <PrimaryButton disabled={formReservation.processing} isLoading={formReservation.processing} className='w-full'>Reservar ahora</PrimaryButton>
                 </div>
             </form>

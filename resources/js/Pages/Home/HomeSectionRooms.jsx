@@ -16,7 +16,7 @@ const HomeSectionRooms = () => {
             <div className='container'>
                 <TitleSectionLink title="Habitaciones" titleLink="Ver todas las habitaciones" urlLink={route('rooms')} />
 
-                <div className='mt-7'>
+                <div className='mt-12'>
                     <div className='grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-7'>
 
                         {rooms.map((room, index) => (

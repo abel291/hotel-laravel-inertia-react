@@ -105,7 +105,7 @@ const DetailsReservation = ({ reservation }) => {
                                 <td>
                                     Precio por noche:
                                 </td>
-                                <td className=''>
+                                <td >
                                     {formatCurrency(reservation.price)}
                                 </td>
                             </tr>
@@ -113,7 +113,7 @@ const DetailsReservation = ({ reservation }) => {
                                 <td>
                                     Precio por {reservation.nights} noche(s):
                                 </td>
-                                <td className=''>
+                                <td >
                                     {formatCurrency(reservation.sub_total)}
                                 </td>
                             </tr>
@@ -121,7 +121,7 @@ const DetailsReservation = ({ reservation }) => {
 
                             {reservation.offer && (
                                 <tr>
-                                    <td className=''>
+                                    <td >
                                         Oferta ({reservation.offer.percent})%
                                     </td>
                                     <td className='text-red-500'>
@@ -130,10 +130,10 @@ const DetailsReservation = ({ reservation }) => {
                                 </tr>
                             )}
                             <tr>
-                                <td className=''>
+                                <td >
                                     Sub Total
                                 </td>
-                                <td className=''>
+                                <td >
                                     {formatCurrency(reservation.sub_total)}
                                 </td>
                             </tr>
@@ -141,15 +141,15 @@ const DetailsReservation = ({ reservation }) => {
                                 <td className=' py-4'>
                                     IVA ({reservation.tax_percent}%)
                                 </td>
-                                <td className=''>
+                                <td >
                                     {formatCurrency(reservation.tax_amount)}
                                 </td>
                             </tr>
                             <tr className='font-bold'>
-                                <td className=''>
+                                <td >
                                     Total
                                 </td>
-                                <td className=''>
+                                <td >
                                     {formatCurrency(reservation.total)}
                                 </td>
                             </tr>

@@ -20,7 +20,7 @@ const Post = ({ post }) => {
                 <title>{post.title}</title>
                 <meta head-key="description" name="description" content={post.description} />
             </Head>
-            <div className=''>
+            <div >
                 <img src={post.img} alt={post.title} className='rounded-lg' />
                 <div className='mt-6'>
                     <TextTime time={post.time} />

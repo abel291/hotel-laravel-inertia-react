@@ -30,7 +30,7 @@ const About = ({ page }) => {
 
             <StagesBooking />
 
-            <div className='bg-primary-800/10'>
+            <div className='bg-primary-800/20'>
                 <RuleReservation />
             </div>
 

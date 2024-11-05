@@ -81,7 +81,7 @@ const CardCheckIn = ({ room, charge }) => {
                     </div>
                 </div>
 
-                <div className='mt-7'>
+                <div className='mt-12'>
                     <PrimaryButton
                         disabled={formReservation.processing}
                         isLoading={formReservation.processing}

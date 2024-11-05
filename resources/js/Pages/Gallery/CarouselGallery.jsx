@@ -26,7 +26,7 @@ const CarouselGallery = ({ gallery }) => {
         });
     }
     return (
-        <div className=''>
+        <div >
             <div className='relative'>
                 <Swiper
                     modules={[Navigation, Autoplay]}

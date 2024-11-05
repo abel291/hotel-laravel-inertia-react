@@ -9,7 +9,6 @@ import InputDate from '@/Components/InputDate';
 import UseReservation from '@/Hooks/UseReservation';
 const HeroImage = () => {
     const { handleSubmit, formReservation, optionInputDate, errors } = UseReservation();
-
     return (
 
         <div className='overflow-hidden py-section lg:pt-10'>
@@ -18,7 +17,7 @@ const HeroImage = () => {
                     <div className='lg:col-span-8 xl:col-span-7 flex items-center'>
 
                         <form className='relative' onSubmit={handleSubmit}>
-                            <div className=' -z-10 bg-primary-700/5 absolute -inset-36 -top-20 -bottom-20 rounded-l-xl'></div>
+                            <div className=' -z-10 bg-primary absolute -inset-36 -top-20 -bottom-20 rounded-l-xl'></div>
 
                             <div className='z-10 lg:pr-20'>
                                 <h1 className="max-w-4xl text-4xl sm:text-5xl font-bold lg:text-[52px]">
@@ -31,7 +30,7 @@ const HeroImage = () => {
                                 </p>
 
                             </div>
-                            <div className='mt-10 mr-0 md:mr-4 xl:mr-0 p-5 lg:p-4 flex flex-wrap lg:flex-nowrap gap-6 xl:gap-0 shadow-lg shadow-primary-700/5  rounded-lg lg:rounded-l-lg  lg:rounded-r-none bg-white relative'>
+                            <div className='mt-10 mr-0 md:mr-4 xl:mr-0 p-5 lg:p-4 flex flex-wrap lg:flex-nowrap gap-6 xl:gap-0 shadow-xl rounded-lg lg:rounded-l-lg  lg:rounded-r-none bg-white relative'>
                                 <div className='grow'>
                                     <div className='lg:pr-4 lg:pl-8 xl:border-r-2 xl:border-primary-100'>
                                         <label htmlFor="" className='font-bold'>Llegada</label>

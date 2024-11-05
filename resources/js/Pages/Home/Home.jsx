@@ -23,26 +23,26 @@ const Home = ({ page }) => {
 
             <HomeSectionRooms />
 
-            <div className='bg-primary-800/5'>
+            <div className='bg-primary'>
                 <HomeServices />
             </div>
 
             <HomeSectionPhotos />
 
-            <div className='bg-primary-800/5'>
+            <div className='bg-primary'>
                 <HomeSectionRoomPrice />
             </div>
 
             <HomeSectionPost />
 
-            <div className='bg-primary-800/5'>
+            <div className='bg-primary'>
 
                 <SectionContact />
 
             </div>
 
 
-        </Layout >
+        </Layout>
     )
 }
 

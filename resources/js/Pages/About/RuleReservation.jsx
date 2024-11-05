@@ -14,7 +14,7 @@ const RuleReservation = () => {
                         <TitleSection>
                             Acuerdo de reglas
                         </TitleSection>
-                        <div className='mt-7'>
+                        <div className='mt-12'>
                             <ul className='space-y-5'>
                                 <RuleItem>
                                     La hora de llegada es después de las 14:00. La hora de salida es a las 12-00.
@@ -31,8 +31,8 @@ const RuleReservation = () => {
                             </ul>
                         </div>
                     </div>
-                    <div className=''>
-                        <Card className="p-6 lg:p-14">
+                    <div >
+                        <Card className="p-6 lg:py-14 lg:px-10">
                             <TitleSection>
                                 We are ready answer your question
                             </TitleSection>
@@ -40,7 +40,7 @@ const RuleReservation = () => {
 
                                 <TextInput placeholder="Nombre" />
                                 <TextInput placeholder="Email" />
-                                <textarea className='lg:col-span-2 input-textarea'>
+                                <textarea className='lg:col-span-2 textarea-form'>
 
 
                                 </textarea>

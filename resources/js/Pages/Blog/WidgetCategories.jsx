@@ -12,8 +12,8 @@ const WidgetCategories = () => {
                         <li key={index}>
                             <Link href={route('blog', { category: category.slug })} className={
                                 ((filters?.category == category.slug)
-                                    ? 'bg-primary-700/5 text-primary-700 font-medium '
-                                    : ' hover:text-primary-800 font-light hover:bg-primary-700/5  ') +
+                                    ? 'bg-primary text-primary-700 font-medium '
+                                    : ' hover:text-primary-800 font-light hover:bg-primary  ') +
                                 '  block rounded-md px-5 py-3 '}>
 
                                 <span className=" text-lg leading-6 ">
