@@ -13,7 +13,7 @@ import React, { useState } from 'react'
 const CardCheckIn = ({ room, charge }) => {
     const { handleSubmit, formReservation, optionInputDate, errors } = UseReservation();
     return (
-        <Card className=" p-8 lg:px-12 lg:pt-12 lg:pb-8 ">
+        <Card className=" p-8 lg:px-8 lg:pt-8 lg:pb-6 ">
             <div>
                 <PriceOffer charge={charge} />
             </div>
